@@ -1,0 +1,1135 @@
+/* =BAZAARVOICE SUBMIT SHARED THEME 1
+    ------------------------------------------------------
+    VERSION #89699. SEE TICKET BVC-89699
+    UPDATED 05/04/2011 by eholladay */
+
+
+
+/* ******** SUBMISSION (BVSU) ******** */
+/*
+    Some basic submission sections are also used on inline submission forms as well as standalone forms.
+    Refer to bazaarvoiceDisplayShared for the remaining sections.
+*/
+
+.BVSUModalContent, .BVSUPage {.less_text_body; text-align: left;}
+/* redeclaring link colors as it doesn't appropriately inherit from core products */
+.BVSUModalContent a {.less_text_link;}
+.BVSUModalContent a:visited {.less_text_linkVisited;}
+.BVSUModalContent a:hover {.less_text_linkHover;}
+.BVSUModalContent a:focus {.less_text_linkFocus;}
+.BVSUModalContent a:active {.less_text_linkActive;}
+
+/* Button Styles. */
+/* Change me to match the client sites! Be sure to match these styles in the other CSS files also! */
+/* If you want progressive enhancements, find them in progressive */
+
+    /* General button and input styles */
+    .BVSUButton, .BVSUModule .BVSUButton {.less_box_btnLow; .less_text_btnLow; cursor: pointer;}
+    .BVSUButton:hover, .BVSUModule .BVSUButton:hover {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    /* Product Linking Search Button */
+    .BVSUSearchButton button {display: inline-block; *display: inline;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; */
+        .BVSUSearchButton button:hover {}
+
+    /* Product Linking general buttons */
+    .BVSUModalContent button {margin: 0 10px 0 0; vertical-align: top; padding: 5px 10px; cursor: pointer;}
+    .BVSUModalContent button {.less_box_btnLow; .less_text_btnLow;}
+    .BVSUModalContent button:hover {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    /* Product Linking Add a Product button */
+    button.BVSUInputButtonAdd {margin: 0 0 0 10px; vertical-align: top; padding: 1px 7px; cursor: pointer; *padding: 0;} /* HACK: IE6 IE7 [shippert] Add and Added buttons have much larger spacing in IE6/7, removing padding to keep consistent with other browsers */
+    button.BVSUInputButtonAdd {.less_box_btnHigh; .less_text_btnHigh;}
+    button.BVSUInputButtonAdd:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* Product Linking Added Product non-button */
+    button.BVSUInputButtonAdded {margin: 0 0 0 10px; padding: 1px 7px; cursor: default; *padding: 0;} /* HACK: IE6 IE7 [shippert] Add and Added buttons have much larger spacing in IE6/7, removing padding to keep consistent with other browsers */
+    button.BVSUInputButtonAdded, button.BVSUInputButtonAdded:hover {.less_box_btnDisabled; .less_text_btnDisabled; .less_box_opacity100;}
+
+    /* Product Linking Search buttons */
+    .BVSUModalContent .BVSUInputButtonSearch {margin: 0 10px 0 0; vertical-align: top; padding: 5px 10px; *padding: 3px 0 0;} /* HACK: IE6 IE7 [dbeberniss] Reduce padding on all sides to match styling of other HTML buttons in this window - set height with top padding to match the browse link-as-button beside it */
+    .BVSUModalContent .BVSUInputButtonSearch {.less_box_btnLow; .less_text_btnLow;}
+    .BVSUModalContent .BVSUInputButtonSearch:hover {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    /* Product Linking Browse button */
+    .BVSU_Search .BVSULinkBrowseAllProducts, .BVSU_Search .BVSULinkBrowseAllProducts:visited {margin: 0 10px 0 0; display: inline-block; vertical-align: top; padding: 5px 10px; *display: inline;} /* HACK: IE6 IE7 [dbeberniss] display: inline; necessary due to incomplete support of display: inline-block; */
+    .BVSU_Search .BVSULinkBrowseAllProducts, .BVSU_Search .BVSULinkBrowseAllProducts:visited {.less_box_btnLow; .less_text_btnLow;}
+    .BVSU_Search .BVSULinkBrowseAllProducts:hover, .BVSU_Search .BVSULinkBrowseAllProducts:focus, .BVSU_Search .BVSULinkBrowseAllProducts:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    /* Product Linking Go Back/Done button*/
+    .BVSULinkGoBack, .BVSUModalContent .BVSULinkGoBack {margin: 0 10px 0 0; vertical-align: top; padding: 5px 10px;}
+    .BVSULinkGoBack, .BVSUModalContent .BVSULinkGoBack, .BVSULinkGoBack:visited, .BVSUModalContent .BVSULinkGoBack:visited {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVSULinkGoBack:hover, .BVSUModalContent .BVSULinkGoBack:hover, .BVSULinkGoBack:focus, .BVSUModalContent .BVSULinkGoBack:focus, .BVSULinkGoBack:active, .BVSUModalContent .BVSULinkGoBack:active {.less_box_btnHighHover; .less_text_btnHighHover;}
+        .BVSULinkGoBack span, .BVSUModalContent .BVSULinkGoBack span {color: inherit;}
+
+    .BVSU_SearchButtonContainer .BVSUInputButtonSearch {padding: 3px 10px; *padding: 0;} /* HACK: IE6 IE7 [shippert] Add and Added buttons have much larger spacing in IE6/7, removing padding to keep consistent with other browsers */
+    .BVSU_SearchButtonContainer .BVSUInputButtonSearch {.less_box_btnLow; .less_text_btnLow;}
+    .BVSU_SearchButtonContainer .BVSUInputButtonSearch:hover {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+/* remove button */
+.BVSULinkRemove {.less_text_iconOnly; .less_text_iconClose; float: right; display: block; overflow: hidden; padding: 0;}
+    .BVSULinkRemove:hover {.less_box_opacity70;}
+
+/* Primary buttons */
+
+    /* Comment Preview and submit buttons (btn) */
+    .BVSUModule .BVSUPreviewButton {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVSUModule .BVSUPreviewButton:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+    .BVSUModule .BVSUButtonSubmit {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVSUModule .BVSUButtonSubmit:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* Active profile submit buttons (btn) */
+    .BVSUModule .BVCPSubmitProfileButton {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVSUModule .BVCPSubmitProfileButton:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* Edit profile button on thank you page (link) */
+    .BVSUEditProfile .BVSUEditProfileLink a, .BVSUEditProfileLink a:visited {padding: 3px 10px;}
+    .BVSUEditProfile .BVSUEditProfileLink a, .BVSUEditProfile .BVSUEditProfileLink a:visited {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVSUEditProfile .BVSUEditProfileLink a:hover, .BVSUEditProfile .BVSUEditProfileLink a:focus, .BVSUEditProfile .BVSUEditProfileLink a:active {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* Content request module write review buttons (link) */
+    .BVCW .BVSMFooter a {padding: 8px 20px; float: left;}
+    .BVCW .BVSMFooter a, .BVCW .BVSMFooter a:visited {.less_box_btnHigh; .less_text_btnHigh; .less_text_size5;}
+    .BVCW .BVSMFooter a:hover, .BVCW .BVSMFooter a:focus, .BVCW .BVSMFooter a:active {.less_box_btnHighHover; .less_text_btnHighHover; .less_text_size5;}
+
+/* Secondary buttons */
+
+    /* Content request module pagination buttons (link) */
+    .BVCW .BVRRSimplePager .BVRRSimplePagerColumn a {padding: 8px 20px; display: inline-block; *display: inline; zoom: 1;}
+    .BVCW .BVRRSimplePager .BVRRSimplePagerColumn a, .BVCW .BVRRSimplePager .BVRRSimplePagerColumn a:visited {.less_box_btnLow; .less_text_btnLow;}
+    .BVCW .BVRRSimplePager .BVRRSimplePagerColumn a:hover, .BVCW .BVRRSimplePager .BVRRSimplePagerColumn a:focus, .BVCW .BVRRSimplePager .BVRRSimplePagerColumn a:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    .BVCW .BVQASimplePager .BVQASimplePagerColumn a {padding: 8px 20px; display: inline-block; *display: inline; zoom: 1;}
+    .BVCW .BVQASimplePager .BVQASimplePagerColumn a, .BVCW .BVQASimplePager .BVQASimplePagerColumn a:visited {.less_box_btnLow; .less_text_btnLow;}
+    .BVCW .BVQASimplePager .BVQASimplePagerColumn a:hover, .BVCW .BVQASimplePager .BVQASimplePagerColumn a:focus, .BVCW .BVQASimplePager .BVQASimplePagerColumn a:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    .BVCW .BVSYSimplePager .BVSYSimplePagerColumn a {padding: 8px 20px; display: inline-block; *display: inline; zoom: 1;}
+    .BVCW .BVSYSimplePager .BVSYSimplePagerColumn a, .BVCW .BVSYSimplePager .BVSYSimplePagerColumn a:visited {.less_box_btnLow; .less_text_btnLow;}
+    .BVCW .BVSYSimplePager .BVSYSimplePagerColumn a:hover, .BVCW .BVSYSimplePager .BVSYSimplePagerColumn a:focus, .BVCW .BVSYSimplePager .BVSYSimplePagerColumn a:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    .BVCW .BVSUSimplePager .BVSUSimplePagerColumn a {padding: 8px 20px; display: inline-block; *display: inline; zoom: 1;}
+    .BVCW .BVSUSimplePager .BVSUSimplePagerColumn a, .BVCW .BVSUSimplePager .BVSUSimplePagerColumn a:visited {.less_box_btnLow; .less_text_btnLow;}
+    .BVCW .BVSUSimplePager .BVSUSimplePagerColumn a:hover, .BVCW .BVSUSimplePager .BVSUSimplePagerColumn a:focus, .BVCW .BVSUSimplePager .BVSUSimplePagerColumn a:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    .BVCW .BVSimplePager .BVSimplePagerColumn a {padding: 8px 20px; display: inline-block; *display: inline; zoom: 1;}
+    .BVCW .BVSimplePager .BVSimplePagerColumn a, .BVCW .BVSimplePager .BVSimplePagerColumn a:visited {.less_box_btnLow; .less_text_btnLow;}
+    .BVCW .BVSimplePager .BVSimplePagerColumn a:hover, .BVCW .BVSimplePager .BVSimplePagerColumn a:focus, .BVCW .BVSimplePager .BVSimplePagerColumn a:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+/* Disabled buttons (btn) */
+    .BVSUModule .BVSUDisabled, .BVSUModule .BVSUDisabled:hover {.less_box_btnDisabled; .less_text_btnDisabled;}
+
+
+/* General text styles */
+.BVSUWidget, .BVSUWidget form, .BVSUFieldInput, .BVSUFieldSelect, .BVSU_SearchLightbox, .BVSUInput {.less_text_body; line-height: 1.5;}
+.BVSUButton, .BVSUModule .BVSUButton {/* Line 19 */}
+.BVSUFieldText {.less_box_textInputLow; .less_text_textInputLow;}
+.BVSUFieldText:focus {.less_box_textInputLowFocus; .less_text_textInputLowFocus;}
+input[type="text"].BVSUError {.less_box_textInputLowError; .less_text_textInputLowError;}
+
+.BVSUPopup a {.less_text_link;}
+.BVSUPopup a:visited {.less_text_linkVisited;}
+.BVSUPopup a:hover {.less_text_linkHover;}
+.BVSUPopup a:focus {.less_text_linkFocus;}
+.BVSUPopup a:active {.less_text_linkActive;}
+
+.BVSUFormHeader {.less_text_titleSection; display: block; margin: 0 0 10px;}
+.BVSUFieldContainer {margin-bottom: 20px;}
+.BVSUFieldContainer label {display: block; margin-bottom: 5px;}
+.BVSUFieldHelper {.less_text_helperForm; margin-top: 5px;}
+
+/* autocomplete field */
+.ui-autocomplete {background-color: @less_box_colorPrimaryFadest; .less_box_borderMed; float: left; list-style-type: none; margin: 0; padding: 0; width: 408px !important;}
+    .ui-autocomplete .ui-corner-all {.less_text_body; .less_text_strong; background: @less_box_colorBase; padding: 10px; display: block;}
+    .ui-autocomplete .ui-corner-all:hover {color: @less_text_colorReverse; background: @less_text_colorLink; cursor: pointer;}
+
+
+/* @group SubmissionPagination */ 
+/* PAGINATION */
+/* There's no reason that SU-prefixed pagination won't appear lots of other places eventually.
+   But right now pagination with the SU prefix only appears on PL and GRS. */
+/* Pagination Styles (Submission) */
+.BVSUPager {.less_box_pagination; margin: 0; padding: 5px;}
+.BVSUSimplePager {position: relative;}
+    .BVSUSimplePagerColumn {}
+    .BVSUCurrentPage {text-align: center;}
+    .BVSUSimplePager .BVSUPreviousPage {position: absolute; top: 5px;}
+    .BVSUSimplePager .BVSUNextPage {position: absolute; right: 5px; top: 5px;}
+.BVSUPageBasedPager {.less_box_pagination; .less_text_pagination; text-align: center;}
+    .BVSUPageLink {display:inline; padding: 0 2px;}
+    .BVSUPageNumber {}
+    .BVSUPageNumber a {.less_text_linkAction;}
+    .BVSUPageNumber a:visited {.less_text_linkActionVisited;}
+    .BVSUPageNumber a:hover {.less_text_linkActionHover;}
+    .BVSUPageNumber a:focus {.less_text_linkActionFocus;}
+    .BVSUPageNumber a:active {.less_text_linkActionActive;}
+    .BVSUPageBasedPager .BVSUPreviousPage {}
+    .BVSUPageBasedPager .BVSUNextPage {}
+    .BVSUSelectedPageNumber {.less_box_paginationSelected; .less_text_paginationSelected;}
+
+    .BVSUPagerArrows {display: none;}
+
+/* @end */ 
+
+/*=== PRODUCT PICKER ===*/
+
+/* @group ProductPicker */ 
+
+/* The product picker is used both for Product linking (aka Social Recommendations / Product references) 
+   and Generic Review Submission (used from email links and thank you pages, and as part of Brandvoice Direct) */
+
+/* @group ProductPickerSearch */ 
+/* SUBMISSION FORM SEARCH WIDGET - USED IN A POPIN ON PRODUCT REFERENCES, INLINE FOR GRS */
+/* Search Widget (_Search) */
+.BVSU_SearchLightbox#BVLBWindow {width: 630px; margin-left: -315px; /*=width/2*/}
+    .BVSU_SearchLightbox#BVLBContainer {width: 600px;}
+        .BVSU_Search {.less_box_widget; padding: 20px;}
+            .BVSU_SearchInside {}
+                .BVSU_SearchHeader {}
+                    .BVSU_SearchInsideHeader {}
+                        .BVSU_SearchLinkClose {}
+                            .BVSU_SearchLinkClose a {.less_text_iconClose; .less_text_iconOnly; float: right;}
+                            .BVSU_SearchLinkClose .BVSULinkSpan {display: none;}
+                        .BVSU_SearchTitle {.less_box_borderLight; .less_box_borderBottom; .less_text_titleSection; padding-bottom: 10px;}
+                        .BVSU_SearchForm {margin: 0;}
+                        .BVSU_SearchToolbar {clear: right; padding: 10px; overflow: hidden;}
+                            .BVSUInputTextSearch {.less_box_textInputLow; .less_text_textInputLow; padding: 6px 3px; float: left; width: 200px; margin-right: 10px;}
+                            .BVSUInputTextSearch:focus {.less_box_textInputLowFocus; .less_text_textInputLowFocus;}
+
+                                .BVSU_SearchToolbar .BVSUFieldLabel {display: none;}
+                            .BVSUSearchButton button {/* See general button styles at top */}
+                        .BVSU_SearchError {.less_box_alertBad; margin: 5px; padding: 5px;}
+                        .BVSU_SearchQuerySentence {.less_text_meta; padding: 5px 10px;}
+                            .BVSU_SearchQuerySentence .BVSUNumber {.less_text_strong;}
+                            .BVSU_SearchQuerySentence span {}
+                            .BVSU_SearchTerm {}
+                            .BVSU_SearchTermText {.less_text_strong;}
+                        .BVSU_SearchSpacerInsideHeader {}
+                .BVSU_SearchBody {.less_box_nav; .less_box_borderTop; padding: 10px; text-align: left;}
+                    .BVSU_SearchInsideBody {height: 300px; overflow-y: auto;}
+                        .BVSU_SearchResults {}
+                            .BVSU_SearchHeaderResults {}
+                                .BVSU_SearchTitleResults {.less_text_strong;}
+                            .BVSU_SearchBodyResults {}
+                        .BVSU_SearchResultsNone {padding: 20px;}
+                                .BVSU_SearchListResultsNone {}
+                                .BVSU_SearchParagraphGoBack {clear: both; margin-top: 10px;}
+                        .BVSU_SearchResultsMax {.less_text_error; display: none; padding: 10px 20px 0;}
+                                .BVSU_SearchParagraphResults {margin: 5px 0 10px;}
+                                .BVSU_SearchListResultsMax {list-style-type: none; overflow: hidden; zoom: 1; padding: 0; margin: 0;}
+                                .BVSU_SearchListResultsMax li {margin-bottom: 10px;}
+                                .BVSU_SearchListResultsMax .BVSU_SearchConfirmationItem .BVSUProductName {.less_text_titleItem; .less_text_size4; margin-left: 0.3em;}
+                                .BVSU_SearchListResultsMax .BVSULinkRemove {.less_text_linkAction;}
+                                    .BVSU_SearchListResultsMax .BVSULinkRemove:visited {.less_text_linkActionVisited;}
+                                    .BVSU_SearchListResultsMax .BVSULinkRemove:hover {.less_text_linkActionHover;}
+                                    .BVSU_SearchListResultsMax .BVSULinkRemove:focus {.less_text_linkActionFocus;}
+                                    .BVSU_SearchListResultsMax .BVSULinkRemove:active {.less_text_linkActionActive;}
+                                .BVSU_SearchParagraphGoBack {clear: both; margin-top: 10px;}
+                        .BVSU_SearchResultsBrowse {}
+                            .BVSU_SearchTableResults {margin: 0; padding: 0;}
+                                /* Browsing columns */
+                                .BVSU_SearchCellNavigation {vertical-align: text-top; width: 33%;}
+                                .BVSU_SearchCellResultsList {vertical-align: text-top; width: 66%; *width: 60%;} /* HACK: IE6 IE7 [dbeberniss] width needs to be redefined to work correctly in IE */ 
+                                    .BVSU_SearchCategoryHierarchyNav {float: left; overflow: hidden; width: 30%;}
+                                    .BVSU_SearchCategoryHierarchyNav a {.less_text_link;}
+                                    .BVSU_SearchCategoryHierarchyNav a:visited {.less_text_linkVisited;}
+                                    .BVSU_SearchCategoryHierarchyNav a:hover {.less_text_linkHover;}
+                                    .BVSU_SearchCategoryHierarchyNav a:focus {.less_text_linkFocus;}
+                                    .BVSU_SearchCategoryHierarchyNav a:active {.less_text_linkActive;}
+                                    .BVSU_SearchBrowseWithoutResults .BVSU_SearchCategoryHierarchyNav {float: none; width: auto;}
+                                        .BVSU_SearchCategoryNavHeader {.less_text_strong; .less_text_size4; margin: 3px 0 5px;}
+                                        .BVSU_SearchCategoryHierarchyGroup {margin: 0 -5px;}
+                                        .BVSU_SearchCategoryHierarchyContents {}
+                                            .BVSU_SearchCategoryHierarchyItem {.less_box_borderLight; .less_box_borderBottom;}
+                                                .BVSU_SearchCategoryHierarchyInSelectedPath .BVSU_SearchCategoryHierarchyItem {.less_box_borderTop;}
+                                            .BVSU_SearchCategoryHierarchyItem:hover {background-color: @less_box_colorPrimaryFadest;}
+                                            .BVSU_SearchCategoryHierarchyGroup .BVSU_SearchCategoryHierarchyItem {padding-left: 15px;}
+                                                .BVSU_SearchCategoryHierarchyItemLabel {padding: 5px;}
+                                                    .BVSU_SearchCategoryHierarchyItemLabel.BVSU_SearchCategoryExpandable {.less_box_borderLight; .less_box_borderBottom;}
+                                                    .BVSU_SearchCategoryHierarchyItemLabel.BVSU_SearchCategoryHierarchySelected {.less_box_borderLight; .less_box_borderBottom;}
+                                                .BVSU_SearchCategoryHierarchySelected {background-color: @less_box_colorPrimaryFader; margin: 0 -5px -1px 0; padding: 5px 0 5px 5px;}
+                                                    .BVSU_SearchCategoryHierarchyLevel1.BVSU_SearchCategoryHierarchySelected {.less_box_borderNo; margin: 0 -5px 0 -10px; padding-left: 15px;}
+                                            .BVSU_SearchLinkCount {padding-left: 5px;}
+                                 /* Searching columns */
+                                .BVSU_SearchBrowseWithResults .BVSU_SearchResultsList {width: 65%; float: left;}
+                                .BVSU_SearchSearchWithResults .BVSU_SearchInsideBody {position: relative;}
+                                .BVSU_SearchSearchWithResults .BVSU_SearchResultsList {padding: 10px;}
+                                .BVSU_SearchColResultsList {}
+                                .BVSU_SearchCellResultsList {padding: 0;}
+                                    .BVSU_SearchInsideResultsList {}
+                                        .BVSU_SearchResultsListProduct {.less_box_borderLight; .less_box_borderBottom; padding: 5px;}
+                                        .BVSU_SearchResultsListProductLast {.less_box_borderNoBottom;}
+                                        .BVSU_SearchResultsListProductDuplicate {.less_box_quotedUgc; margin-left: 10px;}
+                                            .BVSU_SearchResultsListProductDuplicate .BVSU_SearchResultsListProductActions {display: none;}
+                                            .BVSU_SearchResultsListProductActions {float: right;}
+                                                .BVSUInputButtonAdd {}
+                                            .BVSU_SearchResultsListProductDetails {}
+                                                .BVSU_SearchResultsListProductImage {float: left;}
+                                                .BVSU_SearchResultsListProductImage img {.less_box_borderNo; -ms-interpolation-mode: bicubic; width: 60px;}
+                                                .BVSU_SearchResultsListProductName {.less_text_titleItem; margin: 0 0 10px 90px; line-height: 1.2;}
+                                                .BVSU_SearchResultsListProductDescription {line-height: 1.4; margin-left: 90px;}
+                                                * html .BVSU_SearchResultsListProductDescription {/* ie6 hack */ height: 1%;}
+                                                    .BVSU_SearchResultsListProductDescriptionText {display: block;}
+                                                .BVSU_SearchSpacerResultsListProductDetails {clear: left;}
+                                            .BVSU_SearchSpacerResultsListProduct {clear: right;}
+                    .BVSU_SearchSpacerInsideBodySearch {}
+                .BVSU_SearchFooter {.less_box_toolbar; .less_box_borderTop;}
+                    .BVSU_SearchInsideFooter {}
+                        .BVSU_SearchPagination {}
+                        .BVSU_SearchConfirmation {padding: 10px; overflow: hidden;}
+                            .BVSU_SearchConfirmationPrefix {.less_text_emphasis; .less_text_labelLow;}
+                            .BVSU_SearchListConfirmation {list-style-type: none; margin: 5px 0; padding: 0}
+                                .BVSU_SearchListConfirmation li {margin: 5px 0; overflow: hidden; zoom: 1; display: block;}
+                                    .BVSU_SearchConfirmationItem {}
+                                    .BVSU_SearchConfirmationItem .BVSULinkRemove {.less_text_iconClear; .less_text_iconOnly; .less_box_opacity70; padding: 0; float: left; margin-top: 1px;}
+                                    .BVSU_SearchConfirmationItem .BVSULinkRemove:hover {.less_box_opacity100;}
+                                    .BVSU_SearchConfirmationItem .BVSUProductName {.less_text_titleItem; .less_text_size4; margin-left: 0.3em;}
+                        .BVSU_SearchButtonContainer {padding: 5px; text-align: right;}
+                        .BVSU_SearchSpacerInsideFooter {}
+        .BVSU_SearchBusyOverlay {z-index: 2400; background-color: @less_box_borderColorDark; .less_box_opacity70;}
+            .BVSU_SearchBusyImage {position: absolute; left: 290px; top: 50px; z-index: 2401;}
+/* @end */ 
+
+
+/* @group ProductPickerProductReferences */ 
+
+/* @group ProductPickerDisplayList */ 
+/* SUBMISSION FORM EMBEDDED PRODUCTS LIST - NOT USED FOR GRS*/
+/* After you've selected products in the lightbox, they appear in rows and columns inline on the main submission form. This section controls the inline portion */
+/* Product Linking Submission (_PL) */
+.BVSU_PL {margin: 1em 0; /* IE6 hack */ zoom: 1;}
+.BVSU_PL:after {.less_box_clearFix;}
+        .BVSU_PLInside {}
+        .BVSU_PLHeader {display: none;}
+            .BVSU_PLInsideHeader {}
+                .BVSU_PLTitle {}
+        .BVSU_PLBody {}
+            .BVSU_PLInsideBody {}
+        .BVSU_PLInsideProduct {.less_box_borderLight; padding: 5px; zoom: 1; width: auto; /*position: relative;*/}
+            .BVSU_PLInsideProduct:after {.less_box_clearFix;}
+
+                    .BVSU_PLSpacerProduct {display: none;}
+                    .BVSU_PLSpacerProduct2, .BVSU_PLSpacerProduct5, .BVSU_PLSpacerProduct8 {display: block; clear: left;} /* 3 columns */
+                        .BVSU_PLProductAction {margin-bottom: 5px;}
+                        .BVSU_PLProductAction a {.less_text_linkAction;}
+                        .BVSU_PLProductAction a:visited {.less_text_linkActionVisited;}
+                        .BVSU_PLProductAction a:hover {.less_text_linkActionHover;}
+                        .BVSU_PLProductAction a:focus {.less_text_linkActionFocus;}
+                        .BVSU_PLProductAction a:active {.less_text_linkActionActive;}
+                        .BVSU_PLProductImage {text-align: center;}
+                        .BVSU_PLProductImage img {-ms-interpolation-mode: bicubic; width: 100px;}
+                        .BVSU_PLProductName {.less_text_size4; .less_text_strong; text-align: center; padding: 5px;}
+                .BVSU_PLProductFilled {position: relative;}
+                    .BVSU_PLProductFilled:hover {background-color: @less_box_colorPrimaryFadest;}
+
+                    .BVSU_PLProductFilled .BVSULinkMove {margin: 0 0 5px; outline: none;}
+                        .BVSU_PLProductFilled .BVSULinkMove {.less_box_opacity70; .less_text_iconLeft; .less_text_iconOnly;}
+                        .BVSU_PLProductFilled .BVSULinkMove:hover, .BVSU_PLProductFilled .BVSULinkMove:focus, .BVSU_PLProductFilled .BVSULinkMove:active {.less_box_opacity100;}
+                    .BVSU_PLProductFilled .BVSULinkMoveLeft {.less_box_opacity70; .less_text_iconUp; .less_text_iconOnly; position: absolute; top: 0; left: 10px;}
+                    .BVSU_PLProductFilled .BVSULinkMoveRight {.less_box_opacity70; .less_text_iconDown; .less_text_iconOnly; position: absolute; top: 40px; left: 10px;}
+                    .BVSU_PLProductFilled a.BVSULinkRemove {.less_box_opacity70; .less_text_iconClear; .less_text_iconOnly; position: absolute; top: 20px; left: 10px;}
+                        .BVSU_PLProductFilled a.BVSULinkRemove:hover, .BVSU_PLProductFilled a.BVSULinkRemove:focus, .BVSU_PLProductFilled a.BVSULinkRemove:active {.less_box_opacity100;}
+                    .BVSU_PLProductFilledLast .BVSULinkMoveRight {display: none;}
+
+                .BVSU_PLProductEmpty {overflow: hidden;}
+                    .BVSU_PLProductEmpty .BVSU_PLInsideProductEmpty .BVSU_PLProductImage a {display: block; width: 100%; height: 55px; outline: none;}
+                        .BVSU_PLProductEmpty .BVSU_PLInsideProductEmpty .BVSU_PLProductImage a {.less_text_linkAction;}
+                        .BVSU_PLProductEmpty .BVSU_PLInsideProductEmpty .BVSU_PLProductImage a:visited {.less_text_linkActionVisited;}
+                        .BVSU_PLProductEmpty .BVSU_PLInsideProductEmpty .BVSU_PLProductImage a:hover {.less_text_linkActionHover;}
+                        .BVSU_PLProductEmpty .BVSU_PLInsideProductEmpty .BVSU_PLProductImage a:focus {.less_text_linkActionFocus;}
+                        .BVSU_PLProductEmpty .BVSU_PLInsideProductEmpty .BVSU_PLProductImage a:active {.less_text_linkActionActive;}
+                    .BVSU_PLProductEmptyFirst .BVSU_PLProductImage a {background: url(openSearch.gif) no-repeat center;}
+                    .BVSU_PLProductEmptyRest a {visibility: hidden;}
+                    .BVSU_PLProductEmpty.BVSU_PLProductEmptyLoading .BVSU_PLProductImage a {background: url(bv_sub_loading_60.gif) no-repeat center; visibility: inherit;}
+                .BVSU_PLProductEmptyRest {display: none;}
+
+                .BVSU_PLProductFilled .BVSU_PLInsideProductEmpty, .BVSU_PLProductEmpty .BVSU_PLInsideProductFilled {display: none;}
+                .BVSU_PLProductError {}
+                    .BVSU_PLProductError .BVSU_PLProductImage img {.less_box_alertBad;}
+                    .BVSU_PLProductError .BVSU_PLProductName {.less_text_error;}
+                .BVSU_PLSpacerInsideBody {clear: left;}
+
+            /* PICK ONE: Grid view of product linking submission, or stacked vertical list */
+            /* CHOICE ONE: Product linking submission horizontal display
+                .BVSU_PLProduct {float: left; width: 100px; margin-bottom: 10px;}
+                    .BVSU_PLSpacerProduct {display: none;}
+                    .BVSU_PLBody {width: 100%; overflow: hidden;}
+                    .BVSU_PLInsideBody {margin-right: -5px;}
+                    .BVSU_PLInsideProduct {margin-right: 5px; min-height: 230px; *height: 230px; overflow: visible;}
+                    .BVSU_PLProduct0 .BVSU_PLInsideProductFilled .BVSU_PLProductAction {padding-left: 26px;}
+                    .BVSU_PLProductFilledLast .BVSU_PLProductAction {padding-right: 26px;}
+                /* Pick one: To change number of columns, choose one of the following lines */
+                /* 2 columns
+                    .BVSU_PLSpacerProduct1, .BVSU_PLSpacerProduct3, .BVSU_PLSpacerProduct5, .BVSU_PLSpacerProduct7, .BVSU_PLSpacerProduct9 {display: block; clear: left;}
+                    .BVSU_PLProduct {width: 50%;}
+                    .BVSU_PLInsideProduct {margin-right: 5px; min-height: 290px; *height: 290px; overflow: visible;}
+                /* End 2 columns */
+                /* 3 columns 
+                    .BVSU_PLSpacerProduct2, .BVSU_PLSpacerProduct5, .BVSU_PLSpacerProduct8 {display: block; clear: left;}
+                    .BVSU_PLProduct {width: 33%;}
+                /* End 3 columns */
+                /* 4 columns 
+                    .BVSU_PLSpacerProduct3, .BVSU_PLSpacerProduct7 {display: block; clear: left;}
+                    .BVSU_PLProduct {width: 25%;}
+                /* End 4 columns */
+            /* END CHOICE ONE */
+            /* CHOICE TWO: Product linking submission vertical display */
+                .BVSU_PLProductFilled, .BVSU_PLProductEmptyFirst {display: block; float: none; width: auto; overflow: hidden; zoom: 1; margin: 0 0 5px; text-align: left;}
+                    .BVSU_PLInsideProductEmpty {width: 15%; text-align: center;}
+                        .BVSU_PLInsideProductEmpty .BVSU_PLProductAction {float: none; width: auto;}
+                        .BVSU_PLInsideProductEmpty .BVSU_PLProductImage {float: none; margin: 0 auto;}
+                            .BVSU_PLProductEmptyFirst .BVSU_PLInsideProductEmpty .BVSU_PLProductImage a {}
+                .BVSU_PLProductEmpty {height: auto;}
+                    .BVSU_PLProductAction {float: left; min-height: 60px; *height: 60px; *overflow: visible; text-align: left; width: 45px; display: inline; position: relative;}
+                    .BVSU_PLProductAction a {.less_text_linkAction;}
+                    .BVSU_PLProductAction a:visited {.less_text_linkActionVisited;}
+                    .BVSU_PLProductAction a:hover {.less_text_linkActionHover;}
+                    .BVSU_PLProductAction a:focus {.less_text_linkActionFocus;}
+                    .BVSU_PLProductAction a:active {.less_text_linkActionActive;}
+
+                        .BVSU_SearchListConfirmation li {margin-left: 0; display: block;zoom: 1;}
+                    .BVSU_PLProductImage {float: left; height: 55px; margin-right: 10px;}
+                        .BVSU_PLProductImage img {height: 100%; width: auto;}
+                    .BVSU_PLProductName {text-align: left; padding: 0;}
+                    .BVSU_PLProductEmptyFirst .BVSU_PLProductAction {min-height: 40px;}
+                        .BVSU_PLProductImage a.BVSULinkAdd .BVSULinkSpan {height: 38px;}
+            /* END CHOICE TWO */
+
+/* Product linking submission vertical for Profiles only */
+/* Copy vertical section above, but add "BVCPZone" before each line */
+/* @end */ 
+
+/* @group ProductPickerSearchProductReferences */ 
+/* PRODUCT LINKING SEARCH SECTION CUSTOMIZATION */
+/* Fixed height and overflows to create the internal scroll bar must be handled here, since there's no need for the same economy of vertical space on the Generic Review Submission Form */
+.BVSU_SearchLightbox .BVSUModalContent {.less_box_popin; overflow-y: auto; overflow-x: hidden;}
+.BVSUModalContent .BVSU_Search {padding: 10px;}
+/* @end */ 
+
+/* @end */ 
+
+/* @group ProductPickerGenericSubmission */ 
+
+/* @group ProductPickerSearchGenericSubmission */ 
+/* GRS SEARCH SECTION CUSTOMIZATION */
+/* Generic submission picker step */
+     /* We use contextual .BVSUStepPicker to distinguish Generic Submission's product picker
+        from Product Recommendations' product picker. */
+    .BVSUStepPicker {padding: 0;}
+        .BVSUStepPicker .BVSU_SearchForm {margin-bottom: 10px; zoom: 1;}
+        .BVSUStepPicker .BVSU_SearchForm:after {.less_box_clearFix;}
+    .BVSUStepPicker .BVSU_SearchQuerySentence {.less_box_borderNo; .less_text_meta; margin-bottom: 10px; float: left; width: 67%;}
+    .BVSUStepPicker .BVSU_Search {zoom: 1;}
+    .BVSUStepPicker .BVSU_Search:after {.less_box_clearFix;}
+    .BVSUStepPicker .BVSU_SearchBrowseWithoutResults {}
+    .BVSUStepPicker .BVSU_SearchHeader {zoom: 1;}
+    .BVSUStepPicker .BVSU_SearchHeader:after {.less_box_clearFix;}
+        .BVSUStepPicker .BVSU_SearchHeader .BVSU_SearchPagination {display: block; margin-bottom: 10px; float: right; width: 30%; text-align: right;}
+        .BVSUStepPicker .BVSU_SearchSpacerInsideHeader {display: none;}
+    .BVSUStepPicker .BVSU_SearchBody {clear: both;}
+        .BVSUStepPicker .BVSU_SearchInsideBody {}
+    .BVSUStepPicker .BVRRPageBasedPager {padding: 0; text-align: right;}
+    /* Correcting widths for situations when either navigation or product listings don't appear */
+    .BVSUStepPicker .BVSU_SearchBrowseWithoutResults .BVSU_SearchCategoryHierarchyNav {width: auto; float: none;}
+        /* IE 6 calculates the width differently? Resulting in the two BVSU_SearchResultsListProduct divs rendering on separate lines. */
+            .BVSUStepPicker .BVSU_SearchResultsListProductInside {padding: 10px 10px;}
+            .BVSUStepPicker .BVSU_SearchResultsListProductFirst .BVSU_SearchResultsListProductInside {}
+            .BVSUStepPicker .BVSU_SearchResultsListProductOnly .BVSU_SearchResultsListProductInside {.less_box_borderMed; .less_box_borderHorizontal;}
+        .BVSU_SearchSpacerInsideBodySearch {clear: both;}
+    .BVSUStepPicker .BVSUFooterStep {clear: both; padding: 10px 0; margin-top: 5px; zoom: 1;}
+    .BVSUStepPicker .BVSUFooterStep:after {.less_box_clearFix;}
+/* @end */ 
+
+/* @group GenericSubmissionHomepageLink */ 
+/* HOMEPAGE LINK POPUP (CAN'T FIND A PRODUCT? LINK) */
+/* The SearchPopup classname part is only used on Generic Review Submission, so this should be isolated from the Product References section already */
+    .BVSU_SearchPopup {.less_text_body; position: absolute; text-align: left; top: 0; width: 250px; background: url(popup-250-top.gif) no-repeat; padding-top: 15px; z-index: 10000001;}
+    .BVSU_SearchPopup a:hover, .BVSU_SearchPopup a:focus, .BVSU_SearchPopup a:active {}
+    div[class~="BVSU_SearchPopup"] {background: url(popup-250-top.png) no-repeat; /* Everyone but IE6 */}
+        .BVSU_SearchInsidePopup {padding: 1px 20px 35px 20px; background: url(popup-250-bottom.gif) no-repeat 0 100%; opacity: .9; zoom: 1;}
+             div[class~="BVSU_SearchInsidePopup"] {background: url(popup-250-bottom.png) no-repeat 0 100%;}
+                .BVSU_SearchPopupHeader {margin-bottom: 0.5em;}
+                    .BVSU_SearchPopupHeader .BVSULinkClose, .BVSU_SearchPopupHeader .BVSULinkClose:visited {.less_text_iconClose; .less_text_iconOnly; float: right; position: relative; z-index: 300; zoom: 1;}
+                        .BVSU_SearchPopupHeader .BVSULinkClose:hover, .BVSU_SearchPopupHeader .BVSULinkClose:focus, .BVSU_SearchPopupHeader .BVSULinkClose:active {}
+                    .BVSU_SearchPopupHeader .BVSU_SearchTitle {.less_box_reset; .less_text_titleSection; .less_text_size4; padding: 0; line-height: normal;}
+                .BVSU_SearchPopupBody {.less_text_helper; margin: 0 16px 0 0; line-height: 1.3em;}
+    .BVSU_SearchPopupLink {line-height: 18px; height: 18px; padding: 5px 0; float: left; margin-left: 20px; display: inline;}
+/* @end */ 
+
+/* @group GenericSubmissionCancelButton */ 
+/* GRS CANCEL BUTTON */
+/* Currently the markup referred to here only appears on the product picker page, but there's no reason the cancel button as part of the search step couldn't be repeated in other contexts */
+button.BVSUSubmitButton {float: left;}
+button.BVSUSubmitButton {.less_box_btnHigh; .less_text_btnHigh;}
+button.BVSUSubmitButton:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+button.BVSUCancelButton {.less_box_btnLow; .less_text_btnLow;}
+button.BVSUCancelButton:hover {.less_box_btnLowHover; .less_text_btnLowHover;}
+/* @end */ 
+
+/* @group GenericSubmissionThankYouPrompt */ 
+/* GRS THANK YOU PAGE PROMPT */
+/* These styles apply to a prompt on the thank you page that asks you to return to the GRS so you can submit more content on the product/s of your choice. */
+    /* Thank you page prompt to submit content again */
+    .BVSUContainerSubmitAgain {.less_box_widget; margin: 4em 40px; padding: 20px; text-align: center; zoom: 1;}
+    .BVSUContainerSubmitAgain:after {.less_box_clearFix;}
+        .BVSUTextSubmitAgain {.less_box_headerWidget; .less_box_borderBottom; .less_text_titleWidget; margin-bottom: 15px;}
+        .BVSUContainerSubmitAgain .BVSULinkSubmitAgain {padding: 5px 10px;}
+        .BVSUContainerSubmitAgain .BVSULinkSubmitAgain, .BVSUContainerSubmitAgain .BVSULinkSubmitAgain:visited {.less_box_btnHigh; .less_text_btnHigh;}
+        .BVSUContainerSubmitAgain .BVSULinkSubmitAgain:hover, .BVSUContainerSubmitAgain .BVSULinkSubmitAgain:focus, .BVSUContainerSubmitAgain .BVSULinkSubmitAgain:active {.less_box_btnHighHover; .less_text_btnHighHover;}
+            .BVSULinkSubmitAgain .BVSULinkSpan {}
+/* @end */ 
+
+/* @end */ 
+
+/* @end */ 
+
+/*=== END OF PRODUCT PICKER ===*/
+
+        .BVSUModalContent button {/* See general button styles at top */}
+                button.BVSUInputButtonAdd {/* See general button styles at top */}
+                button.BVSUInputButtonAdded {/* See general button styles at top */}
+            .BVSULinkBrowseAllProducts {/* See general button styles at top */}
+            .BVSULinkGoBack {/* See general button styles at top */}
+
+
+/* Social Connect Icons (Submission) */
+/* Facebook */
+    /* large banner style. BVRRPreviewContent */
+    #BVSUFieldContainerPostTo_facebookID {background: #3B5998 url(facebookpost.gif) no-repeat top left; display: block; height: 30px; padding: 15px 0 0 120px;}
+        .BVSUFieldContainerPostTo input {vertical-align: bottom;}
+        #BVSUFieldContainerPostTo_facebookID label {.less_box_reset; display: inline; float: none; padding: 0; height: auto;}
+        #BVSUFieldContainerPostTo_facebookID label span {color: @less_text_colorReverse; .less_text_size5;}
+        .BVSUFieldContainerPostTo {margin: 1em 0;} 
+
+    /* minimal, mini facebook icon checkbox style. */
+    /* #BVSUFieldContainerPostTo_facebookID {.less_box_widget; .less_text_labelLow; .less_text_size5; padding-top: 15px;}
+    .BVRRPreviewContent #BVSUFieldContainerPostTo_facebookID {margin-top: 10px;}
+        #BVSUFieldContainerPostTo_facebookID label {display: inline; background: url(link-facebook-mini.gif) no-repeat 0 0; padding-left: 20px;}
+        input#BVSUSocialConnectPostDesiredCheckbox_facebookID {margin: 2px; vertical-align: middle;} */
+
+
+    /* on thank you page */
+    #BVSUThankYouPostTo_facebookID {.less_text_labelLow; background: url(link-facebook-mini.gif) no-repeat 0 4px; padding-left: 20px;}
+        .BVSUFieldContainerPostTo label {display: inline;}
+
+/* Lightbox Styles (BVLB) */ /* LESSIFY */
+#BVLBHideSelect {.less_box_opacity0; background-color: @less_box_colorBase; .less_box_borderNo; position: fixed; z-index: 2000; top: 0; left: 0; height: 100%; width: 100%;}
+#BVLBOverlay {position: fixed; z-index: 2001; top: 0; left: 0; height: 100%; width: 100%; zoom: 1;}
+.BVLBOverlayMacFFBGHack {background: url(macFFBackgroundHack.png) repeat;}
+.BVLBOverlayBG {background-color: @less_box_borderColorDark; .less_box_opacity70;}
+#BVLBLoading {position: fixed; display: none; height: 13px; width: 208px; z-index: 2003; top: 50%; left: 50%; margin: -6px 0 0 -104px;}
+#BVLBWindow {position: absolute; z-index: 2002; display: none; left: 50%;}
+#BVLBContainer {clear: both; overflow: hidden;}
+
+/* HACK: IE6 IE7 [dbeberniss] These expressions create an overlay background for product picker that is 100% of the page's height and width */
+* html #BVLBHideSelect, * html #BVLBOverlay {position: absolute; height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');}
+* html #BVLBLoading {position: absolute; top: 50%; margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');}
+
+
+/* Field Picker Styles (_FP) */ /* LESSIFY ? we need to find and style this! */
+
+.BVSU_FPTopicGroups {.less_box_borderMed; background-color: @less_box_colorPrimaryFader; margin-bottom: 1em; width: 655px;}
+    .BVSU_FPInsideTopicGroups {padding: 5px; zoom: 1;}
+            .BVSU_FPSpacerInsideTopicGroups {clear: left;}
+            .BVSU_FPTopicGroup {width: 30%; float: left; margin-right: 1em;}
+                .BVSU_FPHeaderTopicGroup {.less_text_strong;}
+                    .BVSU_FPGroupColumn {float: left;}
+                    .BVSU_FPLabelValuePair {position: relative; padding: 3px 0;}
+                        .BVSU_FPInputCheckbox {display: none; z-index: 0;}
+                        .BVSU_FPLinkTopic {background: url(fieldPickerNoContent.gif) no-repeat 0 2px; padding-left: 20px; padding-bottom: 5px; line-height: 18px; vertical-align: middle; margin-left: 8px; display: table-cell; display: inline-block; position: relative;}
+                        .BVSU_FPLinkTopicEdit {background-image: url('fieldPickerEditHover.gif');  /* don't LESSIFY pending investigation */}
+                        .BVSU_FPLinkTopicSelected {background-image: url('fieldPickerEdit.gif');  /* don't LESSIFY pending investigation */}
+                        .BVSU_FPLinkTopicFocused {.less_text_strong;}
+                        .BVSU_FPLinkTopicHide {background-image: url('fieldPickerCancel.gif'); /* don't LESSIFY pending investigation */}
+                        .BVSU_FPLinkTopicHasContent {background-image: url('fieldPickerHasContent.gif'); /* don't LESSIFY pending investigation */}
+
+.BVSU_FPFieldSection {margin-bottom: 1em; overflow: hidden; zoom: 1;}
+    .BVSU_FPHeaderFieldSection {float: left; width: 140px;padding-top: 3px;}
+    .BVSU_FPBodyFieldSection {margin-left: 150px; zoom: 1;}
+    .BVSU_FPGroupColumn {}
+    .BVSU_FPField {margin-bottom: .5em; width: 300px;margin-left: 150px;}
+    .BVSU_FPTitle {padding-top: 5px;}
+    .BVSU_FPFieldFocused .BVSU_FPTitle {.less_text_strong;}
+    .BVSU_FPFieldFocused .BVSUFieldInput {.less_box_textInputLow; .less_text_textInputLow;}
+    .BVSU_FPFieldFocused .BVSUFieldInput:focus {.less_box_textInputLowFocus; .less_text_textInputLowFocus;}
+    .BVSU_FPFieldFocused input[type="text"].BVSUError {.less_box_textInputLowError; .less_text_textInputLowError;}
+    .BVSU_FPLinkHide {float: right; padding: 5px 5px 5px 15px; background: url('fieldPickerCancelGray.gif') no-repeat 0 50%; /* don't LESSIFY pending investigation */}
+    .BVSU_FPLinkHideHover {background-image: url('fieldPickerCancel.gif');} /* don't LESSIFY pending investigation */
+    .BVSU_FPErrorFieldSection {}
+    .BVSU_FPErrorField {}
+    .BVSU_FPErrorField .BVSU_FPTitle {.less_text_error;}
+
+/* Submission Form Modules */
+.BVSUModule {.less_box_formSection; zoom: 1; margin-bottom: 20px;}
+.BVSUModule:after {.less_box_clearFix;}
+    .BVSUModuleContainer {}
+        .BVSUModule .BVSUHeader {.less_box_borderLight; .less_box_borderBottom; .less_text_titleSection; padding: 10px 0; margin-bottom: 10px; zoom: 1;}
+        .BVSUModule .BVSUHeader:after {.less_box_clearFix;}
+            .BVSUModule .BVSUHeader .BVSUTitle {.less_text_titleSection; display: block; margin-right: 50px;}
+            .BVSUModuleActions {}
+                .BVSUModuleActions a {float: right; margin-left: 10px;}
+                .BVSUModuleActions a {.less_text_linkAction;}
+                .BVSUModuleActions a:visited {.less_text_linkActionVisited;}
+                .BVSUModuleActions a:hover {.less_text_linkActionHover;}
+                .BVSUModuleActions a:focus {.less_text_linkActionFocus;}
+                .BVSUModuleActions a:active {.less_text_linkActionActive;}
+                a.BVSULinkReset {.less_text_iconClear; .less_text_iconOnly;}
+                a.BVSULinkReset:hover {}
+                a.BVSULinkHelp {.less_text_iconInfo; .less_text_iconOnly;}
+                a.BVSULinkHelp:hover {}
+                    .BVSUModuleActions .BVSULinkSpan {display: none;}
+        .BVSUModule .BVSUBody {}
+            .BVSUBodyContainer {.less_box_reset; overflow: hidden; zoom: 1; padding: 0;}
+        .BVSUModule .BVSUFooter {display: none;}
+            .BVSUSpacerFooter {clear: both;}
+.BVSUModuleError {}
+    .BVSUModuleError .BVSUHeader {.less_box_alertBad; padding: 10px;}
+    .BVSUModuleError .BVSUHeader .BVSUTitle {.less_text_iconAlert; .less_text_error;}
+    .BVSUFieldError {} /* This class is placed on the parent of the offending input and its corresponding label */
+        .BVSUFieldError label {.less_text_labelLow; .less_text_error;}
+        .BVSUError {} /* This class is placed on the offending input AND on some containers, so don't apply styles to it directly. */
+.BVSUModulePending {}
+    .BVSUModulePending .BVSUHeader {color: @less_text_colorMeta;}
+        .BVSUModulePending .BVSUHeader .BVSUTitle {.less_text_iconAlert; background-position: 0 -192px;} /* Don't lessify the background-positioning adjustment. It's required because this is on a title div with larger font size.*/
+    .BVSUFieldPending {} /* This class is placed on the parent of the offending input and its corresponding label */
+        .BVSUFieldPending label {}
+        .BVSUPending {} /* This class is placed on the offending input */
+
+/* Smart Question Routing */
+.BVSUModuleSocialAnswering {.less_box_borderNo; margin: 0;}
+    .BVSUModuleSocialAnswering .BVSUHeaderModuleSocialAnswering {.less_box_borderNo; margin: 10px 0 0; padding: 0 0 6px;}
+    .BVSUBodyModuleSocialAnswering {padding: 5px 0 0;}
+        .BVSUFieldContainerSignup label, .BVSUFieldContainerSignup label span {display: inline;}
+        .BVSUSocialAnswering input {vertical-align: middle; margin-left: 0;}
+        .BVSUSocialAnswering .BVSUFieldContainerUserEmail, .BVSUSocialAnswering .BVSUSliderRatingsContainer {padding-left: 23px;}
+        .BVSUSocialAnswering .BVSUModuleButtons {.less_box_borderNo; margin: 0;}
+        .BVSUBodyModuleSocialAnswering .BVSUSliderPrefix {.less_text_labelLow; position: absolute; top: 17px; left: 3px;}
+        .BVSUBodyModuleSocialAnswering .BVSUSliderSuffix {.less_text_labelLow; position: absolute; right: 100px; top: 17px;}
+        .BVSUBodyModuleSocialAnswering .BVSUSliderSuffix .BVSUSuffix, .BVSUBodyModuleSocialAnswering .BVSUSliderPrefix .BVSUSuffix {display: none;}
+        .BVSUBodyModuleSocialAnswering .BVSUSliderLegend {.less_text_strong; left: 265px; top: 0; position: absolute;}
+            .BVSUBodyModuleSocialAnswering .BVSUSliderLegend .BVSUPrefix {display: none;}
+            .BVSUBodyModuleSocialAnswering .BVSUSliderLegend .BVSUValue {color: @less_text_colorLow;}
+        .BVSUBodyModuleSocialAnswering .BVSUSlider {height: 50px; overflow: visible; position: relative; width: 375px;}
+            .BVSUBodyModuleSocialAnswering .BVSUSliderLegend .BVRRLabel {color: @less_text_colorLow;}
+            .BVSUBodyModuleSocialAnswering .BVSUSliderRatingLabelUnset {color: @less_text_colorHigh;}
+        .BVSUBodyModuleSocialAnswering .BVSUSliderDisplayPrompt {.less_text_helper;}
+        .BVSUBodyModuleSocialAnswering .BVSUSliderPromptDivider {display: none;}
+        .BVSUBodyModuleSocialAnswering .BVSURadioPromptDivider {display: none;}
+
+/* Email unsubscription styles */
+.BVSU_UE {}
+    .BVSU_UELogo {.less_box_borderMed; .less_box_borderBottom; padding: 10px;}
+    .BVSU_UE .BVSUHeader {border-bottom: none !important; padding: 0 !important; margin: 0 !important;}
+    .BVSU_UETitle, .BVSU_CSUnsubscription .BVSUTitle, .BVSU_CSStepThankYou .BVSUTitle {.less_text_titleSection; padding: 10px 20px;}
+    .BVSU_CSUnsubscription .BVSU_UEHeader .BVSU_UETitle {padding: 0;}
+    .BVSU_UEMessage, .BVSU_SA .BVSUHeaderModuleSocialAnswering .BVSUTitle {.less_text_labelLow; padding: 10px 20px;}
+    .BVSU_CSUnsubscription label, .BVSU_CSUnsubscription label span {display: inline;}
+    .BVSU_UEConfirmControls, .BVSU_SA .BVSUBodyModuleSocialAnswering {padding: 10px 20px;}
+        .BVSU_UEConfirmButton {display: inline; margin-right: 5px}
+    .BVSU_CSUnsubscription .BVSUModule {border: none; margin: 0;}
+        .BVSU_CSUnsubscription .BVSUModuleButtons {padding: 0 20px 10px;}
+        .BVSU_CSUnsubscription .BVSUModule .BVSUBody {padding: 10px 20px 0;}
+    .BVSU_UEClientLink {padding: 10px 20px;}
+        .BVSU_UEClientLink a {.less_text_link;}
+            .BVSU_UEClientLink a:active {.less_text_linkActive;}
+            .BVSU_UEClientLink a:visited {.less_text_linkVisited;}
+            .BVSU_UEClientLink a:hover {.less_text_linkHover;}
+            .BVSU_UEClientLink a:focus {.less_text_linkFocus;}
+    .BVSU_UEFooterText {.less_box_borderMed; .less_box_borderTop; .less_text_helper; margin-top:10px; padding: 15px 0 15px 15px;}
+    .BVSU_SA .BVSUSocialAnswering .BVSUModuleButtons {margin: 0 20px;}
+    .BVSU_CSSuccessMessage {padding: 10px 20px;}
+
+
+/* --- ACTIVE PROFILES MODULES --- */
+/* @group ActiveProfileModules */
+
+/* This is a placeholder for pasting content from activeProfilesSubmission in 0007am* */
+
+/* @end */
+/* --- END ACTIVE PROFILES MODULES --- */
+
+
+/* links for tipBox */
+.BVSUModuleActions .BVSULinkHelp {}
+
+/* TipBox (BVSUTipBox) */
+/* Note: If you want to use inline tips, hide the help links.  If you want to use popups, hide the inline tip boxes */
+.BVSUTipBoxPopup {width: 300px; position: absolute; z-index: 3; margin-left: -275px;}
+.BVSUTipBox {display: none; width: 210px; float: right; margin-left: 10px;}
+.BVSUInsideTipBox {.less_box_meta; .less_text_guidelines; padding: 10px;}
+    .BVSUTipBoxPopup .BVSUInsideTipBox {.less_box_popin;}
+        .BVSUTipBoxPopup .BVSUTipBoxHeader {padding: 0 0 10px; zoom: 1;}
+        .BVSUTipBoxPopup .BVSUTipBoxHeader:after {.less_box_clearFix;}
+            .BVSUTipBoxTitle {.less_text_titleHelper;}
+            .BVSUTipBoxPopup .BVSUTipBoxTitle {float: left; width: 250px;}
+            .BVSUTipBoxClose {.less_box_opacity70; .less_text_iconClose; .less_text_iconOnly; float: right;}
+            .BVSUTipBoxClose:hover {.less_box_opacity100;}
+            .BVSUTipBox .BVSUTipBoxClose {display: none;}
+        .BVSUTipBoxPopup .BVSUTipBoxContent {.less_text_helper; zoom: 1;}
+            .BVSUTipBoxPopup .BVSUTipBoxContent p {margin: 0; padding: 0;}
+            ul.BVSUTipBoxTips {margin: 0 0 0 20px; padding: 0; list-style-type: none;}
+                ul.BVSUTipBoxTips ul {list-style-type: none; margin: 0 0 0 1em; padding: 0;}
+                ul.BVSUTipBoxTips li {padding: 3px 0; margin: 0; list-style-type: disc; list-style-position: outside; line-height: 1.3em;}
+
+/* Message Feature (_ME) */
+.BVSU_ME {.less_box_alert; padding: 10px; margin-bottom: 10px; zoom: 1;}
+.BVSU_ME:after {.less_box_clearFix;}
+.BVSU_MEHeader {.less_text_titleHelper;}
+.BVSU_MENew {display: none;}
+.BVSU_MEPublished {}
+.BVSU_MEPending {}
+.BVSU_MEPending .BVSU_METitle {.less_text_iconAlert; .less_text_iconOnly; float: left;}
+.BVSU_MEPending .BVSUBody {padding-left: 20px;}
+    .BVSU_MEPendingMarker {}
+.BVSU_MERejectedWithErrors, .BVSU_MERejected {.less_box_borderBad; .less_text_error;}
+.BVSU_MERejectedWithErrors .BVSUBody, .BVSU_MERejected .BVSUBody {margin-left: 20px;}
+.BVSU_MERejectedWithErrors .BVSU_METitle, .BVSU_MERejected .BVSU_METitle {.less_text_iconAlert; .less_text_iconOnly; float: left;}
+.BVSU_ME ul {margin: 0; padding: 0; list-style-type: none;}
+
+/* Page Navigation (_PN) */
+.BVSU_PN {margin-top: 1em;}
+    .BVSU_PNBody {}
+        .BVSU_PNList {margin: 0; padding: 0; list-style-type: none;}
+            .BVSU_PNListItem {float: left; width: 150px;}
+                .BVSU_PNListItem a {display: block; padding: 5px;}
+                .BVSU_PNError a {.less_text_iconAlert; .less_text_error; .less_text_emphasis;}
+                .BVSU_PNPending a {.less_text_emphasis;}
+        .BVSU_PNBodySpacer {clear: left;}
+
+/* Submission Fields, in default order */
+.BVSUFormLegendRequired {.less_text_error;}
+    .BVSURequiredFieldIndicator, .BVSURequiredFieldIndicatorSuffix {.less_text_error;}
+.BVSUFieldContainerNickname {}
+.BVSUFieldContainerHeadline {}
+.BVSUFieldContainerDescription {}
+.BVSUFieldContainerLocation {}
+.BVSUFieldContainerContextualDataField {}
+.BVSUFieldContainerVideoURL, .BVSUFieldContainerVideoCaption {}
+    .BVSUVideoPasteGuideContainer {.less_box_popin; position: absolute;}
+        .BVSUVideoPasteGuideContainerImage {width: 432px; height: 62px;}
+            .BVSUYouTubeGuide .BVSUVideoPasteGuideContainerImage {background-image: url(vid_paste_youtube.gif);} /* LESSIFY ? - Do we need to include the video paste examples? */
+        .BVSUVideoPasteGuideContainerLabel {}
+.BVSUFieldContainerProductSelect {}
+    .BVSUFieldContainerProductSelect .BVSUFieldLabel {float: none; width: auto; margin-right: 0;}
+.BVSUFieldContainerAgreedtotermsandconditions {.less_text_labelLow;}
+.BVSUFieldContainerAgreedtotermsandconditions .BVSUFieldCheckbox {float: left;}
+    .BVSUFieldContainerAgreedtotermsandconditions input {width: auto;}
+    .BVSUFieldContainerAgreedtotermsandconditions label {display: inline;}
+    .BVSUFieldContainerAgreedtotermsandconditions.BVSUFieldError .BVSUFieldLabel {.less_text_error;}
+        .BVSUFieldContainerAgreedtotermsandconditions .BVSUFieldLabel {.less_text_labelLow; float: none; width: auto; margin-right: 0; display: inline;}
+
+/* ************************************************************************************
+
+   The following is CSS associated with the ratingControls.ftl file which contains jQuery
+   widgets for Sliders and Rating Stars.
+
+   ************************************************************************************ */
+
+/* jQuery.Rating Plugin v2.5 (with bazaarvoice patch) CSS - http://www.fyneworks.com/jquery/star-rating/ */
+/* BAZAARVOICE NOTE: THESE STYLES CAME FROM THE JQUERY DISTRIBUTION. OVERRIDE THEM BELOW, DO NOT RESTRUCTURE THIS AREA SO IT CAN BE COMPARED WITH DEFAULT. */
+.BVSURatingBlock div.rating {cursor: pointer; margin: 2em; clear: both; display: block;}
+.BVSURatingBlock div.rating:after {content: '.'; display: block; height: 0; width: 0; clear: both; visibility: hidden;}
+.BVSURatingBlock div.cancel, .BVSURatingBlock div.star {float: left; width: 28px; height: 24px; text-indent: -999em; cursor: pointer; display: block; background: transparent; overflow: hidden;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so...*/
+.BVSURatingBlock div.cancel, .BVSURatingBlock div.cancel a {background: url(ratingStars_cancel.gif) no-repeat 0 -24px;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+.BVSURatingBlock div.star, .BVSURatingBlock div.star a {background: url(ratingStars_star.gif) no-repeat 0 0;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+.BVSURatingBlock div.cancel a, .BVSURatingBlock div.star a {display: block; width: 28px; height: 100%; background-position: 0 0;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+.BVSURatingBlock div.star_on a {background-position:0 -48px !important;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+.BVSURatingBlock div.star_hover a, .BVSURatingBlock div.star_live a:hover {background-position: 0 -24px;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+/* Read Only CSS */
+.BVSURatingBlock div.star_readonly a, .BVSURatingBlock div.star_readonly a:hover {cursor: default !important;}
+/* Partial Star CSS */
+.BVSURatingBlock div.star {background: transparent !important; overflow: hidden !important;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+/* END jQuery.Rating Plugin CSS */
+
+/* jQuery ui-slider CSS 1.5.2 */
+/* BAZAARVOICE NOTE: THESE STYLES CAME FROM THE JQUERY DISTRIBUTION. OVERRIDE THEM BELOW, DO NOT RESTRUCTURE THIS AREA SO IT CAN BE COMPARED WITH DEFAULT. */
+.BVSURatingBlock .ui-slider {width: 275px; height: 18px; position: relative; background-repeat: no-repeat; background-position: center center;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+.BVSURatingBlock .ui-slider-handle {position: absolute; z-index: 1; height: 18px; width: 18px; top: 0; left: 0; background-image: url(slider_handle.gif); cursor: pointer;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+/* Uncomment the following line to enable dotted frame around active slider */
+/*.BVSURatingBlock .ui-slider-handle-active {outline: 1px dotted black;}*/
+.BVSURatingBlock .ui-slider-disabled .ui-slider-handle {opacity: 0.5; filter: alpha(opacity=50);} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+.BVSURatingBlock .ui-slider-range {position: absolute; background: #50A029; opacity: 0.3; filter: alpha(opacity=30); width: 100%; height: 100%;} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+/* Default slider backgrounds */
+.BVSURatingBlock .ui-slider {background-image: url(slider_background.gif);} /* LESSIFY ? - do we want to mess with the jQueryUI package? I don't think so... */
+/* END ui-slider CSS */
+
+/* Bazaarvoice slider and rating stars CSS */
+
+/* HTML under an element with the CSS class BVSUMetadata is used to render the controls and should not be shown */
+.BVSUMetadata {display: none;}
+
+.BVSURatingStars {}
+    .BVSURatingStarsPrefix {float: left; padding-right: .5em;}
+    .BVSURatingStarsLegend {}
+        .BVSURatingStarsLegend .BVSULabel {.less_text_strong;}
+        .BVSURatingStarsLegend .BVSUStarRatingDisplayValue {float: left; width: 60px; padding-left: 1em;}
+        .BVSURatingStarsLegend .BVSUStarRatingLegendValue {margin-left: 1em;}
+    /* to show Cancel button, comment out the following line */
+    #BVSUStarRatingsContainerID div.cancel {display: none;}
+.BVSUSliderRatingsContainer {clear: both;}
+.BVSUSliderDisplayPrompt {margin-top: 15px;}
+.BVSUSliderPromptDivider {.less_box_borderLight; .less_box_borderBottom; height: 1px; margin-bottom: 5px;}
+.BVSUSlider {}
+    .BVSUSliderPrefix {float: left;}
+    .BVSURatingBlock .ui-slider {margin: 0; float: left;}
+    .BVSUSliderSuffix {float: left;}
+    .BVSUSliderLegend {padding-left: 2em;}
+        .BVSUSliderLegend .BVSULabel {.less_text_strong;}
+    .BVSUSliderRatingLabelUnset {}
+.BVSURadioRatingsContainer {clear: both;}
+.BVSURadioDisplayPrompt {margin-top: 15px;}
+.BVSURadioPromptDivider {.less_box_borderLight; .less_box_borderBottom; height: 1px; margin-bottom: 5px;}
+.BVSURadioRatingContainer {float: left; clear: both; margin-top: 5px; margin-bottom: 0; padding-bottom: 0;}
+    .BVSURatingMinRadioValueContainer {float: left;}
+    .BVSURatingMaxRadioValueContainer {float: left;}
+    .BVSURadioRatingDisplay {.less_text_strong;}
+    .BVSURadioLabelSelected {.less_text_strong;}
+    .BVSURadioInputContainer, .BVSURadioLabelContainer {float: left; padding: 3px;}
+    .BVSURadioRatingItemsHorizontalContainer {clear: both; margin-left: 145px; padding-bottom: 10px;}
+        .BVSURadioRatingItemsHorizontalContainer .BVSURadioRatingLowValueContainer {float: left; padding-right: 10px;}
+        .BVSURadioRatingItemsHorizontalContainer .BVSURadioRatingHighValueContainer {float: left; padding-left: 10px;}
+        .BVSURadioRatingItemsHorizontalContainer .BVSURadioRatingItemContainer {float: left; width: 70px; text-align: center; margin: 0;}
+            .BVSURadioRatingItemsHorizontalContainer .BVSURadioRatingItemContainer div {width: 70px;}
+                .BVSURadioRatingItemsHorizontalContainer .BVSURadioRatingItemContainer div label {width: 70px !important; margin-right: 0 !important;}
+        .BVSURadioRatingItemContainerLineHorizLeft {background: url(radio_horizontal_left.gif) no-repeat left 4px;} /* Don't lessify for now - this is a rarely / never used feature, as far as we can tell. */
+        .BVSURadioRatingItemContainerLineHorizRight {background: url(radio_horizontal_right.gif) no-repeat right 4px;} /* Don't lessify for now - this is a rarely / never used feature, as far as we can tell. */
+        .BVSURadioRatingItemContainerLineHoriz {background: url(radio_horizontal_background.gif) repeat-x center 7px;} /* Don't lessify for now - this is a rarely / never used feature, as far as we can tell. */
+    .BVSURadioRatingItemsVerticalContainer {clear: both; padding-left: 50px;}
+        .BVSURadioRatingItemsVerticalContainer .BVSURadioRatingLowValueContainer {clear: both; padding: 3px;}
+        .BVSURadioRatingItemsVerticalContainer .BVSURadioRatingHighValueContainer {clear: both; padding: 3px;}
+        .BVSURadioRatingItemsVerticalContainer .BVSURadioRatingItemContainer {clear: both;}
+            .BVSURadioLabelContainerLineVerticalTop {padding-top: 15px;}
+        .BVSURadioRatingItemContainerLineVerticalTop {background: url(radio_vertical_top.gif) no-repeat top center; padding-top: 15px;} /* Don't lessify for now - this is a rarely / never used feature, as far as we can tell. */
+        .BVSURadioRatingItemContainerLineVerticalTop label {padding-top: 15px;}
+        .BVSURadioRatingItemContainerLineVerticalBottom {background: url(radio_vertical_bottom.gif) no-repeat bottom center; padding-bottom: 15px;}  /* Don't lessify for now - this is a rarely / never used feature, as far as we can tell. */
+        .BVSURadioRatingItemContainerLineVertical {background: url(radio_vertical_background.gif) repeat-y center;} /* Don't lessify for now - this is a rarely / never used feature, as far as we can tell. */
+
+        /* Photo Upload (_PH) */
+        .BVSU_PH {}
+
+        .BVSU_PHPhotos {clear: both;}
+            .BVSUFieldContainerPhotoInput {width: 400px;}
+                .BVSUFieldLabelPhotoInput {.less_text_labelLow;}
+
+            .BVSUPhotoUploadContainer {.less_text_meta; clear: both;}
+                .BVSUFieldContainerPhotoUploaders {margin-bottom: 0; width: 400px;}
+
+            .BVSUPhotoUploadRow {clear: both; zoom: 1;}
+            .BVSUPhotoUploadRowSeparator {clear: both;}
+
+            .BVSUPhotoUploadContainerUploadedImage {margin: 10px 20px 0 0; overflow: hidden; position: relative; zoom: 1;}
+                .BVSUPhotoUploadContainerImageOptions {position: relative;}
+
+            .BVSUPhotoUploadContainer .BVSUFieldRadio {vertical-align: top; display: none;}
+            .BVSUPhotoUploadContainerUploadedImage .BVSUFieldContainer label {margin: 0; float: left;}
+
+            .BVSUUploadedImageThumbnail {.less_box_borderLight; .less_box_borderLarge; .less_box_opacity70; display: block; float: left; margin-right: 10px; width: 50px; height: 50px; overflow: hidden;}
+            .BVSUUploadedImageThumbnail img {.less_box_borderNo; width: 100px; margin-left: -25px; -ms-interpolation-mode: bicubic; zoom: 1;}
+
+            .BVSUFieldInputPhotoUploadCaption {width: 70%; margin-left: 70px; display: block;}
+            .BVSUFieldInputPhotoUploadCaption {.less_box_textInputLow; .less_text_textInputLow;}
+            .BVSUFieldInputPhotoUploadCaption:focus {.less_box_textInputLowFocus; .less_text_textInputLowFocus;}
+
+            .BVSUPhotoButtonRemove {position: absolute; left: 70px; top: 35px;}
+            .BVSUPhotoButtonRemove a {.less_box_opacity70; .less_text_iconClear;}
+                .BVSUPhotoButtonRemove a:hover, .BVSUPhotoButtonRemove a:focus, .BVSUPhotoButtonRemove a:active {.less_box_opacity100;}
+            .BVSUPhotoButtonRemove a {.less_text_linkAction;}
+                .BVSUPhotoButtonRemove a:visited {.less_text_linkActionVisited;}
+                .BVSUPhotoButtonRemove a:hover {.less_text_linkActionHover;}
+                .BVSUPhotoButtonRemove a:focus {.less_text_linkActionFocus;}
+                .BVSUPhotoButtonRemove a:active {.less_text_linkActionActive;}
+
+            .BVSUPhotoUploadContainerMessage {.less_text_helper;}
+                .BVSUPhotoUploadContainerMessagePleaseWait {position: relative; padding: 10px 0; margin-bottom: 10px;}
+                    .BVSUPhotoUploadContainerMessagePleaseWait .BVSUPhotoUploadThumbnail {position: absolute; top: 5px; left: 5px; width: 30px;}
+                    .BVSUPhotoUploadContainerMessagePleaseWait div {display: inline;}
+                        .BVSUPhotoUploadContainerMessagePleaseWaitImagePrefix {padding-left: 50px;}
+                        .BVSUPhotoUploadContainerMessagePleaseWaitImageSuffix {}
+                        .BVSUPhotoUploadContainerMessageSameField {display: none;}
+                        .BVSUPhotoUploadContainerMessageSecondImage {display: none;}
+                        .BVSUPhotoUploadContainerMessageMoreImages {display: none;}
+
+                .BVSUFormPhotoUploadErrorList {.less_box_reset; .less_text_error; width: 400px; clear: both; padding-top: 10px;}
+                .BVSUFormPhotoUploadErrorList span {padding: 10px 0;}
+                .BVSUFieldContainerPhotoInput .BVSUError {}
+                .BVSUPhotoUploadMaximumImagesMessage {.less_box_alert; padding: 10px; margin-bottom: 10px; clear: both;}
+
+
+
+
+    .BVSU_PHAvatars {margin-left: 220px; width: 520px;}
+        .BVSU_PHInsideAvatars {overflow: hidden; zoom: 1;}
+            .BVSU_PHAvatarContainer {float: left; margin: 5px 5px 0 0; width: 125px;}
+            .BVSU_PHAvatarContainer.BVSUSelected {.less_text_strong;}
+                .BVSU_PHInsidePhotoAvatarContainer {padding: 5px;}
+                    .BVSU_PHAvatarContainer .BVSUFieldRadio {vertical-align: top; display: none;}
+                    .BVSU_PHAvatarContainer label {cursor: pointer;}
+                        .BVSU_PHAvatarContainer label img {vertical-align: middle; margin-right: 5px;} /* avatar thumbnail */
+                        .BVSU_PHAvatarContainer label .BVSU_PHAvatarLabel {}
+    .BVSU_PHHiddenAvatar {display: none;} /* this avatar is present solely for Javascript and should always be hidden */
+
+/* Video Upload (_VI) */
+.BVSU_VI {}
+    .BVSUFieldHelperVideoInput {margin-left: 0;}
+
+/*=== THANK YOU PAGE MODULES ===*/
+/* @group thankYouPageModules */
+
+    /*--- EDIT PROFILE MODULE ---*/
+    /* @group editProfileModule */
+        /* Edit Profile Callout (on Thank You Page) */
+        .BVSUEditProfile {margin: 10px 0; clear: both; zoom: 1;}
+            .BVSUEditProfileHeader {.less_text_labelHigh; padding: 10px 0;}
+            .BVSUEditProfileSubheader {.less_box_bodyWidget; .less_box_borderNoBottom; padding: 10px 10px 0;}
+        .BVSUEditProfileLink {.less_box_reset; .less_box_bodyWidget; .less_box_borderNoTop; padding: 10px; zoom: 1;}
+        .BVSUEditProfileLink:after {.less_box_clearFix;}
+            .BVSUEditProfile .BVSUEditProfileLink a {float: left; zoom: 1;}
+    /* @end */
+    /*--- END EDIT PROFILE MODULE ---*/
+
+    /*--- CONTENT REQUEST MODULE ---*/
+    /* @group contentRequestModule */
+    .BVCW {.less_box_widget; clear: both; padding: 10px 0 30px; overflow: hidden;}
+        .BVCW .BVHeader {padding: 10px 0;}
+            .BVCW .BVHeader .BVTitle {.less_text_labelHigh;}
+            .BVCWProgressList ul {.less_box_meta; padding: 10px; margin: 5px 0 0; display: block; width: 100%;}
+            .BVCWProgressList li {.less_text_iconRight; display: block; list-style: none; margin-right: 10px; padding-right: 10px; white-space: nowrap;}
+            .BVCWProgressExpanded .BVCWProgressListUpImage, .BVCWProgressExpanded .BVCWProgressList {display: inline !important;}
+            .BVCWProgressExpanded .BVCWProgressListDownImage {display: none !important;}
+            .BVCWProgressLink {.less_text_link; cursor: pointer; display: inline;}
+            .BVCWProgressLink:hover {.less_text_link; .less_text_linkHover; display: inline;}
+            .BVCWProgressListUpImage, .BVCWProgressList {display: none !important;}
+        .BVCW .BVBody {}
+            .BVCW .BVItems {}
+                .BVCW .BVCWItem {margin: 0; padding: 0 0 20px;}
+                .BVCW .BVCWItemFirst {padding-top: 0;}
+                .BVCW .BVCWItemLast {}
+                .BVCW .BVCWItemEven {}
+                .BVCW .BVCWItemOdd {}
+                    .BVCW .BVSMBody {.less_box_bodyWidget; .less_box_borderNoBottom; padding: 10px 10px 0;}
+                        .BVCW .BVSMSubject {padding-bottom: 1px; display: block; zoom: 1;}
+                        .BVCW .BVSMSubject:after {.less_box_clearFix;}
+                            .BVCW .BVSMSubjectImage {float: left; width: 50px; height: 50px; overflow: hidden; margin-right: 10px; margin-bottom: 10px; display: block;}
+                            .BVCW .BVSMSubjectRating, .BVCW .BVSMSubjectName, .BVCW .BVSMSubjectText {margin-left: 60px;}
+                                .BVCW .BVSMSubjectImage a {}
+                                .BVCW .BVSMSubjectImage a:hover {}
+                                    .BVCW .BVSMSubjectImage img {width: 100px; margin-left: -25px; -ms-interpolation-mode: bicubic; zoom: 1;}
+                            .BVCW .BVSMSubjectRating {margin-bottom: 5px;}
+                                .BVCW .BVSMSubjectRating img {vertical-align: middle;}
+                                .BVCW .BVSMSubjectRating .BVReviewCountSpan {.less_text_helper;}
+                            .BVCW .BVSMSubjectName {.less_text_titleItem; margin-bottom: 5px;}
+                            .BVCW .BVSMSubjectText {margin-bottom: 10px;}
+                    .BVCW .BVSMFooter {.less_box_reset; .less_box_bodyWidget; .less_box_borderNoTop; padding: 10px 10px 10px 70px; clear: both; zoom: 1;}
+                    .BVCW .BVSMFooter:after {.less_box_clearFix;}
+                        .BVCW .BVSMFooter a {/* See top for button styles */}
+        .BVCW .BVCWNav {.less_box_reset; padding: 0 0 10px; zoom: 1; position: relative; overflow: hidden; float: left; width: 37%;}
+            .BVCW .BVRRPager, .BVCW .BVQAPager, .BVCW .BVSYPager, .BVCW .BVSUPager, .BVCW .BVPager {.less_text_size4; background: transparent none; position: static; padding: 0; margin: 0; zoom: 1;}
+                .BVCW .BVRRSimplePager .BVRRSimplePagerColumn, .BVCW .BVQASimplePager .BVQASimplePagerColumn, .BVCW .BVSYSimplePager .BVSYSimplePagerColumn, .BVCW .BVSUSimplePager .BVSUSimplePagerColumn, .BVCW .BVSimplePager .BVSimplePagerColumn {position: static; float: left; margin: 0; padding: 0;}
+                .BVCW .BVRRSimplePager .BVRRSimplePagerColumn a, .BVCW .BVQASimplePager .BVQASimplePagerColumn a, .BVCW .BVSYSimplePager .BVSYSimplePagerColumn a, .BVCW .BVSUSimplePager .BVSUSimplePagerColumn a, .BVCW .BVSimplePager .BVSimplePagerColumn a {margin-right: 10px; zoom: 1;}
+                .BVCW .BVRRSimplePager .BVRRSimplePagerColumn a, .BVCW .BVQASimplePager .BVQASimplePagerColumn a, .BVCW .BVSYSimplePager .BVSYSimplePagerColumn a, .BVCW .BVSUSimplePager .BVSUSimplePagerColumn a, .BVCW .BVSimplePager .BVSimplePagerColumn a {/* See top for button styles */ zoom: 1;}
+                .BVCW .BVRRSimplePager .BVRRCurrentPage, .BVCW .BVQASimplePager .BVQACurrentPage, .BVCW .BVSYSimplePager .BVSYCurrentPage, .BVCW .BVSUSimplePager .BVSUCurrentPage, .BVCW .BVSimplePager .BVCurrentPage {.less_text_titleHelper; .less_text_size4; float: right; zoom: 1;} /* This has to go last, since it shares a class with the two previous rules. */
+        .BVCW .BVCWFooter {padding: 0; float: right; clear: none; text-align: right; width: 63%;}
+            .BVCW .BVCWPickProduct {.less_text_size4;}
+    /* @END */
+    /*--- END CONTENT REQUEST MODULE ---*/
+
+/* @end */
+/*=== END THANK YOU PAGE MODULES ===*/
+
+/* @group CommentSubmission */
+
+/* Comment submission */
+.BVSU_COStep {width: 800px; padding: 20px;}
+    .BVSU_COStep .BVSU_SUProduct {.less_text_meta; .less_text_size4; float: left; width: 200px; text-align: center;}
+    .BVSU_COStep .BVSU_SUContent {margin-left: 220px;}
+        .BVSU_COStep .BVSU_SUContent .BVSU_SUTitle {.less_text_titleItem; .less_text_size3; margin-bottom: 10px;}
+                .BVSU_COStep .BVSU_SUContent .BVSU_SUUserNicknamePrefix {.less_text_emphasis;}
+        .BVSU_COStep .BVSU_SUContent .BVSU_SUTextShort {margin: 10px 0;}
+        .BVSU_COStep .BVSU_SUContent .BVSU_SUTextLong {margin: 10px 0;}
+          .BVSU_COStep .BVSU_SUContent .BVSU_SUTextShortParagraph {margin-top: 10px;}
+            .BVSU_COStep .BVSU_SUContent .BVSU_SUTextLongParagraph {margin-top: 10px;}
+            .BVSU_COStep .BVSU_SUContent .BVSU_SUTextShortParagraph .BVDI_AbbreviatedLink {white-space: nowrap;}
+    .BVSU_COStep .BVSUError {}
+    .BVSU_COStep .BVSUFieldContainer {margin-bottom: 10px;}
+        .BVSU_COStep .BVSUFieldContainer label {}
+
+        .BVSU_COStep .BVSUModuleActions {display: block; float: right;}
+        .BVSU_COStep .BVSUTipBox {display: none;}
+
+        .BVSU_COStep .BVSUFieldText {width: 400px;}
+        .BVSU_COStep .BVSUFieldContainer textarea {width: 400px;}
+        .BVSU_COStep .BVSUFieldText {.less_box_textInputLow; .less_text_textInputLow;}
+        .BVSU_COStep .BVSUFieldText:focus {.less_box_textInputLowFocus; .less_text_textInputLowFocus;}
+        .BVSU_COStep input.BVSUError, .BVSU_COStep textarea.BVSUError {.less_box_textInputLowError; .less_text_textInputLowError;}
+
+            #BVSUFieldLabelCommentTextID {.less_text_labelHigh;}
+            textarea#BVSUFieldTextAreaCommentTextID {.less_box_textInputHigh; .less_text_textInputHigh;}
+            textarea#BVSUFieldTextAreaCommentTextID:focus {.less_box_textInputHighFocus; .less_text_textInputHighFocus;}
+            #BVSUFieldTextAreaCommentTextID.BVSUError {.less_box_textInputHighError; .less_text_textInputHighError;}
+
+
+        /* photo and video combined */
+        .BVSUModulePhotoUpload {.less_box_reset; margin-bottom: 0;}
+        .BVSUHeaderModuleVideoUpload {display: none;}
+        .BVSUVideoUploadContentBody .BVSUFieldHelperVideoInput {margin-left: 0;}
+
+        .BVSU_COStep .BVSUFieldInputPhotoUploadCaption {width: 70%;}
+
+        .BVSU_COStep .BVSUFieldLabelUserNickname {.less_text_labelHigh;}
+        .BVSU_COStep #BVSUFieldTextCommentUserNicknameID {.less_box_textInputHigh; .less_text_textInputHigh;}
+        .BVSU_COStep #BVSUFieldTextCommentUserNicknameID:focus {.less_box_textInputHighFocus; .less_text_textInputHighFocus;}
+        .BVSU_COStep #BVSUFieldTextCommentUserNicknameID.BVSUError {.less_box_textInputHighError; .less_text_textInputHighError;}
+
+        .BVSU_COStep .BVSUFieldContainerEmailAlert label {display: inline;}
+        .BVSU_COStep .BVSUFieldContainerEmailAlert .BVSUFieldLabel {.less_text_labelLow; .less_text_normal; display: inline; float: none; width: auto;}
+
+            .BVSU_COStep .BVSUFieldCheckboxAgreedToTermsAndConditions {width: auto;}
+            .BVSU_COStep .BVSUFieldContainerAgreedToTermsAndConditions label {display: inline;}
+            .BVSU_COStep .BVSUFieldContainerAgreedToTermsAndConditions .BVSUFieldLabel {.less_text_labelLow; .less_text_size5; display: inline; float: none; width: auto;}
+            .BVSU_COStep .BVSUFieldContainerAgreedToTermsAndConditions a {.less_text_lowercase;}
+    .BVSU_COStep .BVSUFieldContainerButtons {margin-bottom: 10px;}
+        .BVSU_COStep .BVSUPostingDisclaimer {margin-bottom: 10px;}
+        .BVSU_COStep .BVSUFieldContainerUserEmail {.less_text_helper; margin-bottom: 10px;}
+        .BVSU_COStep .BVSUSubmissionFooterLinks {}
+
+    .BVSU_COStepEdit .BVSUInsideBodyModuleMain {padding: 10px 0;}
+        .BVSU_COStepEdit .BVSU_SURatingOverall {margin-bottom: 10px;}
+            .BVSU_COStepEdit .BVSU_SURatingNormalLabel {display:none;}
+        .BVSU_COStepEdit .BVSU_SURatingNormalImage {display:inline; .less_text_size3;}
+            .BVSU_COStepEdit .BVSU_SURatingNormalOutOf {.less_text_helper; line-height: 1.2em; display: none;}
+            .BVSU_COStepEdit .BVSU_SURatingNormalOutOf .BVSU_SUNumber {.less_text_strong;}
+            .BVSU_COStepEdit .BVSU_SURatingNormalOutOf .BVSU_SUSeparatorText {margin: 0 0 0 5px;}
+        .BVSU_COStepEdit .BVSU_SUUserNicknameContainer {display:inline;}
+        .BVSU_COStepEdit .BVSU_SUUserLocationContainer {display: inline;}
+
+        .BVSU_COStepEdit .BVSUCommentFormVideoUploadErrorList {.less_box_borderNo; .less_box_reset; /* This is important to revert general error background / border styles, since the error div is ALWAYS rendered */}
+    .BVSU_COStepEdit .BVSUInsideBodyModuleProductReferences {padding: 10px 0;}
+        .BVSU_COStepEdit .BVSU_PL {margin: 0;}
+            .BVSU_COStepEdit .BVSU_PLHeader {.less_box_reset; padding: 0;}
+                .BVSU_COStepEdit .BVSU_PLHeader .BVSU_PLTitle {.less_text_labelLow;}
+    .BVSU_COStepEdit .BVSUInsideModuleButtons {padding: 20px 0;}
+        .BVSU_COStepEdit .BVSUInsideBodyModuleButtons {overflow: hidden; width: 100%;}
+
+    .BVSU_COStepPreview .BVSUSubtitle {display: none;}
+    .BVSU_COStepPreview .BVSUInsideBodyModule {padding: 10px 0;}
+        .BVSU_COStepPreview .BVSUHeaderModuleButtons {display: none;}
+    .BVSU_COStepPreview .BVSUBodySummary {.less_box_reset; padding: 0; margin: 0;}
+        .BVSU_COStepPreview .BVDI_COContent {}
+    .BVSU_COStepPreview .BVSUFormLegendRequired {display: none;}
+    .BVSU_COStepPreview .BVSUFieldContainerEmailAlert {display: none;}
+
+    .BVSU_COStepThankYou .BVSUHeaderStep {margin-bottom: 10px;}
+    .BVSU_COStepThankYou .BVSUInsideBodyModule {padding: 0 0 10px;}
+        .BVSU_COStepThankYou .BVSUHeaderModuleButtons {display: none;}
+
+/* @end */
+
+/* Generic Tag Submission */
+/* @group genericTagSubmission */
+.BVSUTagSection {margin: 20px 0 30px; overflow: hidden;} /* width may be adjusted for multiple columns */
+    .BVSUTagSectionHeaderContainer {}
+        .BVSUTagSectionToggle {display: none;}
+        .BVSUTagSectionHeader {.less_text_labelLow; .less_text_size5;}
+        .BVSUTagsHelper {.less_text_labelLow; .less_text_strong;}
+    .BVSUTagsBlock {}
+        .BVSUTagColumn {}
+            .BVSUTagRow {float: left; margin-right: 15px; padding: 6px 0;}
+                .BVSUTagRow input {}
+                .BVSUTagRow .BVSUTagCheckbox {margin-right: 2px;}
+                .BVSUTagRow input[type="text"] {.less_text_textInputLow; width: 140px; padding: 2px !important;}
+                .BVSUTagRow .BVSUTagTextBox {width: 140px;}
+                .BVSUTagRow .BVSUTagTextBox {.less_box_textInputLow; .less_text_textInputLow;}
+                .BVSUTagRow .BVSUTagTextBox:focus {.less_box_textInputLowFocus; .less_text_textInputLowFocus;}
+                .BVSUErrorTagRow input[type="text"].BVSUError {.less_box_textInputLowError; .less_text_textInputLowError;}
+                .BVSUSelectedTag {.less_text_strong;}
+        .BVSUClientTagColumn {float: left; width: 100%;} /* width must be adjusted to match numTagColumns */
+        .BVSUUserTagColumn {}
+        .BVSUAfterTagColumnsSpacer {clear: both;}
+.BVSUError .BVSUTagSectionHeaderContainer {.less_box_alertBad;}
+    /* The following styles alter the display when BVSUTagSection is expanded */
+    .BVSUTagsExpandedElement {}
+        .BVSUTagsExpandedElement .BVSUTagSectionToggle {}
+        .BVSUTagsExpandedElement .BVSUTagsBlock {}
+/* @end */
+
+
+/* Hosted Video */
+.BVVIFormVideoUploadErrorList {.less_text_normal; margin: 10px 0;}
+.BVVIVideoUploadError {.less_text_error; margin-top: 5px; margin-bottom: 9px; clear: both;}
+.BVVIVideoUploadMessagePleaseWaitImagePrefix {.less_text_helper; padding-bottom: 5px;}
+.BVVIVideoUploadMessagePleaseWaitImageSuffix {.less_text_helper; padding-top: 5px;}
+.BVVIVideoUploadCancel, .BVVIVideoUploadRemove {.less_text_iconClear; .less_box_opacity70; margin-top: 10px;}
+    .BVVIVideoUploadCancel:hover, .BVVIVideoUploadRemove:hover {.less_box_opacity100;}
+.BVVIInternalVideoPreviewInside {padding: 20px;}
+.BVVIFormVideoUploadErrorList {.less_text_error; .less_box_reset; border: 0 !important; margin-top: 5px; margin-bottom: 9px; clear: both;}
+    .BVVIVideoUploadCancel:hover, .BVVIVideoUploadRemove:hover {.less_box_opacity70; zoom: 1;}
+
+.BVSUHidden, button.BVSUHidden {display: none;}
+
+#BVSubmissionContainer label {display: inline;}
+
+/* Hide the submission frame while it is loading */
+.BVSubmissionLoading {background: url(bv_sub_loading_60.gif) no-repeat; min-width: 60px; min-height: 60px}
+    .BVSubmissionLoading iframe.BVSubmissionFrame {visibility: hidden;}
+
+/* Search Lightbox Styles (BVSU_Search #BVLB) */
+.BVSU_SearchLightbox#BVLBWindow {width: 630px; margin-left: -315px;}
+    .BVSU_SearchLightbox#BVLBContainer {width: 600px;}
+        .BVProductPickerFrame {.less_box_ugc; width: 600px;}
+
+/* Hosted Submission Lightbox Styles (BVSubmissionLightbox #BVLB) */
+/* Because IE 6 only processes the first .class#ID style for eache unique ID, and the ID is set by lightbox.js, we need a unique class-only descriptor for the submission lightbox window */
+.BVSubmissionLightboxWindow {display: block; width: 860px; margin-top: 20px; margin-left: -430px; padding: 20px; background-color: @less_box_colorBase;}
+    .BVSubmissionLightbox .BVLinkClose, .BVSubmissionLightbox .BVLinkClose:visited {.less_text_iconClose; .less_text_iconOnly; float: right; position: relative; z-index: 300; zoom: 1;}
+        .BVSubmissionLightbox .BVLinkClose:hover, .BVSubmissionLightbox .BVLinkClose:focus, .BVSubmissionLightbox .BVLinkClose:active {}
+
+/* Lightbox Styles (BVLB) */
+.BVLBOpening {display: none;}
+#BVLBHideSelect {.less_box_ugc; .less_box_borderNo; .less_box_opacity0; position: fixed; z-index: 2000; top: 0; left: 0; height: 100%; width: 100%;}
+#BVLBOverlay {position: fixed; z-index: 2001; top: 0; left: 0; height: 100%; width: 100%;}
+.BVLBOverlayMacFFBGHack {background: url(macFFBackgroundHack.png) repeat;}
+.BVLBOverlayBG {.less_box_opacity70; background-color: @less_text_colorHigh;}
+#BVLBLoading {position: fixed; display: none; height: 13px; width: 208px; z-index: 2003; top: 50%; left: 50%; margin: -6px 0 0 -104px;}
+#BVLBWindow {position: absolute; z-index: 2002; display: none; left: 50%;}
+#BVLBContainer {clear: both; overflow: hidden;}
+
+/* Lightbox Styles for nested Search lightbox, essentially the same except the overlay isn't dark and there is a drop shadow */
+.BVSU_SearchLightbox#BVNestedLBWindow {width: 600px; margin-left: -300px; .less_box_shadow;}
+    .BVSU_SearchLightbox#BVNestedLBContainer {width: 600px;}
+        .BVProductPickerFrame {.less_box_ugc; width: 600px;}
+.BVNestedLBOpening {display: none;}
+#BVNestedLBHideSelect {.less_box_ugc; .less_box_borderNo; .less_box_opacity0; position: fixed; z-index: 2010; top: 0; left: 0; height: 100%; width: 100%;}
+#BVNestedLBOverlay {position: fixed; z-index: 2011; top: 0; left: 0; height: 100%; width: 100%;}
+.BVNestedLBOverlayMacFFBGHack {background: url(macFFBackgroundHack.png) repeat;}
+.BVNestedLBOverlayBG {.less_box_opacity0; background-color: @less_text_colorHigh;}
+#BVNestedLBLoading {position: fixed; display: none; height: 13px; width: 208px; z-index: 2013; top: 50%; left: 50%; margin: -6px 0 0 -104px;}
+#BVNestedLBWindow {position: absolute; z-index: 2012; display: none; left: 50%;}
+#BVNestedLBContainer {clear: both; overflow: hidden; background-color: @less_box_colorBase;}
+
+/*
+  Lightbox styles for Hosted Authentication. These styles are pulled out separately so that the popin can
+  easily be styled as a lightbox or as just a popin with no overlay
+*/
+.BVHostedAuthenticationLightboxContainer {display: block; margin-top: 20px; margin-left: -410px;}
+.BVHostedAuthenticationLBOpening {display: none;}
+#BVHostedAuthenticationLBHideSelect {.less_box_ugc; .less_box_borderNo; .less_box_opacity0; position: fixed; z-index: 2000; top: 0; left: 0; height: 100%; width: 100%;}
+#BVHostedAuthenticationLBOverlay {position: fixed; z-index: 2001; top: 0; left: 0; height: 100%; width: 100%;}
+.BVHostedAuthenticationLBOverlayMacFFBGHack {background: url(macFFBackgroundHack.png) repeat;}
+.BVHostedAuthenticationLBOverlayBG {.less_box_opacity70; background-color: @less_text_colorHigh;}
+#BVHostedAuthenticationLBLoading {position: fixed; display: none; height: 13px; width: 208px; z-index: 2003; top: 50%; left: 50%; margin: -6px 0 0 -104px;}
+#BVHostedAuthenticationLBWindow {position: absolute; z-index: 2002; display: none; left: 50%;}
+#BVHostedAuthenticationLBContainer {clear: both; zoom: 1; position: relative;}
+* html #BVHostedAuthenticationLBHideSelect, * html #BVHostedAuthenticationLBOverlay {position: absolute; height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');} /* HACK: IE6 : [dev] */
+
+
+* html #BVLBHideSelect, * html #BVLBOverlay {position: absolute; height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');} /* HACK: IE6 : [dev] */
+* html #BVLBLoading {position: absolute; top: 50%; margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');} /* HACK: IE6 : [dev] */
+
+/* URL Environment Status */
+#BVUESContent {.less_text_body; text-align: center; .less_box_borderDark; background-color: @less_box_colorPrimaryFadest; position: fixed; top: 5px; right: 5px; padding: 5px; max-width: 150px;}
+* html #BVUESContent {position: absolute; width: auto;}
+    #BVUESHeader {line-height: 32px; font-size: 18px; font-weight: bold;}
+    #BVUESHeader:after {.less_box_clearFix;}
+        #BVUESHeaderIcon {background: url(alertLarge.png) no-repeat; height: 32px; width: 32px; float: left;}
+        * html #BVUESHeaderIcon {.less_tool_pngfixBackground;}
+    #BVUESDetailsLink {.less_text_iconInfo; .less_text_iconOnly; display: inline-block; margin-left: 2px;}
+    #BVUESDetails {.less_box_borderDark; background-color: @less_box_colorPrimaryFader; margin-top: 5px; padding: 5px;}
+        .BVUESEnvironmentLabel {font-weight: bold;}

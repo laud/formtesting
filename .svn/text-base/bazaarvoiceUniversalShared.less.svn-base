@@ -1,0 +1,1119 @@
+/* =BAZAARVOICE UNIVERSAL SHARED THEME 1
+    ------------------------------------------------------
+    VERSION #89699. SEE TICKET BVC-89699
+    UPDATED 05/04/2011 by eholladay */
+
+
+
+/*  GLOBAL FONTS AND LINKS
+    BUTTON
+    GLOBAL DISPLAY ELEMENTS
+    GLOBAL FORM ELEMENTS
+    STATIC GUIDELINES
+    POP-IN GUIDELINES
+    OVERALL RATING JQUERY CSS
+    SECONDARY RATING JQUERY CSS
+    SLIDERS RATING JQUERY CSS
+    SUBMISSION FORM STRUCTURE
+    PRODUCT DESCRIPTION
+    RATINGS SECTION
+    REVIEW SUBMISSION
+    TAGS
+    ADDTL FIELDS/FIELDPICKER
+    PHOTO
+    VIDEO
+    SOCIAL RECOMMENDATIONS/PRODUCT LINKING
+    USER BASIC INFORMATION
+    SOCIAL/FB AND EMAIL
+    NET PROMOTER
+    FOOTER
+    PREVIEW PAGE
+    THANK YOU PAGE
+    DUPLICATE SUBMISSION
+    CANCEL PAGE
+    PARENT (QUOTED) CONTENT
+    SOCIAL BOOKMARKING
+    A&A SPECIFIC
+    STORY SPECIFIC
+    PROFILE SPECIFIC
+    AVATAR
+    QUESTION FOLLOWING
+    SMART QUESTION ROUTING
+    PRODUCT FOLLOWING/CONTENT SUBSCRIPTIONS
+    GOOGLE TRANSLATE
+    LOCALE SWITCH DROPDOWN
+    LOCALE ATTRIBUTION
+    MULTI-VIEW SUBMISSION
+    TERMS & CONDITIONS MODULE
+    LAST SUBMITTED
+    LANGUAGE DETECTION
+    STATE-BASED CLASSES
+*/
+
+/* =GLOBAL FONTS AND LINKS
+    ------------------------------------------------------ */
+    .BV {.less_text_body;}
+    .BV p, .BV ul {margin-top: 5px; margin-bottom: 5px;}
+    .BV ul {padding-left: 0; margin-left: 1.5em;}
+    .BV img, .BVLink img {.less_box_borderNo;}
+
+    /* link styles */
+    .BVBody a {.less_text_link;}
+    .BVBody a:visited {.less_text_linkVisited;}
+    .BVBody a:hover {.less_text_linkHover;}
+    .BVBody a:focus {.less_text_linkFocus;}
+    .BVBody a:active {.less_text_linkActive;}
+
+    a.BVLink {.less_text_link;}
+    a.BVLink:visited {.less_text_linkVisited;}
+    a.BVLink:hover {.less_text_linkHover;}
+    a.BVLink:focus {.less_text_linkFocus;}
+    a.BVLink:active {.less_text_linkActive;}
+
+
+
+/* =BUTTONS
+    ------------------------------------------------------
+    HTML/CSS button styles: comment out to use text links or images such as buttonSubmit/buttonPreview (config change) instead.
+    Change me to match the client sites! Be sure to match these styles in the any other relevant CSS files. */
+
+    /* general button styles (button) */
+    .BVButton {margin: 0 10px 0 0; padding: 8px 20px; border: none; vertical-align: top; display: inline-block; *display: inline; cursor: pointer; *padding: 6px 16px;} /* HACK: IE6 IE7 [dbeberniss] Reduce padding on all sides because these browsers all additional padding to buttons */
+    .BVButton {.less_box_btnLow; .less_text_btnLow; color: @less_text_colorReverse;}
+        .BVButton:hover {.less_box_btnLowHover; .less_text_btnLowHover;}
+    .BVFieldButton {}
+    .BVFileSubmit {}
+    .BVImageButton button {.less_box_borderNo; .less_box_reset;}
+    .BVStateDisabled .BVButton {display: none;}
+
+    /* terms & conditions continue button (button) */
+    .BVPageTermsAndConditions .BVFieldEdit .BVButton {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVPageTermsAndConditions .BVFieldEdit .BVButton:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* preview button (button) */
+    .BVFieldPreview .BVButton {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVFieldPreview .BVButton:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* submit button (button) */
+    .BVFieldSubmit .BVButton {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVFieldSubmit .BVButton:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* translate - translate button in display (text link) */
+    .BVLinkTranslate a, .BVLinkTranslate a:visited {padding: 8px 20px; display: inline-block; *display: inline;}
+    .BVLinkTranslate a, .BVLinkTranslate a:visited {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVLinkTranslate a:hover, .BVLinkTranslate a:focus, .BVLinkTranslate a:active {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* translate - show original button in display (text link) */
+    .BVLinkShowOriginal a, .BVLinkShowOriginal a:visited {padding: 8px 20px; display: inline-block; *display: inline;}
+    .BVLinkShowOriginal a, .BVLinkShowOriginal a:visited {.less_box_btnLow; .less_text_btnLow;}
+    .BVLinkShowOriginal a:hover, .BVLinkShowOriginal a:focus, .BVLinkShowOriginal a:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    /* edit profile button on thank you page (text link) */
+    a.BVLinkEditProfile, a.BVLinkEditProfile:visited {padding: 8px 20px;}
+    a.BVLinkEditProfile, a.BVLinkEditProfile:visited {.less_box_btnHigh; .less_text_btnHigh;}
+    a.BVLinkEditProfile:hover, a.BVLinkEditProfile:focus, a.BVLinkEditProfile:active {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* return to reviews (text link) */
+    a.BVLinkReturnToContent, a.BVLinkReturnToContent:visited {padding: 8px 20px; display: block;}
+    a.BVLinkReturnToContent, a.BVLinkReturnToContent:visited {.less_box_btnLow; .less_text_btnLow;}
+    a.BVLinkReturnToContent:hover, a.BVLinkReturnToContent:focus, a.BVLinkReturnToContent:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    /* write a review (text link) */
+    a.BVLinkWriteReview, a.BVLinkWriteReview:visited {padding: 8px 20px;}
+    a.BVLinkWriteReview, a.BVLinkWriteReview:visited {.less_box_btnHigh; .less_text_btnHigh;}
+    a.BVLinkWriteReview:hover, a.BVLinkWriteReview:focus, a.BVLinkWriteReview:active {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* Google Translate - translate link as button */
+    .BVSectionGoogleTranslate .BVLinkTranslate a, .BVSectionGoogleTranslate .BVLinkTranslate a:visited {.less_box_btnHigh; .less_text_btnHigh;}
+        .BVSectionGoogleTranslate .BVLinkTranslate a:hover, .BVSectionGoogleTranslate .BVLinkTranslate a:focus, .BVSectionGoogleTranslate .BVLinkTranslate a:active {.less_box_btnHighHover; .less_text_btnHighHover;}
+    .BVSectionGoogleTranslate .BVLinkTranslate a, .BVSectionGoogleTranslate .BVLinkTranslate a:visited, .BVSectionGoogleTranslate .BVLinkTranslate a:hover, .BVSectionGoogleTranslate .BVLinkTranslate a:focus, .BVSectionGoogleTranslate .BVLinkTranslate a:active {.less_text_size5; padding: 2px 10px 4px; line-height: 1.5; height: 17px;}
+
+    /* Google Translate - show original link as button */
+    .BVSectionGoogleTranslate .BVLinkShowOriginal a, .BVSectionGoogleTranslate .BVLinkShowOriginal a:visited {.less_box_btnLow; .less_text_btnLow;}
+        .BVSectionGoogleTranslate .BVLinkShowOriginal a:hover, .BVSectionGoogleTranslate .BVLinkShowOriginal a:focus, .BVSectionGoogleTranslate .BVLinkShowOriginal a:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+    .BVSectionGoogleTranslate .BVLinkShowOriginal a, .BVSectionGoogleTranslate .BVLinkShowOriginal a:visited, .BVSectionGoogleTranslate .BVLinkShowOriginal a:hover, .BVSectionGoogleTranslate .BVLinkShowOriginal a:focus, .BVSectionGoogleTranslate .BVLinkTranslate a:active {.less_text_size5; padding: 2px 10px 4px; line-height: 1.5; height: 17px; display: inline-block; *display: inline;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; */
+    .BVSectionGoogleTranslate .BVItemSelected {background: @less_box_colorBase; cursor: default;}
+
+    /* Hosted Auth - signout link as button */
+    .BVFieldSignout a, .BVFieldSignout a:visited {.less_box_btnLow; .less_text_btnLow;}
+        .BVFieldSignout a:hover, .BVFieldSignout a:focus, .BVFieldSignout a:active {.less_box_btnLowHover; .less_text_btnLowHover;}
+    .BVFieldSignout a, .BVFieldSignout a:visited, .BVFieldSignout a:hover, .BVFieldSignout a:focus, .BVFieldSignout a:active {.less_text_size6; padding: 2px 5px; line-height: 1.5; display: inline-block; *display: inline;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; */
+
+
+
+/* =GLOBAL DISPLAY ELEMENTS
+    ------------------------------------------------------ */
+    /* Do not show "Hide" link to abbreviate text after having expanded it */
+    .BVTextLong {display: none;}
+    .BVTextLongSuffix {display: none;}
+    .BVMESubHeaderMessage {.less_text_helperForm; display: block;}
+    .BVStateInactive {display: none;}
+
+
+
+/* =GLOBAL FORM ELEMENTS
+    ------------------------------------------------------ */
+    /* input styles: textareas and text inputs */
+    .BVFieldText, .BVFieldTextArea {.less_box_rounded; .less_text_fontFamily; .less_box_textInputLow; .less_text_textInputLow; width: 400px; padding: 6px 3px;}
+    .BVFieldText:focus, .BVFieldTextArea:focus {.less_box_textInputLowFocus; .less_text_textInputLowFocus;}
+
+    .BVFieldRequired .BVFieldText, .BVFieldRequired .BVFieldTextArea {.less_box_textInputHigh; .less_text_textInputHigh;}
+    .BVFieldRequired .BVFieldText:focus, .BVFieldRequired .BVFieldTextArea:focus {.less_box_textInputHighFocus; .less_text_textInputHighFocus;}
+
+    .BVImportantField input, .BVImportantField input:focus {}
+
+    .BVInputWrapper {}
+
+    /* input styles: selects, checkboxes & radio buttons */
+    .BVFieldSelect {padding: 1px;}
+
+    .BVCheckboxField input[type="checkbox"] {vertical-align: middle; position: relative; bottom: 1px; margin: 0 2px 0 0;}
+    .BVFieldCheckbox {vertical-align: middle; position: relative; bottom: 1px; margin: 0 2px 0 0;}
+    .BVCheckboxField label {}
+    .BVCheckboxField .BVFieldLabel {.less_text_normal; .less_text_body; padding-bottom: 0; display: inline;}
+    .BVCheckboxField .BVRequiredFieldIndicator {display: none;}
+    .BVSelected {.less_text_strong;}
+
+    .BVFieldRadio {vertical-align: middle; position: relative; bottom: 1px; margin: 0 2px 0 0;}
+
+    /* messaging */
+    .BVMEHeader {.less_text_strong;}
+    .BVMEPageTitle {.less_text_titlePage; margin-bottom: 1em; display: block;}
+    .BVMEModuleHeader {.less_text_titleItem;}
+    .BVMEDocumentationHeader {.less_text_titleItem; display: block;}
+    .BVMEDisplayPrompt {.less_text_titleWidget; display: block; padding-bottom: 5px; margin-bottom: 14px;}
+    .BVMEContentHeaderSentencePrimary {.less_text_labelHigh; display: block; padding: 10px 0; margin-bottom: 0;} /* module header */
+    .BVMEContentHeaderSentence {display: block;} /* body sentence */
+    .BVMESubmissionDisclaimer {display: block; margin: 5px 0;}
+    .BVMELastSubmitted {.less_text_helperForm; display: block; padding-top: 5px;}
+
+    /* required indicator */
+    .BVMERequiredFieldIndicatorSectionHeader {float: right; padding: 0 10px; text-align: right; *margin-left: -100px; z-index: 100; position: relative;} /* HACK: IE6 IE7 [dbeberniss] This element comes before the headline below it in the DOM, but we want it to appear on the same line as the headline. Negative margin keeps it flush right with the edge of the headline in these browsers. */
+        .BVMERequiredFieldIndicatorSectionHeader .BVRequiredFieldIndicator, .BVMERequiredFieldIndicatorSectionHeader .BVRequiredFieldIndicatorLegend {.less_text_size4; .less_text_error;}
+    .BVRequiredFieldIndicator, .BVRequiredFieldIndicatorLegend {.less_text_error;}
+        .BVOptionalFieldIndicator {.less_text_helper; vertical-align: top; padding-left: 5px; display: none;}
+
+    /* character counter */
+    .BVTextCounter {.less_text_helperForm; clear: left; width: 300px; padding: 10px 0;}
+        /* minimum reached */
+        .BVTextCounter .BVStateComplete {.less_text_iconGood; padding: 3px 0 0 20px;}
+            .BVTextCounter .BVStateComplete img {display: none;}
+        /* maximum reached */
+        .BVTextCounter .BVStateOver {.less_text_iconBad; padding: 3px 0 0 20px;}
+            .BVTextCounter .BVStateOver img {display: none;}
+
+    /* form section headers */
+    .BVPageHeader {background: url(http://www.buckle.com/marketing/ratings_reviews/write_a_review.jpg) no-repeat scroll 0 0; margin-bottom: 20px; padding-top: 165px;}
+        .BVMEPageHeader {.less_text_titlePage; margin-bottom: 10px; display: block;}
+    .BVSectionHeader {background: none repeat scroll 0 0 #CCCCCC; height: 35px; line-height: 35px; margin-bottom: 10px; padding: 0 15px;}
+        .BVMESectionHeader {.less_text_titleSection; font-size: 16px; font-weight: bold; line-height: 35px;}
+
+    /* input labels */
+    .BVFieldLabel {.less_text_labelLow; display: block; padding-bottom: 5px;}
+    .BVFieldRequired .BVFieldLabel {.less_text_labelHigh;}
+    .BVFieldLabelSuffix {display: none;}
+
+    /* helper text */
+    .BVFieldTextHelper {color: @less_text_colorLow; .less_text_emphasis;}
+    .BVFieldRequired .BVFieldTextHelper, .BVImportantField .BVFieldTextHelper {color: @less_text_colorLow;}
+    .BVMEFieldHelper {.less_text_helperForm; display: block; padding-top: 5px;}
+    .BVFieldLegend {.less_text_strong; display: block;}
+
+    /* error and error messaging styles */
+    .BVErrors {.less_box_alertBad; padding: 10px; margin-bottom: 20px;}
+
+    .BVFieldError .BVFieldLabel, .BVFieldError .BVFieldText, .BVFieldError .BVFieldTextArea, .BVErrors .BVHeader, .BVErrors .BVMESectionHeader {.less_text_error;}
+    .BVFieldError .BVFieldText, .BVFieldError .BVFieldTextArea {.less_box_textInputLowError; .less_text_textInputLowError;}
+    .BVFieldRequired input.BVError, .BVFieldRequired textarea.BVError {.less_text_strong; .less_box_borderLarge;}
+
+    .BVMEErrorClientSide {display: none;}
+    .BVFieldErrorClientSide .BVFieldText {.less_box_textInputLowError; .less_text_textInputLowError;}
+    .BVFieldErrorClientSide .BVFieldTextArea {.less_box_textInputLowError; .less_text_textInputLowError;}
+    .BVFieldErrorClientSideRequiredField .BVMEErrorClientSideRequired {display: block;}
+
+    .BVError, .BVMEError {.less_text_error; padding-bottom: 5px;}
+    .BVMEError {display: block;}
+    .BVField .BVMEError {display: none;}
+
+
+
+/* =STATIC GUIDELINES
+    ------------------------------------------------------ */
+.BVMEStaticTip {.less_box_meta; .less_text_guidelines; padding: 16px 16px 6px; width: 240px; float: right; position: absolute; top: 45px; right: 0;}
+    .BVMEStaticTip .BVHeader {margin-bottom: 0;}
+    .BVMETipBoxHeader {.less_text_strong; .less_text_iconInfo; display: block; height: 20px; zoom: 1;}
+    .BVMEStaticTip ul, ul.BVMETipBoxTipsSub {padding-left: 15px; margin: 0;}
+    .BVMEStaticTip li {margin-bottom: 10px;}
+
+
+
+/* =POP-IN GUIDELINES
+    ------------------------------------------------------ */
+.BVMEPopinTip {position: absolute; right: 0; top: 37px;}
+    .BVMEPopinTip .BVMEPopinLink a {.less_text_iconInfo; .less_text_iconOnly; float: right; outline: none; cursor: pointer;}
+    .BVMEPopinTip .BVMEPopinLink a:hover {.less_box_opacity70;}
+    .BVMEPopinTip .BVMEPopinContent {.less_text_helper; background-color: @less_box_colorPrimaryFadest; width: 240px; padding: 16px;}
+    .BVMEPopinTip iframe, .BVMEPopinContent {position: absolute; top: 15px; right: 0; zoom: 1; z-index: 1000;}
+    .BVMEPopinTip .BVMETipBoxClose {.less_text_iconClose; .less_text_iconOnly; float: right; cursor: pointer;}
+    .BVMEPopinTip .BVMETipBoxClose:hover {.less_box_opacity70;}
+    .BVField .BVLinkGuidelinesPopup {display: block; width: 409px; text-align: right;}
+
+    .BVStateOpen .BVMEHelpfulTipsOpen {display: none;}
+    .BVStateClose .BVMEHelpfulTipsClose {display: none;}
+
+
+
+/* =OVERALL JQUERY RATING CSS
+    ------------------------------------------------------
+    jQuery.Rating Plugin v2.5 (with bazaarvoice patch) CSS - http://www.fyneworks.com/jquery/star-rating/
+    These styles came from the jQuery distribution. Override them below, but do not restructure this area so it can be compared with default. */
+    .BVField div.rating {cursor: pointer; margin: 2em; clear: both; display: block;}
+    .BVField div.rating:after {content: '.'; display: block; height: 20px; width: 0; clear: both; visibility: hidden;}
+    .BVField div.star a {zoom: 1; outline: none;}
+    .BVField div.cancel, .BVField div.star {float: left; width: 20px; height: 20px; text-indent: -9999em; cursor: pointer; display: block; background: transparent; overflow: hidden; zoom: 1;}
+    .BVField div.cancel, .BVField div.cancel a {background: url(ratingStars_cancel.gif) no-repeat 0 -20px;}
+    .BVField div.star, .BVField div.star a {background: url(ratingStars_star.gif) no-repeat 0 0;}
+    .BVField div.cancel a, .BVField div.star a {display: block; width: 20px; height: 20px; background-position: 0 0; outline-width: 0;}
+    .BVField div.star_on a {background-position:0 -40px;}
+    .BVField div.star_hover a, .BVField div.star_live a:hover {background-position: 0 -20px;}
+    /* Read Only CSS */
+    .BVField div.star_readonly a, .BVField div.star_readonly a:hover {cursor: default;}
+    /* Partial Star CSS */
+    .BVField div.star {background: transparent; overflow: hidden;}
+    /* END jQuery.Rating Plugin CSS */
+
+
+
+/* =SECONDARY JQUERY RATING CSS
+    ------------------------------------------------------
+    uncomment to use different graphics (ratingStars_secondary.gif) for secondary ratings */
+ .BVFieldRatingsGroup div.rating {cursor: pointer; margin: 2em; clear: both; display: block;}
+     .BVFieldRatingsGroup div.rating:after {content: '.'; display: block; height: 27px; width: 0; clear: both; visibility: hidden;}
+     .BVFieldRatingsGroup div.star a {zoom: 1;}
+     .BVFieldRatingsGroup div.cancel, .BVFieldRatingsGroup div.star {float: left; width: 28px; height: 7px; padding-top: 5px; text-indent: -999em; cursor: pointer; display: block; background: transparent; overflow: hidden; zoom: 1;}
+     .BVFieldRatingsGroup div.cancel, .BVFieldRatingsGroup div.cancel a {background: url(ratingStars_cancel.gif) no-repeat 0 -24px;}
+     .BVFieldRatingsGroup div.star, .BVFieldRatingsGroup div.star a {background: url(ratingStars_secondary.gif) no-repeat 0 0;}
+     .BVFieldRatingsGroup div.cancel a, .BVFieldRatingsGroup div.star a {display: block; width: 28px; height: 7px; background-position: 0 0;}
+     .BVFieldRatingsGroup div.star_on a {background-position: 0 -7px;}
+     .BVFieldRatingsGroup div.star_hover a, .BVFieldRatingsGroup div.star_live a:hover {background-position: 0 -14px;}
+     /* Read Only CSS */
+     .BVFieldRatingsGroup div.star_readonly a, .BVFieldRatingsGroup div.star_readonly a:hover {cursor: default;}
+     /* Partial Star CSS */
+     .BVFieldRatingsGroup div.star {background: transparent; overflow: hidden;}
+     /* END jQuery.Rating Plugin CSS */
+
+     /* cancel button */
+     .BVFieldRatingsGroup div.cancel {display: none;}
+
+
+
+/* =SLIDERS RATING JQUERY CSS
+    ------------------------------------------------------ */
+
+    /* jQuery ui-slider CSS 1.5.2 */
+    /* BAZAARVOICE NOTE: THESE STYLES CAME FROM THE JQUERY DISTRIBUTION. OVERRIDE THEM BELOW, DO NOT RESTRUCTURE THIS AREA SO IT CAN BE COMPARED WITH DEFAULT. */
+    .BVSliderField .ui-slider {width: 278px; height: 18px; position: relative; background-repeat: no-repeat; background-position: center center;}
+    .BVSliderField .ui-slider-handle {position: absolute; z-index: 1; height: 18px; width: 18px; top: 0; left: 0; background-image: url(slider_handle.gif); cursor: pointer;}
+	.BVSliderField .ui-state-active {background: url(slider_handle_active.gif);}
+    /* Uncomment the following line to enable dotted frame around active slider */
+    /*.BVRRWidget .ui-slider-handle-active {outline: 1px dotted black;}*/
+    .BVSliderField .ui-slider-disabled .ui-slider-handle {opacity: 0.5; filter: alpha(opacity=50);}
+    .BVSliderField .ui-slider-range {position: absolute; background: #50a029; opacity: 0.3; filter: alpha(opacity=30); width: 100%; height: 100%;}
+    /* Default slider backgrounds */
+    .BVSliderField .ui-slider {background-image: url(slider_background.gif);}
+    /* END ui-slider CSS */
+
+/** Ratings Radio buttons */
+.BVFieldRatingsGroup .BVFieldRadioContainer {text-align: center; display: block; float: left; width: 70px; margin: 0;}
+.BVFieldRatingsGroup .BVFieldRadioContainer label {display: block; margin: 2px;}
+.BVFieldRatingsGroup .BVFieldRadioContainer input {margin: 2px;}
+
+.BVFieldRatingsGroup .BVFieldLowValue {display: block; float: left; padding-right: 10px;}
+.BVFieldRatingsGroup .BVFieldHighValue {display: block; float: left; padding-left: 10px;}
+
+
+
+/* =SUBMISSION FORM STRUCTURE
+    ------------------------------------------------------ */
+.BVBody, .BVFooter {clear: both;}
+.BVPageBody {}
+.BVPageBody:after {.less_box_clearFix;}
+    .BVSection {.less_box_formSection; border: none; margin-bottom: 0; padding-bottom: 20px; position: relative; zoom: 1;}
+        .BVSectionBody {}
+    .BVContentBody {.less_box_page; clear: both; overflow: hidden; padding: 10px; zoom: 1;}
+    .BVField {margin-bottom: 10px; clear: left; overflow: hidden; zoom: 1;}
+
+.BVModulePhotoUpload {position: relative;}
+.BVSectionMediaUpload .BVSectionBody {background: url(http://www.buckle.com/marketing/ratings_reviews/reviews_upload_photo.jpg) 50% 0 no-repeat; padding-top: 165px; margin-top: 20px;}
+
+
+
+/* =PRODUCT DESCRIPTION
+    ------------------------------------------------------ */
+.BVSectionSubjectInformation {padding: 0 0 10px; overflow: hidden;}
+    .BVSectionSubjectInformation .BVSubjectImage {float: left; width: 100px; display: block; margin-right: 10px; margin-bottom: 10px;}
+    .BVSectionSubjectInformation .BVSubjectName, .BVSectionSubjectInformation .BVSubjectBrand, .BVSectionSubjectInformation .BVSubjectDescription {display: block;}
+    .BVSectionSubjectInformation .BVSubjectName {.less_text_titleItem; margin-bottom: 15px;}
+    .BVSectionSubjectInformation .BVSubjectDescription {.less_text_meta;}
+
+
+
+/* ==AUTHENTICATION
+    -------------------------------------------------------*/
+.BVSectionAuthenticationInformation, .BVSectionAuthenticationAfterSignout {.less_box_meta; padding: 20px; overflow: hidden; clear: both;}
+    .BVSectionAuthenticationInformation .BVHeader, .BVSectionAuthenticationAfterSignout .BVHeader {margin-bottom: 0;}
+    .BVMEPrivacyAndSharingPopin {margin-bottom: 10px;}
+        .BVMEPrivacyAndSharingPopin a {.less_text_icon; .less_text_iconRight; outline: none;}
+        .BVMEPrivacyAndSharingPopin .BVStateOpen a {.less_text_icon; .less_text_iconDown;}
+            .BVMEPrivacyPolicyPopinText {display: block;}
+            .BVMEPrivacyAndSharingPopin .BVMEPopinContent{position: relative; top: 0px; padding-left: 20px;}
+    .BVEmailAuthentication, .BVFieldRememberme {display: inline-block; float: left;}
+        .BVFieldAuthenticationemail {float: left;}
+    .BVSectionAuthenticationInformation .BVMESeparatorText, .BVSectionAuthenticationAfterSignout .BVMESeparatorText, .BVSectionAuthenticationAfterSignout .BVMESeparatorText, .BVSectionAuthenticationAfterSignout .BVMESeparatorText{.less_text_size4; .less_text_strong; display: inline-block; float: left; clear: none; vertical-align: top; padding: 10px; margin: 0 20px;}
+    #BVFieldHostedauthenticationSocialconnectContainerID {display: inline-block; float: left; clear: none; vertical-align: top;}
+
+    .BVMEWelcomeMessage {.less_box_borderMed; .less_box_borderRight; padding-right: 7px; margin-right: 7px;}
+        .BVMESignedInUserName {.less_text_strong; .less_text_icon; margin-left: 5px;}
+        .BVStateSignedInEmail .BVMESignedInUserName {.less_text_iconEmail;}
+        .BVStateSignedInFacebook .BVMESignedInUserName {background: url(link-facebook-mini.gif) no-repeat 0 0;}
+            #BVFieldHostedauthenticationFacebook_usertokenContainerID {clear: both;}
+
+/* Hosted Authentication */
+    .BVFrameHostedAuthentication {.less_box_shadow; .less_box_ugc; border: @less_box_borderWidthSmall @less_box_borderColorDark solid !important; visibility: none; padding: 5px; margin: 5px 0 0 5px; z-index: 9; width: 820px;}
+        .BVPageEditHostedAuthentication .BVSectionAuthenticationInformation {border: none; margin-bottom: 0; padding-bottom: 0;}
+        .BVHostedAuthenticationFBOverlay {z-index: 2400; background-color: @less_box_colorBase; .less_box_opacity50; position: absolute;}
+        .BVHostedAuthenticationFBHidden {display: none;}
+
+    .BVFacebookAutoFillButton, .BVFacebookLoginButton {background:url(facebookLogin.png) no-repeat scroll left -188px #29447E;display:inline-block;line-height:14px;outline:medium none;padding:0 0 0 1px;}
+    .BVFacebookAutoFillButton span, .BVFacebookLoginButton span {background:url(facebookLogin.png) repeat scroll 0 0 #5F78AB;border-bottom:1px solid #1A356E;border-top:1px solid #879AC0;color:#FFFFFF;
+                            cursor:pointer;display:block;font-size:11px;font-weight:bold;margin:1px 1px 0 21px;padding:2px 6px 3px;}
+
+
+/* =RATINGS SECTION
+    ------------------------------------------------------ */
+    .BVSectionRatings {}
+
+    /* Rating Stars - Overall & Secondary */
+    .BVStarsField {margin-top: 10px;}
+    .BVStarsField .BVRatingStars {zoom: 1;}
+    .BVRatingStarsLegend {float: left; zoom: 1; padding-left: 10px;}
+    .BVStarsField .BVRatingStarsLegend {padding-right: 3px;}
+    .BVStarsField .BVRatingStarsDisplayValue {.less_text_normal; .less_text_emphasis; .less_text_lowercase; color: @less_text_colorLow; display: none;}
+    .BVStarsField .BVRatingStarsLegendValue {.less_text_normal; .less_text_emphasis; color: @less_text_colorLow;}
+    .BVFieldRatingsGroup .BVFieldLabel {.less_text_size5; padding-bottom: 0;}
+
+    /* Overall Rating */
+    .BVImportantStarsField {.less_text_labelHigh;}
+    .BVImportantStarsField .BVRatingStars {zoom: 1;}
+    .BVImportantStarsField .BVFieldLabel {zoom: 1;}
+    .BVImportantStarsField .BVRatingStarsLegend {display: block;}
+    .BVImportantStarsField .BVRatingStarsLegendValue {}
+    *html .BVImportantStarsField .BVRatingStarsLegendValue {display: block;} /* fixes legend letters getting cut off in IE */
+
+    /* Sliders */
+    .BVSlider {position: relative; height: 50px; width: 475px; overflow: visible;}
+         .BVSliderField {width: 75%; overflow: visible; margin: 20px 0;}
+         .BVSliderField label {margin-bottom: 0;}
+         .BVSliderField .BVFieldLabel {.less_text_labelLow; padding-bottom: 5px;}
+
+         .BVSliderPrefix {.less_text_labelLow; color: #999999; font-size: 12px; position: absolute; top: 17px; left: 3px;}
+         .BVSliderSuffix {.less_text_labelLow; color: #999999; font-size: 12px; position: absolute; right: 200px; top: 17px;}
+         .BVSliderLegend {.less_text_strong; left: 287px; top: 0; position: absolute;}
+             .BVSliderLegend .BVFieldLegend {color: @less_text_colorHigh; font-weight: normal; font-style: italic;}
+
+             .BVSlider .BVUnset {color: @less_text_colorNormal; font-weight: normal; font-style: italic;}
+
+    /* Radio Ratings */
+    .BVRRRadioRatingsContainer {}
+        .BVRRRadioDisplayPrompt {.less_text_helper; display: block; padding-bottom: 5px;}
+
+        .BVRRRadioRatingContainer {clear: both;}
+            .BVRRRadioRatingContainer label {width: 70px;}
+                .BVRRRadioRatingDisplay {.less_text_strong;}
+                .BVRRRadioLabelSelected {.less_text_strong;}
+
+        /* Horizontal Layout */
+        .BVRRRadioRatingItemsHorizontalContainer {clear: both;}
+        .BVRRRadioRatingItemsHorizontalContainer .BVRRRadioRatingLowValueContainer {float: left; padding-right: 10px;}
+        .BVRRRadioRatingItemsHorizontalContainer .BVRRRadioRatingHighValueContainer {float: left; padding-left: 10px;}
+        .BVRRRadioRatingItemsHorizontalContainer .BVRRRadioRatingItemContainer {float: left; width: 70px; text-align: center; margin: 0;}
+            .BVRRRadioRatingItemsHorizontalContainer .BVRRRadioRatingItemContainer div {width: 70px;}
+                .BVRRRadioRatingItemsHorizontalContainer .BVRRRadioRatingItemContainer div label {width: 70px; margin-right: 0;}
+
+        /* Vertical Layout */
+        .BVRRRadioRatingItemsVerticalContainer {clear: both; padding-left: 50px;}
+            .BVRRRadioRatingItemsVerticalContainer .BVRRRadioRatingLowValueContainer {clear: both; padding: 3px;}
+            .BVRRRadioRatingItemsVerticalContainer .BVRRRadioRatingHighValueContainer {clear: both; padding: 3px;}
+            .BVRRRadioRatingItemsVerticalContainer .BVRRRadioRatingItemContainer {clear: both;}
+                .BVRRRadioLabelContainerLineVerticalTop {padding-top: 15px;}
+            .BVRRRadioRatingItemContainerLineVerticalTop label {padding-top: 15px;}
+
+    /* Would Recommend to a Friend/Buy Again */
+    .BVFieldRecommend {color: @less_text_colorMeta;}
+        .BVFieldRecommend .BVFieldRadioContainer {margin-right: 7px;}
+        .BVFieldRecommend label {}
+
+
+
+/* =REVIEW SUBMISSION
+    ------------------------------------------------------ */
+    .BVSectionReviewSubmission {.less_box_formSection; padding-top: 0;}
+        .BVFieldTitle .BVTextCounter {display: none;}
+
+
+
+/* =TAGS
+    ------------------------------------------------------ */
+.BVModuleTags {}
+.BVModuleTags:after {.less_box_clearFix;}
+
+.BVTagsField {margin: 20px 0 30px; overflow: hidden; width: 40%; *width: 45%;} /* HACK: IE6 IE7 [eholladay] width to keep tags wrapping underneath review text width */
+    .BVTagSectionHeaderContainer {.less_text_labelLow; display: block; padding-bottom: 6px;}
+        .BVMETagsHelper {.less_text_labelLow; font-weight: bold;}
+    .BVTagsBlock {}
+        .BVTagRow {}
+            .BVTagRow input {}
+            .BVTagRow input[type="checkbox"] {}
+            .BVTagRow input[type="text"] {width: 155px; padding: 2px;}
+            input.BVTagTextBox {width: 155px; padding: 2px;}
+            .BVTagTextContainer .BVTag {}
+            .BVSelectedTag {}
+            .BVError .BVTagSectionHeaderContainer input {.less_text_error; .less_box_textInputLowError;}
+            .BVModuleTags .BVFieldError {.less_box_textInputLowError;}
+        .BVAfterTagColumnsSpacer {clear: both;}
+        .BVTagSectionHelper {.less_text_helper; .less_text_normal; display: block; line-height: 1.2em;}
+        .BVTagInputHelper {background-color: @less_box_colorBase; padding: 0 15px 10px; display: none;}
+        .BVClientTagColumn {float: left; margin-right: 15px; padding: 6px 0;}
+        .BVUserTagColumn {}
+            .BVUserTagColumn .BVTagRow {float: left; padding: 6px 15px 6px 0;}
+
+/* The following styles alter the display when BVSUTagSection is expanded */
+.BVTagsExpandedElement {}
+    .BVTagsExpandedElement .BVTagsBlock {display: block;}
+    .BVTagsExpandedElement .BVTagInputHelper {display: block;}
+
+
+
+/* =ADDTL FIELDS/FIELDPICKER
+    ------------------------------------------------------ */
+    .BVSectionAdditionalFields .BVTextCounter {display: none;}
+
+
+
+/* =PHOTO UPLOAD
+    ------------------------------------------------------ */
+    .BVPhotoUploadWidget .BVField {margin-bottom: 0;}
+
+    /* Errors & Messages */
+    .BVFormPhotoUploadErrorList {.less_box_reset; .less_text_normal; .less_text_error; width: 400px; padding-bottom: 0; clear: both; overflow: hidden; zoom: 1;}
+        #BVPhotoUploadErrorsID {display: block; padding-top: 10px;}
+    .BVPhotoUploadContainerMessage {.less_text_titleHelper; padding-top: 10px;}
+        .BVPhotoUploadMaximumImagesMessage {.less_box_alert; .less_text_meta; padding: 10px; clear: both; width: 389px;}
+        .BVPhotoUploadContainerMessageSecondImage {display: none;}
+        .BVPhotoUploadContainerMessageMoreImages {display: none;}
+        .BVPhotoUploadContainerMessageSameField {display: none;}
+        .BVPhotoUploadContainerMessagePleaseWait {.less_text_titleHelper; .less_text_normal; padding: 15px 0 5px 0; position: relative;}
+        .BVPhotoUploadContainerMessagePleaseWaitImagePrefix {padding-left: 50px;}
+        .BVPhotoUploadContainerMessagePleaseWait div {display: inline;}
+        .BVPhotoUploadContainerMessagePleaseWait .BVPhotoUploadThumbnail {left: 5px; position: absolute; top: 5px; width: 30px;}
+
+    .BVPhotoUploadBanner {}
+
+    .BVPhotoUploadRow {clear: both;}
+    .BVPhotoUploadRowSeparator {clear: both; line-height: 0;}
+
+    /* Uploaded Image State */
+    .BVPhotoUploadContainer {.less_text_meta;}
+        .BVPhotoUploadContainerUploadedImage {clear: both; position: relative; margin: 10px 20px 10px 0; overflow: hidden;}
+
+        /* Caption */
+        .BVFieldInputPhotoUploadCaption {.less_box_textInputLow; .less_text_textInputLow; width: 35%; margin-left: 70px; display: block;}
+        .BVFieldInputPhotoUploadCaption:focus {.less_box_textInputLowFocus; .less_text_textInputLowFocus;}
+
+        /* Thumbnail */
+        .BVUploadedImageThumbnail {.less_box_borderLight; .less_box_borderLarge; .less_box_opacity70; display: block; float: left; margin-right: 10px; width: 50px; height: 50px; overflow: hidden;}
+            .BVUploadedImageThumbnail img {.less_box_borderNo; width: 100px; margin-left: -25px; -ms-interpolation-mode: bicubic; zoom: 1;}
+
+        /* Remove Link */
+        .BVPhotoButtonRemove {position: absolute; left: 70px; _left: 6px; top: 35px; _top: 38px;} /* HACK IE6: [dbeberniss] IE6 incorrectly calculates absolute positioning because of margins on the parent container that has position: relative; */
+            .BVPhotoButtonRemove a {.less_box_opacity70; .less_text_iconClear; line-height: 14px;}
+            .BVPhotoButtonRemove a:hover, .BVRRPhotoButtonRemove a:focus, .BVRRPhotoButtonRemove a:active {.less_box_opacity100;}
+            .BVPhotoButtonRemove a {.less_text_linkAction;}
+                .BVPhotoButtonRemove a:visited {.less_text_linkActionVisited;}
+                .BVPhotoButtonRemove a:hover {.less_text_linkActionHover;}
+                .BVPhotoButtonRemove a:focus {.less_text_linkActionFocus;}
+                .BVPhotoButtonRemove a:active {.less_text_linkActionActive;}
+
+
+
+/* =VIDEO UPLOAD
+    ------------------------------------------------------ */
+.BVFieldVideo {width: 400px;}
+    #BVFieldVideoFieldHelperID {padding-top: 0;}
+
+    /* Errors & Messages */
+    .BVFieldVideo .BVVideoUploadMaximumReachedMessage {.less_box_alert; .less_text_meta; width: 410px; padding: 10px; margin-left: 135px; clear: both;}
+    .BVFieldVideo .BVVIFormVideoUploadErrorList {.less_text_error; .less_box_reset; width: 410px; margin: 10px 0; clear: both;}
+    .BVFieldVideo .BVVIVideoUploadError {.less_text_error; width: 410px; margin: 5px 0 9px 135px !important; clear: both;}
+    .BVFieldVideo .BVVIVideoUploadMessagePleaseWaitImageSuffix {.less_text_helper; padding-top: 5px;}
+
+    /* Tips - Hidden by default */
+    .BVModuleVideoUpload .BVMEStaticTip {display: none;}
+
+    /* Pop-in Paste Guide */
+    .BVModuleVideoPasteGuide {.less_box_popin; position: absolute; z-index: 503; left: 155px; _margin-top: 15px;} /* HACK: IE6 [dbeberniss] IE6 does not correctly offset the top positioning of this popin from the link it launches from */
+    .BVVideoPasteGuideImage {width: 432px; height: 62px;}
+    .BVYouTubeGuide .BVVideoPasteGuideImage {background-image: url(vid_paste_youtube.gif);}
+    .BVVideoPasteGuideLabel {.less_text_helper; padding: 2px 5px; white-space: nowrap;}
+
+    .BVFieldVideo .BVVideoUploadContainer {}
+
+    /* Remove & Cancel Links */
+    .BVFieldVideo .BVVIVideoUploadCancel, .BVFieldVideo .BVVIVideoUploadRemove {.less_text_iconClear; .less_box_opacity70; margin-top: 10px;}
+        .BVFieldVideo .BVVIVideoUploadCancel:hover, .BVFieldVideo .BVVIVideoUploadRemove:hover {.less_box_opacity100;}
+    .BVFieldVideo .BVVIInternalVideoPreviewInside {padding: 20px;}
+        .BVFieldVideo .BVVIVideoUploadCancel:hover, .BVVIVideoUploadRemove:hover {.less_box_opacity70; zoom: 1;}
+
+
+
+/* =SOCIAL RECOMMENDATIONS/PRODUCT LINKING
+    ------------------------------------------------------ */
+.BVSectionProductReferences .BVMEFieldHelper {}
+    .BVProductPicker {margin: 1em 0;}
+
+    /* Filled State */
+    .BVPLProductFilled {position: relative;}
+    .BVPLProductFilled:hover {background-color: @less_box_colorPrimaryFadest;}
+    .BVPLProductFilled, .BVPLProductEmptyFirst {text-align: left; height: auto; display: block; float: none; margin: 0 0 5px; overflow: hidden; width: auto;}
+
+        /* Order Links */
+        .BVPLProductFilled .BVSULinkMove {.less_box_opacity70; .less_text_iconLeft; .less_text_iconOnly; margin: 0 0 5px; outline: none;}
+        .BVPLProductFilled .BVSULinkMove:hover, .BVPLProductFilled .BVSULinkMove:focus, .BVPLProductFilled .BVSULinkMove:active {.less_box_opacity100;}
+        .BVPLProductFilled .BVSULinkMoveLeft {.less_box_opacity70; .less_text_iconUp; .less_text_iconOnly; position: absolute; top: 0; left: 10px;}
+        .BVPLProductFilled .BVSULinkMoveRight {.less_box_opacity70; .less_text_iconDown; .less_text_iconOnly; position: absolute; top: 40px; left: 10px;}
+        .BVPLProductFilledLast .BVSULinkMoveRight {display: none;}
+
+        /* Remove Link */
+        .BVPLProductFilled a.BVSULinkRemove {.less_box_opacity70; .less_text_iconClear; .less_text_iconOnly; position: absolute; top: 20px; left: 10px;}
+        .BVPLProductFilled a.BVSULinkRemove:hover, .BVSU_PLProductFilled a.BVSULinkRemove:focus, .BVSU_PLProductFilled a.BVSULinkRemove:active {.less_box_opacity100;}
+
+        /* Product Info */
+        .BVPLInsideProduct {.less_box_borderLight; padding: 5px; zoom: 1; width: 50%;}
+        .BVPLInsideProduct:after {.less_box_clearFix;}
+            .BVPLProductAction {float: left; min-height: 60px; text-align: left; width: 45px; display: inline; position: relative; margin-bottom: 5px; *height: 60px; *overflow: visible;} /* HACK: IE6 IE7 [dbeberniss] Set fixed height because IE6 IE7 don't respect the min-height property. Keep product linking action div same height regardless of height of parent container so icon positions are consistent. */
+            .BVPLProductAction a {.less_text_linkAction;}
+                .BVPLProductAction a:visited {.less_text_linkActionVisited;}
+                .BVPLProductAction a:hover {.less_text_linkActionHover;}
+                .BVPLProductAction a:focus {.less_text_linkActionFocus;}
+                .BVPLProductAction a:active {.less_text_linkActionActive;}
+            .BVPLProductImage {text-align: center; height: 55px; float: left; margin-right: 10px;}
+                .BVPLProductImage img {.less_box_borderNo; height: 100%; width: auto;}
+            .BVPLProductName {.less_text_size4; .less_text_strong; text-align: left; padding: 0;}
+
+    /* Empty State */
+    .BVPLProductEmpty {height: auto; overflow: hidden;}
+        .BVPLInsideProductEmpty {text-align: center; width: 15%;}
+            .BVPLInsideProductEmpty .BVPLProductAction {float: none; width: auto;}
+            .BVPLInsideProductEmptyFirst .BVPLProductAction {min-height: 40px;}
+            .BVPLInsideProductEmpty .BVPLProductImage {float: none; margin: 0 auto;}
+                .BVPLProductEmpty .BVPLInsideProductEmpty .BVPLProductImage a {.less_text_linkAction; display: block; width: 100%; height: 55px; text-decoration: none; outline: none;}
+                    .BVPLProductEmpty .BVPLInsideProductEmpty .BVPLProductImage a:active {.less_text_linkAction;}
+                    .BVPLProductEmpty .BVPLInsideProductEmpty .BVPLProductImage a:visited {.less_text_linkVisited;}
+                    .BVPLProductEmpty .BVPLInsideProductEmpty .BVPLProductImage a:hover {.less_text_linkHover; .less_text_noLine;}
+                    .BVPLProductEmpty .BVPLInsideProductEmpty .BVPLProductImage a:focus {.less_text_linkFocus;}
+
+                /* First Empty Field */
+                .BVPLProductEmptyFirst .BVPLProductImage a {background: url(openSearch.gif) no-repeat center;}
+                .BVPLProductEmpty.BVPLProductEmptyLoading .BVPLProductImage a {background: url(bv_sub_loading_60.gif) no-repeat center; visibility: inherit;}
+           .BVPLProductFilled .BVPLInsideProductEmpty, .BVPLProductEmpty .BVPLInsideProductFilled {display: none;}
+    .BVPLProductEmptyRest {display: none;}
+
+    /* Errors */
+    .BVPLProductError .BVPLProductImage img {.less_box_textInputLowError;}
+    .BVPLProductError .BVPLProductName {.less_text_error;}
+
+    /* Spacers */
+    .BVPLSpacerProduct {display: none;}
+    .BVPLSpacerProduct2, .BVPLSpacerProduct5, .BVPLSpacerProduct8 {display: block; clear: left;} /* 3 columns */
+    .BVPLSpacerInsideBody {clear: left;}
+
+
+
+/* =USER BASIC INFORMATION
+    ------------------------------------------------------ */
+.BVSectionBasicInformation {}
+
+    /* Nickname */
+    .BVSectionBasicInformation .BVModuleNickname .BVHeader {margin-bottom: 0;}
+    .BVModuleNickname .BVBody {clear: none;}
+
+    /* Location */
+    .BVFieldUserlocation .BVTextCounter {display: none;}
+
+
+
+/* =SOCIAL/FB AND EMAIL
+    ------------------------------------------------------ */
+
+    /* Social Alerts */
+    .BVFieldUseremailalerts {margin: 25px 0 5px;}
+    .BVFieldSendemailonanswer {}
+    .BVFieldSendemailoncomment {}
+        .BVFieldUseremailalerts .BVFieldLabel, .BVFieldSendemailonanswer .BVFieldLabel, .BVFieldSendemailoncomment .BVFieldLabel  {.less_text_normal; .less_text_body; padding-bottom: 0;}
+
+    /* Facebook Connect */
+    /* large banner style. */
+    /* Uncomment when implementing facebook connect on edit page */
+    /* .BVPageEdit .BVSocialConnectFields {margin-top: -20px;} */
+    .BVFieldContainerPostTo {background: #3B5998 url(facebookpost.gif) no-repeat top left; display: block; height: 30px; margin: 0 0 1em; padding: 15px 0 0 120px;}
+        .BVFieldContainerPostTo label {.less_box_reset; display: inline; float: none; padding: 0; height: auto;}
+        .BVFieldContainerPostTo label span {color: @less_text_colorReverse; .less_text_size5;}
+
+    /* minimal, mini facebook icon checkbox style. */
+    /* .BVFieldContainerPostTo {.less_box_widget; .less_text_labelLow; .less_text_size5; padding-top: 15px;}
+    .BVPagePreview .BVFieldContainerPostTo {margin-top: 10px;}
+        .BVFieldContainerPostTo label {display: inline; background: url(link-facebook-mini.gif) no-repeat 0 0; padding-left: 20px;}
+        .BVFieldContainerPostTo input {margin: 2px; vertical-align: middle;} */
+
+    /* on thank you page */
+    .BVPageSubmitted .BVThankYouPostTo {.less_text_labelLow; background: url(link-facebook-mini.gif) no-repeat 0 2px; padding-left: 20px; margin-top: 20px;}
+        .BVPageSubmitted .BVThankYouPostTo label {display: inline;}
+
+
+
+/* =NET PROMOTER
+    ------------------------------------------------------ */
+.BVFieldNetpromoterscore {}
+.BVFieldNetPromoterScoreRadioLegendContainer {width: 435px; float: left;}
+.BVFieldNetpromoterscore .BVFieldRadioContainer {display: block; float: left; width: 9%; margin: 0}
+.BVFieldNetpromoterscore .BVFieldRadioContainer label {display: block !important; margin: 2px 0; padding-left: 3px;}
+.BVFieldRadioContainer10 label {padding-left: 0;}
+.BVFieldNetpromoterscore .BVFieldRadioContainer input {margin: 2px 0;}
+.BVFieldNetpromoterscore .BVFieldLowValue {.less_text_helperForm; display: block; float: left; padding-top: 5px;}
+.BVFieldNetpromoterscore .BVFieldHighValue {.less_text_helperForm; display: block; float: right; padding-top: 5px; margin-right: 28px;}
+#BVFieldNetpromoterscoreContainerID {display: block;}
+
+
+
+/* =FOOTER
+    ------------------------------------------------------ */
+.BVFooter {}
+.BVFooter:after {.less_box_clearFix;}
+
+    /* Terms & Conditions */
+    .BVFieldAgreedtotermsandconditions .BVRequiredFieldIndicator {display: inline;}
+    .BVFieldAgreedtotermsandconditions .BVFieldLabel {.less_text_size5;}
+
+    /* Footer Links */
+    .BVModuleFooterLinks {margin-top: 10px;}
+        .BVModuleFooterLinks a {margin-right: 10px;}
+
+
+
+/* =PREVIEW PAGE
+    ------------------------------------------------------ */
+.BVContentPreview {.less_box_borderLight; .less_box_borderLarge; zoom: 1;}
+.BVContentPreview:after {.less_box_clearFix;}
+
+.BVPagePreview .BVFieldUseremailalerts, .BVPagePreview .BVFieldSendemailoncomment, .BVPagePreview .BVFieldSendemailonanswer {display: none;}
+.BVMEPreviewNotification {.less_text_helper; display: block; margin: 10px 0;}
+    .BVMEPreviewNotification div {display: inline}
+
+.BVPagePreview .BVFieldAgreedtotermsandconditions {margin: 20px 0 0;}
+.BVMETermsAndConditionsAgreementNote {display: block; margin-bottom: 10px;}
+
+a.BVMETermsLink, a.BVMETermsLink:hover {color: #999;}
+a.BVMETermsLink:visited:hover, a.BVMETermsLink:focus {color: #404040;}
+a.BVMEGuidelinesLink, a.BVMEGuidelinesLink:hover {color: #999;}
+a.BVMEGuidelinesLink:visited:hover, a.BVMEGuidelinesLink:focus {color: #404040;}
+
+
+
+/* =THANK YOU PAGE
+    ------------------------------------------------------ */
+.BVPageSubmitted .BVMEPageTitle {}
+.BVMESuccessfullySubmitted {.less_text_size4; .less_text_strong; margin-bottom: 1em; display: none;}
+.BVPageSubmittedComment .BVMEContentHeaderSentence {margin-bottom: 10px;}
+.BVPageSubmittedProfile .BVMEContentHeaderSentence {margin-bottom: 10px;}
+
+    /* Edit Profile Section */
+    .BVSectionEditProfile {.less_box_borderNo; clear: both; margin: 10px 0; padding: 0;}
+        .BVSectionEditProfile .BVHeader {.less_box_borderNo; padding: 0; margin: 0;}
+        .BVSectionEditProfile .BVBody {.less_box_borderLight; padding: 10px;}
+        a.BVLinkEditProfile {margin-top: 10px; /* See top for button styles */}
+
+   /* Review Another Product */
+    .BVSectionSubmitAgain {.less_box_borderNo; padding: 0;}
+        .BVSectionSubmitAgain .BVHeader {.less_box_borderNo; padding: 0; margin: 0;}
+        .BVSectionSubmitAgain .BVBody {.less_box_borderLight; padding: 10px;}
+        .BVSectionSubmitAgain a.BVLinkWriteReview {/* See top for button styles */}
+        .BVSectionSubmitAgain .BVFooter {display: none;}
+
+    /* Return Link */
+    .BVLinkReturnToContent {display: block;}
+    a.BVLinkReturnToContent {/* button styles */}
+
+
+
+/* =DUPLICATE PAGE
+    ------------------------------------------------------ */
+.BVPageDuplicate {}
+    .BVMEDuplicate {display: block; margin-bottom: 20px;}
+
+
+
+/* =CANCEL PAGE
+    ------------------------------------------------------ */
+.BVPageCancelled {}
+    .BVPageCancelled .BVMEContentHeaderSentencePrimary {.less_text_body; .less_text_normal;}
+
+
+
+/* =PARENT (QUOTED) CONTENT
+    ------------------------------------------------------ */
+.BVSectionParentContent {.less_box_quotedUgc; zoom: 1; padding: 20px; margin-bottom: 10px;}
+.BVSectionParentContent:after {.less_box_clearFix;}
+
+    /* Subject Information */
+    .BVSectionParentContent .BVModuleSubjectInformation {.less_text_meta; .less_text_size4; float: left; width: 200px; text-align: center;}
+            .BVSectionParentContent .BVModuleSubjectInformation .BVSubjectName {display: block;}
+
+    /* Summary */
+    .BVParentContentSummary {margin-left: 220px;}
+    .BVPageComment .BVParentContentSummary {overflow: hidden;}
+        .BVParentContentSummary .BVRatingOverall {margin-bottom: 10px;}
+            .BVParentContentSummary .BVRating .BVRatingNormalLabel {display: none;}
+            .BVParentContentSummary .BVRating .BVRatingNormalImage {.less_text_size3; display: inline;}
+            .BVParentContentSummary .BVRating .BVRatingNormalOutOf {display: none;}
+                .BVParentContentSummary .BVRating .BVRatingNormalOutOf .BVSeparatorText {margin: 0 0 0 5px;}
+            .BVParentContentSummary .BVTitle {.less_text_titleItem; .less_text_size3; clear: left; margin-bottom: 10px;}
+
+    /* User Signature */
+    .BVParentContentSummary .BVUserSignature {}
+        .BVParentContentSummary .BVUserSignature .BVUserNicknameContainer {display: inline;}
+        .BVParentContentSummary .BVUserSignature .BVUserNicknamePrefix {.less_text_emphasis;}
+        .BVParentContentSummary .BVUserSignature .BVUserLocationContainer {display: inline;}
+
+    /* UGC */
+    .BVParentContentSummary .BVText {}
+        .BVParentContentSummary .BVText .BVTextShort {margin: 10px 0;}
+            .BVParentContentSummary .BVText .BVTextShortParagraph {margin-top: 10px;}
+                .BVParentContentSummary .BVText .BVTextShortParagraph .BVDI_AbbreviatedLink {white-space: nowrap;}
+                .BVParentContentSummary .BVText .BVTextLong {margin: 10px 0;}
+            .BVParentContentSummary .BVText .BVTextLongParagraph {margin-top: 10px;}
+
+
+
+/* =SOCIAL BOOKMARKING
+    ------------------------------------------------------ */
+.BVSocialBookmarkingLinks {margin: 20px 0;}
+    .BVMEShareThisProductText {display: none;}
+    .BVMEProductBookmarkingLabel {.less_text_size4; .less_text_strong; display: inline; margin-right: 5px; vertical-align: top;}
+
+    a.BVSocialBookmarkingSharingLink {.less_box_opacity70; margin-right: 5px; zoom: 1;}
+    a.BVSocialBookmarkingSharingLink:hover, a.BVSocialBookmarkingSharingLink:focus, a.BVSocialBookmarkingSharingLink:active {.less_box_opacity100;}
+    a.BVSocialBookmarkingSharingLink, a.BVSocialBookmarkingSharingLink:visited, a.BVSocialBookmarkingSharingLink:hover, a.BVSocialBookmarkingSharingLink:focus, a.BVSocialBookmarkingSharingLink:active {.less_text_normal;}
+        .BVSocialBookmarkingLinks .BVSocialBookmarkLinkImage {width: 20px; height: 20px; -ms-interpolation-mode: bicubic;}
+
+
+
+/* =A&A SPECIFIC
+     ------------------------------------------------------ */
+    .BVPagePreviewQuestion .BVContentPreview, .BVPagePreviewAnswer .BVContentPreview {.less_box_borderNo;}
+        .BVPagePreviewQuestion .BVQAContentSummary, .BVPagePreviewAnswer .BVQAContentSummary {.less_box_borderLight; .less_box_borderLarge; padding: 20px; overflow: hidden; zoom: 1;}
+
+    /* Question Submission */
+    .BVSectionQuestionSubmission {}
+        .BVPageQuestion .BVQAQuestionDetails {clear: none;}
+        .BVFieldQuestionsummary .BVFieldLabel {.less_text_titleSection; line-height: 1.5; margin-bottom: 10px; zoom: 1;}
+        .BVFieldError #BVFieldQuestionsummaryLabelID .BVFieldLabel {.less_text_error;}
+        .BVPageQuestion .BVTextCounter {display: none;}
+
+    /* Answer Submission */
+    .BVSectionAnswerSubmission {}
+        .BVPageAnswer .BVParentContentSummary {}
+            .BVPageAnswer .BVQAQuestionDetails {clear: none;}
+            .BVPageEditAnswer .BVQASignature {.less_box_ugc; padding: 0; margin: 10px 0;}
+            .BVPageEditAnswer .BVQAAvatar, .BVPageEditAnswer .BVQAElapsedTime, .BVPageEditAnswer .BVQAQuestionContextDataContainer, .BVPageEditAnswer .BVQAQuestionTagsSection, .BVPageEditAnswer .BVQAQuestionPhotoSection, .BVPageEditAnswer .BVQAVideoSection, .BVPageEditAnswer .BVQAQuestionProductReferencesDiv {display: none;}
+        .BVPageAnswer .BVMEStaticTip {*line-height: 1.1;} /* HACK: IE6 IE7 [dbeberniss] Override body line-height to keep the list spacing and height of this container consistent with other browsers. For answer submission, the answer field is in a fixed-height section container, and keeping the visible tip height consistent is important. */
+        .BVFieldAnswertext  .BVFieldLabel {.less_text_titleSection; line-height: 1.5; margin-bottom: 10px; zoom: 1;}
+        .BVFieldError #BVFieldAnswertextLabelID .BVFieldLabel {.less_text_error;}
+    .BVPagePreview .BVQAAnswerSummary {margin-bottom: 0;}
+    .BVPageAnswer .BVTextCounter {display: none;}
+
+
+
+/* =STORY SPECIFIC
+     ------------------------------------------------------ */
+.BVPageStory .BVSYContextDataContainer {zoom: 1;}
+
+
+
+/* =PROFILE SPECIFIC
+     ------------------------------------------------------ */
+.BVPageEditProfile {padding: 20px;}
+.BVPageEditProfile .BVPageBody {}
+    .BVPageEditProfile .BVMERequiredFieldIndicatorSectionHeader {float: none; padding: 0 0 10px; margin: 0; text-align: left; clear: both;}
+    .BVPageEditProfile .BVTextCounter {display: none;}
+
+    /* More Details - Nickname, Photo & Video Upload */
+    .BVPageEditProfile .BVSectionMoreDetails {.less_box_meta; .less_box_borderLight; float: left; position: relative; zoom: 1; width: 300px; padding: 10px 10px 0; z-index: 100;}
+        .BVPageEditProfile .BVSectionMoreDetails .BVSectionHeader {display: none;}
+        .BVSectionMoreDetails .BVFieldText, .BVSectionMoreDetails .BVFieldTextArea {width: 292px;}
+        .BVPageEditProfile .BVSectionMoreDetails .BVFieldRequired .BVFieldText, .BVPageEditProfile .BVSectionMoreDetails .BVFieldRequired.BVFieldTextArea {width: 288px;}
+        .BVPageEditProfile .BVSectionMoreDetails .BVMEFieldHelper {margin-left: 0;}
+
+    /* Nickname */
+    .BVPageEditProfile .BVSectionNickname {.less_box_borderNo; padding: 0;}
+
+    /* Avatar, Photo & Video Upload */
+    .BVPageEditProfile .BVSectionAvatar {.less_box_reset; .less_box_borderNo;}
+
+        /* Tips - Hidden by default */
+        .BVPageEditProfile .BVFieldAvatar .BVMEStaticTip {display: none;}
+
+        /* Default Avatar */
+        .BVPageEditProfile .BVFieldAvatar img#BVSU_PHPhotoMainImageID {display: block; margin: 0 auto 10px;}
+
+        /* Photo Upload */
+        .BVCPForm .BVPhotoFileFieldInput, .BVCPForm .BVFileSubmitPhotoUpload {font-size: 9px;}
+        .BVProfileFormPhotoUploadErrorList #BVPhotoUploadErrorsID {display: block; margin-bottom: 10px;}
+        .BVProfileFormPhotoUploadErrorList {width: 288px; margin-left: 0;}
+        .BVSectionAvatar .BVFieldInputPhotoUpload {width: 278px;}
+        .BVSectionAvatar .BVFieldContainerPhotoUploaders {width: 278px;}
+            .BVSectionAvatar .BVPhotoUploadRow {width: 278px; margin-left: 0;}
+            .BVSectionAvatar .BVFieldInputPhotoUploadCaption {width: 56%;}
+
+            /* Uploaded Image State */
+            .BVSectionAvatar .BVPhotoUploadContainerUploadedContent {margin: 10px 20px 0 0; overflow: hidden; position: relative; zoom: 1;}
+
+                /* Thumbnail */
+                .BVSectionAvatar .BVPhotoUploadContainerUploadedImage {margin: 0; float: left; width: auto;}
+
+                /* Remove Link & Caption */
+                .BVSectionAvatar .BVPhotoUploadContainerImageOptions {width: 95%; margin-left: 0;}
+                .BVSectionAvatar .BVPhotoButtonRemove {left: 70px; top: 35px;}
+                .BVSectionAvatar .BVFieldInputPhotoUploadCaption {width: 56%; position: absolute; top: 0;}
+
+        /* Video Upload */
+        .BVPageEditProfile .BVSectionVideoUpload {.less_box_borderNo; padding: 0; margin: 0;}
+
+    /* Describe Yourself */
+    .BVPageEditProfile .BVSectionDescribeYourself {.less_box_borderNo; float: right; margin-left: -340px; overflow: hidden; width: 100%; padding-top: 9px; padding-bottom: 0;}
+        .BVPageEditProfile .BVSectionDescribeYourself .BVSectionHeader, .BVPageEditProfile .BVSectionDescribeYourself .BVSectionBody {margin-left: 340px;}
+        .BVPageEditProfile .BVSectionDescribeYourself .BVSectionBody {.less_box_formSection; padding-bottom: 20px;}
+
+    /* Social Recommendations */
+    .BVPageEditProfile .BVSectionProductReferences {.less_box_borderNo; margin-bottom: 0; clear: right; float: right; margin-left: -340px; overflow: hidden; width: 100%;}
+        .BVPageEditProfile .BVSectionProductReferences .BVSectionHeader, .BVPageEditProfile .BVSectionProductReferences .BVSectionBody {margin-left: 340px;}
+        .BVPageEditProfile .BVPLInsideProductEmpty {}
+
+    /* Footer */
+    .BVPageEditProfile .BVFieldAgreedtotermsandconditions {.less_box_formSection; .less_box_borderTop; padding-top: 20px; clear: both;}
+    .BVPageEditProfile .BVModuleButtons {margin-left: 0;}
+
+
+
+/* =AVATAR
+     ------------------------------------------------------ */
+.BVAvatars {width: 580px; clear: both; margin-top: 20px;}
+.BVAvatarContainer {width: 130px; margin: 5px; float: left;}
+.BVHiddenAvatar {display: none;}
+.BVFieldRadioAvatar {display: none;}
+
+
+
+/* =QUESTION FOLLOWING
+     ------------------------------------------------------ */
+.BVQAQuestion .BVContentSubscription {clear: left; *margin-top: 10px;} /* HACK: IE6 IE7 [dbeberniss] Extra top margin needed because these browsers do not take into account the 10px bottom margin applied to the Answer button above this section */
+    .BVQuestionFollowingNumber {.less_text_size4; .less_text_strong; .less_box_borderMed; .less_box_meta; padding: 2px 5px; margin-right: 2px;}
+    .BVContentSubscription a.BVDI_CSSubmitLink {.less_box_borderMed; .less_box_borderLeft; padding-left: 10px; margin-left: 10px;}
+
+
+
+/* =PRODUCT FOLLOWING/CONTENT SUBSCRIPTIONS
+     ------------------------------------------------------ */
+.BVContentSubscription .BVInnerWrapper {padding: 0 0 15px 15px; zoom: 1;}
+    .BVContentSubscription a {.less_text_link;}
+        .BVContentSubscription a:visited {.less_text_linkVisited;}
+        .BVContentSubscription a:hover {.less_text_linkHover;}
+        .BVContentSubscription a:focus {.less_text_linkFocus;}
+        .BVContentSubscription a:active {.less_text_linkActive;}
+        .BVContentSubscription input {margin: 0 5px 0 0;}
+        .BVContentSubscription form {margin: 0; padding: 0;}
+        .BVContentSubscription .BVFieldRequired .BVFieldLabel {.less_text_titleWidget;}
+    .BVPageContentSubscription .BVPageHeader {.less_text_titleWidget; overflow: hidden; padding: 5px 0; margin: 0 0 10px;}
+    .BVPageContentSubscription .BVHeader {}
+        .BVPageContentSubscription .BVHeader .BVTitle {.less_text_titleWidget; .less_box_borderLight; .less_box_borderBottom; display: block; padding-top: 15px; padding-bottom: 7px; margin-right: 20px;}
+        .BVPageContentSubscription .BVMESectionHeader {.less_text_body; .less_text_size4; .less_text_normal; line-height: 14px;}
+    .BVPageContentSubscription .BVErrors {.less_text_error; .less_text_textInputHighError; .less_box_ugc; margin: 7px 0 15px; padding: 10px;}
+        .BVPageContentSubscription .BVErrors ul {margin: 0; padding: 0 0 0 12px;}
+        .BVContentSubscription .BVFieldError .BVFieldText, .BVContentSubscription .BVFieldError .BVFieldTextArea {.less_box_borderSmall;}
+    .BVContentSubscription .BVSection {.less_box_borderNo; padding-bottom: 0; *margin-bottom: 0;} /* HACK: IE6 IE7 [dbeberniss] Remove bottom margin because bottom margin is also applied to the text input in this section, and these browsers will double any margin applied here as a result */
+        .BVContentSubscription .BVFieldEmailaddress .BVFieldText {.less_box_textInputLow; .less_text_textInputLow; width: 217px;}
+        .BVContentSubscription ul {padding-left: 15px; margin-left: 0;}
+        .BVContentSubscription .BVCheckboxField .BVFieldLabel {float: none;}
+        .BVContentSubscription .BVCheckboxField label {display: inline-block; width: 181px; vertical-align: top;}
+        .BVContentSubscription .BVCheckboxField input {}
+        .BVSectionSubscription {}
+            .BVSectionSubscription .BVHeader {margin-bottom: 5px;}
+            .BVSectionSubscription .BVField {margin-bottom: 5px;}
+            .BVSectionSubscription .BVOptionalFieldIndicator {vertical-align: middle;}
+    .BVContentSubscription .BVPageBody, .BVContentSubscription .BVPageFooter {.less_box_borderNo; margin-bottom: 0;}
+        .BVContentSubscription .BVFieldButton, .BVContentSubscription button {/* see button styles */}
+        .BVContentSubscription .BVMEPrivacyPolicyLink {display: block; margin-top: 10px;}
+
+
+
+/* =SMART QUESTION ROUTING
+    ------------------------------------------------------ */
+.BVPageSocialAnswering {.less_box_borderNo; margin: 0;}
+    .BVPageSocialAnswering .BVPageBody {.less_box_borderNo; margin: 10px 0 0; padding: 0 0 10px;}
+    .BVPageSocialAnswering .BVSASectionBody {padding: 5px 0 0;}
+        .BVPageSocialAnswering input {vertical-align: middle; margin-left: 0;}
+        .BVPageSocialAnswering .BVFieldEmailaddress, .BVPageSocialAnswering .BVSliderField {padding-left: 23px;}
+        .BVPageSocialAnswering .BVModuleButtons {.less_box_borderNo; margin: 0;}
+
+
+
+/* =GOOGLE TRANSLATE
+     ------------------------------------------------------ */
+.BVSectionGoogleTranslate {.less_box_meta; padding-left: 10px; zoom: 1;}
+.BVSectionGoogleTranslate:after {.less_box_clearFix;}
+
+    /* Translate Link*/
+    .BVGoogleTranslationBarText {.less_text_link; margin-left: 15px; padding-top: 10px}
+    .BVGoogleTranslationBarText:hover {.less_text_linkHover;}
+
+    /* Collapsed */
+    .BVGoogleTranslationBar {.less_text_iconCollapsed; background-position: 0 -112px; width: 200px; cursor: pointer; padding-top: 6px; padding-left: 6px;}
+    .BVGoogleTranslationBar:after {.less_box_clearFix;}
+
+    /* Expanded */
+    .BVGoogleTranslationBarOpen {.less_text_iconExpanded; background-position: 0 -72px; width: 15px; height: 24px; padding: 0; float: left; margin-right: 10px;}
+
+    /* Filtering */
+    .BVGoogleTranslateBusyWindow {background: url(loadingGraphicSmall.gif) no-repeat; width: 100px; height: 34px; text-indent: -999em;}
+
+    /* Google Logo */
+    .BVGoogleBranding {padding: 10px 0 0 10px; float: left;}
+    .BVGoogleTranslationControl .BVGoogleBranding {padding-top: 4px;}
+
+    .BVGoogleTranslationControl {padding: 5px 20px 5px 0;}
+
+    /* Dropdown */
+    .BVSectionGoogleTranslate .BVDropdown {width: 178px; float: left;}
+        .BVSectionGoogleTranslate .BVDropdownSelect {}
+            .BVSectionGoogleTranslate .BVDropdownSelectTitle:hover {.less_text_linkHover;}
+
+            .BVSectionGoogleTranslate .BVDropdownItems {.less_box_fakeSelectOpen; list-style-type: none; margin: 0; padding: 0; position: absolute; top: 0; left: 0; right: 0; overflow: hidden; white-space: normal; word-wrap: break-word; z-index: 100000; width: 177px;}
+                .BVSectionGoogleTranslate .BVDropdownItems li {cursor: pointer;}
+                .BVSectionGoogleTranslate .BVDropdownItems li span {.less_box_fakeSelectOptions; zoom: 1; display: block; padding: 5px 9px;}
+                .BVSectionGoogleTranslate .BVDropdownItems li span:hover {.less_box_fakeSelectOptionsHover; display: block; padding: 5px 9px;}
+                .BVSectionGoogleTranslate .BVItemDisabled {background-color: @less_box_colorPrimaryFader;}
+                    .BVSectionGoogleTranslate .BVDropdownItems li.BVItemDisabled span:hover, .BVSectionGoogleTranslate .BVDropdownItems li.BVItemDisabled span {.less_box_ugc; color: @less_text_colorLow;}
+
+    /* Buttons */
+    .BVLinkShowOriginal {margin-left: 10px;}
+    .BVLinkTranslate {margin-top: 7px;}
+    .BVLinkTranslate, .BVLinkShowOriginal {.less_box_borderLight; float: left;}
+        .BVLinkTranslate a, .BVLinkShowOriginal a {/* see button styles */}
+
+    .BVSectionGoogleTranslate .BVRRSpacer {display: none;}
+
+
+
+/* =LOCALE SWITCH DROPDOWN
+     ------------------------------------------------------ */
+.BVDropdownLocale {position: relative; float: right; margin: 0 0 0 10px; width: 200px; cursor: pointer; z-index: 9;}
+    .BVDropdownSelect {.less_box_fakeSelect; display: block; overflow: hidden; cursor: pointer; zoom: 1;}
+    .BVDropdownSelect {background-image: none !important; background-image: -webkit-gradient(linear, left top, left bottom,  from(@less_box_colorPrimaryFadest), to(@less_box_colorPrimaryFader)) !important; background-image: -moz-linear-gradient(top,  @less_box_colorPrimaryFadest,  @less_box_colorPrimaryFader) !important; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@less_box_colorPrimaryFadest, endColorstr=@less_box_colorPrimaryFader) !important;}
+    .BVDropdownSelect:hover, .BVDropdownLocale:hover .BVDropdownSelect {.less_box_fakeSelectHover;}
+    .BVDropdownSelect:hover, .BVDropdownLocale:hover .BVDropdownSelect {background-image: none !important; background-image: -webkit-gradient(linear, left top, left bottom,  from(@less_box_colorBase), to(@less_box_colorPrimaryFadest)) !important; background-image: -moz-linear-gradient(top,  @less_box_colorBase,  @less_box_colorPrimaryFadest) !important; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@less_box_colorBase, endColorstr=@less_box_colorPrimaryFadest) !important;}
+    .BVDropdownSelectButton, .BVDropdownSelectButton:hover {.less_text_iconDown; .less_text_iconOnly; background-image: url(iconText.gif) !important; margin: 5px; height: 14px; vertical-align: center; float: right; display: inline-block; *display: inline; zoom: 1;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; - used to keep dropdown arrow div in line with text */
+    .BVDropdownSelectTitle {.less_box_fakeSelectDefaultText; line-height: 24px; margin-right: 26px; padding: 0 10px;}
+    .BVDropdownItems {.less_box_fakeSelectOpen; list-style-type: none; margin: 0; padding: 0; position: absolute; top: 26px; left: 0; right: 0; display: none; overflow: hidden; white-space: normal; word-wrap: break-word; z-index: 9;}
+    .BVDropdownItems .BVItemSelected {color: @less_text_colorLow;}
+    .BVDropdownLocale .BVItemSelected {.less_box_fakeSelectOptions; padding: 5px 9px;}
+    .BVDropdownItems li a {.less_text_linkAction; z-index: 9;}
+    .BVDropdownItems li a:visited {.less_text_linkActionVisited;}
+    .BVDropdownItems li a:hover {.less_text_linkActionHover;}
+    .BVDropdownItems li a:focus {.less_text_linkActionFocus;}
+    .BVDropdownItems li a:active {.less_text_linkActionActive;}
+    .BVDropdownItems li a {.less_box_fakeSelectOptions; zoom: 1; display: block; padding: 5px 9px;}
+    .BVDropdownItems li a:hover, ul.BVDropdownItems li a:focus, ul.BVDropdownItems li a:active {.less_box_fakeSelectOptionsHover;}
+    #BVDropdownIEControlsFrameID{display: none; position: absolute;}
+
+
+
+/* =LOCALE ATTRIBUTION
+     ------------------------------------------------------ */
+.BVAttributionLocale {.less_box_borderLight; .less_box_borderHorizontal; overflow: hidden; zoom: 1; margin-bottom: 15px; padding: 15px 0; clear: both;}
+    .BVAttributionLanguage {.less_text_strong; margin-left: 3px;}
+
+
+
+/* =MULTI-VIEW SUBMISSION
+     ------------------------------------------------------ */
+.BVViewGroupTopLevelSubmissionViewGroup, .BVView, .BVViewPortTopLevelSubmissionViewGroup {width: 860px;}
+.BVViewPort {overflow: hidden; position: relative; height: 0;}
+.BVView {float: left; overflow: hidden;}
+.BVViewInactive {display: none;}
+    .BVListViewLinks {list-style-type: none; margin: 0; padding: 0;}
+        .BVListViewLinks li {float: left; width: 150px;}
+            .BVListViewLinks li a {}
+    .BVShowViewActions {list-style: none;}
+        .BVShowViewActions li {display: inline;}
+            .BVShowViewActions li a {padding: 0 1em;}
+.BVView .BVFieldInputPhotoUpload iframe {width: auto !important; height: 46px !important;}
+
+    /* Multi-view as a carousel */
+    .BVSection .BVFieldPrevious, .BVSection .BVFieldNext {float: left; width: 5%; display: block; clear: none; margin-top: 15px;}
+    .BVSection .BVFieldNxt {float: right;}
+        .BVSection a#BVViewGroupActionCustomizationOptionsPreviousID, .BVSection a#BVViewGroupActionCustomizationOptionsNextID {.less_text_iconOnlyLarge; outline: none;}
+        .BVSection a#BVViewGroupActionCustomizationOptionsNextID {background-position: right -78px;}
+        .BVSection .BVStateDisabled a#BVViewGroupActionCustomizationOptionsPreviousID {background-position: 0 -39px;}
+        .BVSection .BVStateDisabled a#BVViewGroupActionCustomizationOptionsNextID {background-position: right -117px;}
+        .BVSection .BVViewGroup {width: 90%; float: left; outline-width: @less_box_borderWidthSmall; outline-color: @less_box_borderColorLight; outline-style: solid; zoom: 1;}
+    .BVSectionCustomizationOptions {overflow: hidden;}
+        .BVSection .BVView {width: 100%; zoom: 1;}
+            .BVSection .BVViewGroup .BVSection, .BVSection .BVViewGroup .BVModuleTags {.less_box_borderNo; margin: 10px; padding: 0;}
+                .BVSection .BVViewGroup .BVSectionHeader {display: none;}
+                .BVSectionCustomizationOptions .BVMEContentHeaderSentence {.less_text_helperForm; float: right; margin-right: 5%;}
+                .BVSection ul.BVShowViewActions {margin-left: 5%; zoom: 1;}
+                    .BVSection ul.BVShowViewActions a {display: inline-block; outline: none; padding: 0; margin-right: 20px; zoom: 1;}
+                        .BVSection ul.BVShowViewActions a span {.less_text_iconOnly;}
+                    .BVSection ul.BVShowViewActions a.BVLinkProductReferencesSubmission {.less_box_iconSocialRecommendations;}
+                    .BVSection ul.BVShowViewActions a.BVLinkTagsSubmission {.less_box_iconTags;}
+                    .BVSection ul.BVShowViewActions a.BVLinkPhotoUpload {.less_box_iconPhoto;}
+                    .BVSection ul.BVShowViewActions a.BVLinkVideoURL {.less_box_iconVideo;}
+                    .BVSection ul.BVShowViewActions li.BVListItem a.BVSelected {background-position: 0 -50px;}
+                .BVSection .BVViewGroup .BVSectionProductReferences .BVMEFieldHelper {.less_text_normal; .less_text_labelLow; padding-top: 0;}
+
+
+
+/* =TERMS & CONDITIONS MODULE
+     ------------------------------------------------------ */
+.BVPageTermsAndConditions {}
+    .BVModuleTermsAndConditions {.less_box_pageContent; .less_box_borderLight; border-width: @less_box_borderWidthLarge; padding: 20px;}
+
+
+
+/* =LAST SUBMITTED
+     ------------------------------------------------------ */
+.BVMELastSubmitted {.less_text_emphasis; .less_text_size6;}
+
+
+
+/* =LANGUAGE DETECTION
+     ------------------------------------------------------ */
+.BVMEContentLanguageNotice {.less_text_size6; display: block; padding-top: 5px; margin-bottom: 10px;}
+    .BVMEContentLanguageNotice .BVContentLanguage {.less_text_strong;}
+
+
+
+/* =STATE-BASED CLASSES
+     ------------------------------------------------------ */
+    .BVSpacer {clear: both;}
+    .BVHidden, .BVStateHidden, .BVMetadata {display: none;}
+

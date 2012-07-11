@@ -1,0 +1,17 @@
+.BVSC_Header {clear: both;} .BVSGModelTestGroupPhotoupload, .BVSGModelTestGroupTransientdisplays, .BVSGModelTestGroupProductpickerstates {z-index: 200000000;}
+.BVSGModelTestGroupPhotoupload, .BVSGModelTestGroupPhotoupload-comment, .BVSGModelTestGroupTransientdisplays, .BVSGModelTestGroupProductpickerstates {top: 10px;}
+.BVSGModelTestGroupProductpickerstates {top: 270px;}
+
+.BVRRContainer {margin: 20px; width: 965px;} /* Margins are added so content stands away from the edges of the screen during testing. */
+#BVQAContainer {margin: 20px;}
+.BVQASummaryBox {margin: 0;}
+
+/* The following are lines for simulating various layout situations.
+   Only copy these lines into your client's client.less/css file
+   so that display stays flexible for SDA. */
+
+/* R&R one-column display */
+/* .BVRRWidget {width: 500px;} */
+
+/* R&R two- or three-column display */
+/* .BVRRWidget {width: 800px;} */

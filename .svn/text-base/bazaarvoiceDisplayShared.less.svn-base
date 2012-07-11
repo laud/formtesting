@@ -1,0 +1,1400 @@
+/* =BAZAARVOICE DISPLAY SHARED THEME 1
+    ------------------------------------------------------
+    VERSION #89699. SEE TICKET BVC-89699
+    UPDATED 05/04/2011 by eholladay */
+
+
+
+/* ******** DISPLAY (BVDI) ******** */
+
+/* Button Styles. */
+/* Change me to match the client sites! Be sure to match these styles in the other CSS files also! */
+/* If you want progressive enhancements, find them in progressive */
+
+    /* General Button Style */
+    .BVSUButton {line-height: 1.5em; margin: 0 10px 0 0; vertical-align: top; display: inline-block; *display: inline; padding: 3px 10px; *padding: 0;} /* HACK: IE6 IE7 [dbeberniss] Reduce padding on all sides because these browsers all additional padding to buttons */
+    .BVSUButton {.less_box_btnLow; .less_text_btnLow;}
+    .BVSUButton:hover {.less_box_btnLowHover; .less_text_btnLowHover;}
+
+    /* Report as Inappropriate submission */
+    #BVSUSubmitReviewInappropriateButtonID, #BVSUSubmitReviewCommentInappropriateButtonID {.less_box_btnHigh; .less_text_btnHigh;}
+    #BVSUSubmitReviewInappropriateButtonID:hover, #BVSUSubmitReviewCommentInappropriateButtonID:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+    /* Content Subscription */
+    .BVContentSubscription .BVFieldButton {margin-bottom: 0;}
+    .BVContentSubscription button {.less_box_btnLow; .less_text_btnLow; margin: 0 10px 0 0; padding: 3px 10px; display: inline-block; vertical-align: top; cursor: pointer; *display: inline; *padding: 0;} /* HACK: IE6 IE7 [dbeberniss] display: inline; necessary due to incomplete support of inline-block, reduce padding on all sides because these browsers all additional padding to buttons */
+    .BVContentSubscription button:hover {.less_box_btnLowHover; .less_text_btnLowHover;}
+    .BVContentSubscription .BVFieldSubmit button, .BVPageContentSubscription .BVSUModuleButtons #BVSUSubmitSubscriptionButtonID {.less_box_btnHigh; .less_text_btnHigh;}
+    .BVContentSubscription .BVFieldSubmit button:hover, .BVPageContentSubscription .BVSUModuleButtons #BVSUSubmitSubscriptionButtonID:hover {.less_box_btnHighHover; .less_text_btnHighHover;}
+
+
+/* General */
+.BVDIBody, .BVVIVideoPopup {.less_text_body;}
+.BVDILinkDisabled {cursor: default;}
+.BVDIPopup {position: absolute;}
+.BVDIHidden {display: none;}
+.BVDISeparator, .BVDISpacer {height: 0; line-height: 0; overflow: hidden;}
+.BVDIOverlay, .BVDIPopin {position: absolute;}
+.BVDILinkClose {.less_text_iconClose; .less_text_iconOnly; float: right;}
+.BVDILinkClose {.less_text_linkAction;}
+.BVDILinkClose:visited {.less_text_linkActionVisited;}
+.BVDILinkClose:hover {.less_text_linkActionHover;}
+.BVDILinkClose:focus {.less_text_linkActionFocus;}
+.BVDILinkClose:active {.less_text_linkActionActive;}
+.BVDINickname {.less_text_strong;}
+
+/* Container pages that don't inherit styles from the product css */
+.BVDIPopIn {.less_text_size5; .less_text_fontFamily; color: @less_text_colorNormal; line-height: 1.5em;}
+.BVDIPopIn a {.less_text_link;}
+.BVDIPopIn a:visited {.less_text_linkVisited;}
+.BVDIPopIn a:hover {.less_text_linkHover;}
+.BVDIPopIn a:focus {.less_text_linkFocus;}
+.BVDIPopIn a:active {.less_text_linkActive;}
+
+/* Content search (BVDI_SE) */
+.BVDI_SEForm {float: right; margin: -1px 0 0 15px;}
+    .BVDI_SEFormTextInputLabel {font-weight: bold;}
+.BVDI_SEResultIndex {float: left; padding: 15px 0 0 15px; width: 50px; font-size: 18pt;}
+
+/* Product Linking Display (BVDI_PL) */
+.BVDI_PL {.less_box_meta; .less_text_meta; margin-top: 10px; padding: 10px; zoom: 1;}
+    .BVDI_PLSeparatorTop {}
+    .BVDI_PLHeader {margin-bottom: 10px;}
+        .BVDI_PLTitle {.less_text_titleHelper;}
+    .BVDI_PLBody {}
+        .BVDI_PLHelperText {}
+        .BVDI_PLProductList {}
+            .BVDI_PLProduct {padding: 10px; margin-bottom: 10px; overflow: hidden; zoom: 1;}
+                .BVDI_PLSpacerProduct {display: none;}
+                .BVDI_PLSpacerProduct2, .BVDI_PLSpacerProduct5, .BVDI_PLSpacerProduct8 {display: block; clear: left;} /* 3 columns */
+                .BVDI_PLInside {}
+                    .BVDI_PLProductPrimary {}
+                        .BVDI_PLProductImage {width: 50px; height: 50px; overflow: hidden; float: left; margin-right: 10px;}
+                        .BVDI_PLProductImage a {.less_box_opacity70;}
+                        .BVDI_PLProductImage a:hover {.less_box_opacity100;}
+                        .BVDI_PLProductImage img {width: 100px; margin-left: -25px; -ms-interpolation-mode: bicubic; zoom: 1;}
+                        .BVDI_PLProductName {}
+                        .BVDI_PLProductRatings {padding-top: 2px;}
+                            .BVDI_PLProductRatings img {width: 85px;}
+                            .BVDI_PLProductRatings a {float: left;}
+                            .BVDI_PLProductRatings a.BVDILinkProductRatingText, .BVDI_PLProductRatings .BVDILinkSpan {padding-left: 3px; float: left;}
+                            .BVDI_PLProductRatings .BVDILinkProductRatingText {display: none;}
+                            .BVDI_PLProductRatings .BVRRCount {color: @less_text_colorLow;}
+                        .BVDI_PLSpacerProductPrimary {}
+                    .BVDI_PLSpacerInside {}
+        .BVDI_PLAdditionalText {display: none;} /* This container is rendered even when it's empty, causing extra padding in IE. When Additional text is turned on, remove this style. */
+        .BVDI_PLSpacerBody {clear: left;}
+    .BVDI_PLSeparatorBottom {}
+
+
+    /* BEGIN: QuickTake, Attribute Filtering Display Style 1 (BVDI_QT, BVDI_AF) */
+    /* NOTE: Used by R&R */
+    .BVDI_QT {height: auto; -moz-box-sizing: padding-box; z-index: 0;}
+    .BVDI_QT .BVRRSecondaryRatingSummary {float: none; width: auto;} /* Overrides a float necessary for QT1 */
+        .BVDI_QTHeader {margin: 5px 0 10px;}
+            .BVDI_QTTitle {margin-bottom: 5px;}
+            .BVDI_QTSubtitle {.less_text_helper;}
+        .BVDI_QTBody {height: 60px;}
+        .BVDI_AFAttributeFilteringSectionCell {/*see bazaarvoice for structural elements*/}
+        .BVDI_AF {clear: both;}
+             .BVDI_AFHeader {.less_text_titleHelper; color: @less_text_colorNormal; display: block; padding: 0 0 8px;}
+            .BVDI_AFBody {overflow: hidden;}
+            .BVDI_AFHidden {display: none;}
+            .BVDI_AFFilterAttribute {width: auto; float: left; cursor: pointer; z-index: 0; margin: 0 10px 5px 0; zoom: 1;}
+
+            /* Filter links */
+            .BVDI_AFFilterAttributeHeader {.less_text_checkFilterOff; line-height: 1.2em;}
+            .BVDI_AFFilterAttributeHeader:hover {.less_text_checkFilterOffHover;}
+            .BVDI_AFFilterAttributeSelected .BVDI_AFFilterAttributeHeader {.less_text_checkFilterOffHover;}
+            .BVDI_AFFilterAttributeExpanded .BVDI_AFFilterAttributeHeader {.less_text_checkFilterOffHover;}
+            .BVDI_AFFilterAttributeSelected .BVDI_AFFilterAttributeHeader:hover {.less_text_checkFilterOnHover;}
+            .BVDI_AFFilterAttributeDisabled .BVDI_AFFilterAttributeHeader, .BVDI_AFFilterAttributeDisabled .BVDI_AFFilterAttributeHeader:hover {.less_text_checkFilterDisabled;}
+            .BVDI_AFAttributeFilteringBeforeSpacer {margin-top: 5px;}
+            .BVDI_AFFilterAttributeContent, #BVRRFilterAttributeContentIEControlsFrameID, #BVDI_QTToggleAreaGroupIEControlsFrameID {background-color: @less_box_colorBase; position: absolute; min-width: 115px; margin-left: -1px; *width: 115px; *overflow: visible;} /* HACK: IE6 IE7 [dbeberniss] Set fixed width because IE6 IE7 don't respect the min-width property. Keep filter dropdowns and QT iframes that go behind them the same width. */
+            .BVDI_AFFilterAttributeContent {.less_box_popin; cursor: auto; z-index: 100;}
+            #BVRRFilterAttributeContentIEControlsFrameID {z-index: 50; overflow: hidden;}
+            .BVDI_AFFilterAttributeContentTitle {.less_text_helper; .less_text_emphasis; margin-left: 5px; margin-right: 5px; line-height: 14px; max-width: 100px;}
+            .BVDI_AFFilterAttributeContent ul, .BVDI_AFFilterAttributeContent li {padding: 0; margin: 6px 4px !important; list-style-type: none !important;}
+                .BVDI_AFFilterAttributeContent ul {overflow: hidden; position: relative;}
+                .BVDI_AFFilterAttributeContent li input {position: absolute; left: -100px;}
+                .BVDI_AFFilterAttributeContent .BVDI_AFFilterAttributeLabel a {.less_text_checkFilterOff;}
+                .BVDI_AFFilterAttributeContent .BVDI_AFFilterAttributeLabel a:hover, .BVDI_AFFilterAttributeContent .BVDI_AFFilterAttributeLabel a:focus, .BVDI_AFFilterAttributeContent .BVDI_AFFilterAttributeLabel a:active {.less_text_checkFilterOffHover;}
+                .BVDI_AFSelected .BVDI_AFFilterAttributeLabel a {.less_text_checkFilterOn;}
+                .BVDI_AFSelected .BVDI_AFFilterAttributeLabel a:hover, .BVDI_AFSelected .BVDI_AFFilterAttributeLabel a:focus, .BVDI_AFSelected .BVDI_AFFilterAttributeLabel a:active {.less_text_checkFilterOnHover;}
+                .BVDI_AFFilterAttributeContent .BVDI_AFFilterAttributeLabelDisabled {.less_text_checkFilterDisabled;}
+                .BVDI_AFFilterAttributeContent .BVDI_AFFilterAttributeLabel {}
+                .BVDI_AFFilterAttributeContent .BVDI_AFFilterAttributeLabel a {.less_text_linkAction; .less_text_strong;}
+                .BVDI_AFFilterAttributeLabelDisabled {color: @less_text_colorLow;}
+            .BVDI_AFAttributeCount {color: @less_text_colorLow;}
+            .BVDI_AFAttributeFilterItemOn, .BVRRAttributeFilterItemOn {}
+            .BVDI_AFAttributeFilterItemOn a, .BVRRAttributeFilterItemOn a {.less_text_checkFilterOn;}
+            .BVDI_AFAttributeFilterItemOn a:hover, .BVRRAttributeFilterItemOn a:hover {.less_text_checkFilterOnHover;}
+            .BVDI_AFFilterAttributeClose {display: none;}
+            .BVDI_AFAttributeFilteringShowMore {text-align: right; padding-right: 5px; padding-bottom: 5px;}
+    /* END: QuickTake, Attribute Filtering Display Style 1 (BVDI_QT, BVDI_AF) */
+
+    /* QT Histogram */
+         .BVDI_QTHistogram {display: block; width: auto;}
+         .BVDI_QTAttributes .BVDI_QTHistogram {margin-bottom: 7px;}
+            .BVDI_QTToggles {float: right;}
+             .BVDI_QTGroupWithHistogram .BVDIToggleArea {width: 180px;}
+             .BVDI_QTHistogramBar, .BVDI_QTHistogramPercent {.less_text_size6; color: @less_text_colorLow; display: inline-block; padding-top: 1px;}
+             .BVDI_QTHistogramPercent {vertical-align: top;}
+             .BVDI_QTTags li.BVDI_QTFilter {margin-bottom: 8px;}
+             .BVDI_QTHeaderGroup .BVDINumber {.less_text_normal; color: @less_text_colorLow; .less_text_size6;}
+             #BVRRQTFilterHeaderToggleShowHistogramsID {display: none;}
+             .BVDI_QTGroupWithHistogram {}
+                 .BVDI_QTHistogram {display: inline-block;}
+                 .BVDI_QTGroupWithHistogram .BVDI_QTFilter .BVDINumber {display: none;}
+                 .BVDI_QTGroupWithHistogram .BVDI_QTFilter .BVDIValue {margin-right: 5px; white-space: normal;}
+                     /* Visual Histograms - uncomment if you want to use the visual representation of the histograms */
+                     /* .BVDI_QTHistogramBar {.less_box_borderLight; width: 55px; height: 10px; margin-right: 5px; font-size: 0; vertical-align: top;}
+                        .BVDI_QTHistogramBarFull {display: block; height: 10px; display: inline-block; margin-right: 5px; font-size: 0; line-height: 0; vertical-align: top;}
+                        .BVDI_QTGroupWithHistogram .BVDI_QTFilter .BVDIValue {display: inline-block; margin-right: 5px; vertical-align: top; width: 92px; white-space: normal;} */
+                /* No histograms */
+                .BVDI_QTHideHistograms .BVDI_QTHistogram, .BVDI_QTHideHistograms #BVRRQTFilterHeaderToggleHideHistogramsID {display: none;}
+                .BVDI_QTHideHistograms #BVRRQTFilterHeaderToggleShowHistogramsID {display: block;}
+                /* Filters */
+                .BVDI_QTGroupWithHistogram .BVDI_QTPopularLabel {display: block; vertical-align: top;}
+                .BVDI_QTAttributes .BVDI_QTGroupWithHistogram {vertical-align: top; display: inline-block;}
+                .BVDI_QTAttributes .BVDI_QTHistogram {width: 110px;}
+                .BVDIToggleArea .BVDI_QTHistogram {width: auto;}
+                .BVDI_QT .BVDI_QTGroupWithHistogram a span .BVDINumber {color: @less_text_colorLow; .less_text_size6;}
+                .BVDI_QT .BVDI_QTGroupWithHistogram a span, .BVDI_QT .BVDI_QTBodyAttributes a:hover {white-space: normal;}
+                .BVRRContainer .BVDI_QTHeaderAttributes, .BVRRContainer .BVDI_QTBodyAttributes {margin-bottom: 0 !important;}
+                .BVDI_QT .BVDI_QTHeaderAttributes .BVDITitle {.less_text_size5;}
+
+
+/* ******** QuickTake Display Style 2 DISPLAY (BVDI) ******** */
+/* QuickTake, Attribute Filtering, Display Style 2 (BVDI_QT, BVDI_AF) */
+/* General QuickTake styles used by filtering in the dashboard, AND inline with each piece of content */
+        /* BVDI_QTGroups */
+        .BVDI_QTGroup {float: left; margin: 0 10px 5px 0;}
+            .BVDI_QTGroup a.BVDILinkToggle {line-height: 1.2 !important}
+
+        .BVDI_QTGroupOdd {}
+        .BVDI_QTGroupEven {}
+        .BVDI_QTGroupFirst {}
+        .BVDI_QTGroupLast {}
+        .BVDI_QTGroupNoContent .BVDI_QTHeaderGroup .BVDITitle {.less_text_normal; .less_text_meta; .less_text_emphasis;}
+        .BVDI_QTGroupNoContent .BVDI_QTHeaderGroup .BVDILink, .BVDI_QTGroupNoContent .BVDI_QTHeaderGroup .BVDILink:visited, .BVDI_QTGroupNoContent .BVDI_QTHeaderGroup .BVDILink:hover, .BVDI_QTGroupNoContent .BVDI_QTHeaderGroup .BVDILink:focus, .BVDI_QTGroupNoContent .BVDI_QTHeaderGroup .BVDILink:active {.less_text_linkAction; .less_text_normal; .less_text_meta; .less_text_emphasis;}
+            .BVDI_QTInsideGroup {}
+                .BVDI_QTHeaderGroup {}
+                    .BVDI_QTHeaderGroup .BVDITitle {}
+        .BVDI_QTTags .BVDI_QTGroup {}
+        .BVDI_QTAttributes .BVDI_QTGroup {padding: 3px 0; margin-right: 10px; z-index: 2;}
+        .BVDI_QTGroupExpanded {}
+            .BVDI_QTAttributes .BVDI_QTGroupExpanded .BVDITitle .BVDILinkToggle {}
+        .BVDI_QTGroupCollapsed {}
+            .BVDI_QTAttributes .BVDI_QTGroupCollapsed .BVDITitle .BVDILinkToggle {line-height: 1.2;}
+            .BVDI_QTInsideGroup {}
+            .BVDI_QTHeaderGroup {}
+                .BVDI_QTPrefixHeaderGroup {display: none;}
+                .BVDI_QTHeaderGroup .BVDITitle {.less_text_strong;}
+                .BVDI_QTSuffixHeaderGroup {}
+        .BVDI_QTBodyGroup {}
+        .BVDI_QTTags .BVDI_QTBodyGroup {padding: 0;}
+        .BVDI_QTTags .BVDI_QTFooterGroup {display: none;}
+        .BVDI_QTAttributes .BVDI_QTFooterGroup {display: none;}
+
+        /* BVDI_QTFilterSummary */
+        .BVDI_QTFilterSummary {overflow: hidden; zoom: 1;} /* This overflow hidden is important for the hidden inputs we use on filtering. */
+        .BVDI_QTFilterSummary:after {.less_box_clearFix;}
+            .BVDI_QTHeaderFilterSummary {.less_box_borderLight; .less_box_borderTop; padding: 10px 0;}
+                .BVDI_QTHeaderFilterSummary .BVDITitle {.less_text_titleHelper;}
+                .BVDI_QTBodyFilterSummary {margin-bottom: 10px; overflow: hidden;}
+                    .BVDI_QTSummary {display: inline; margin-right: 10px;}
+                    .BVDI_QTSummaryNoContent {.less_text_helper;}
+                    .BVDI_QTSummaryOdd {}
+                    .BVDI_QTSummaryEven {}
+                    .BVDI_QTSummaryFirst {}
+                    .BVDI_QTSummaryLast {}
+                .BVDI_QTHeaderSummary {}
+                    .BVDI_QTPrefixHeaderSummary {.less_text_helper; margin-right: 10px; display: none;}
+                    .BVDI_QTSummaryFirst .BVDI_QTPrefixHeaderSummary {display: none;}
+                    .BVDI_QTHeaderSummary .BVDITitle {.less_text_strong;}
+                .BVDI_QTSummary .BVDI_QTFilterList {display: inline;}
+                    .BVDI_QTSummary .BVDI_QTFilter {display: inline; padding: 1px 0; vertical-align: top; zoom: 1;}
+            .BVDI_QTFooterFilterSummary {.less_text_iconClear; line-height: 1.2em;}
+                .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll {.less_text_linkAction;}
+                .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll:visited {.less_text_linkActionVisited;}
+                .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll:hover {.less_text_linkActionHover;}
+                .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll:focus {.less_text_linkActionFocus;}
+                .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll:active {.less_text_linkActionActive;}
+                .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll, .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll:visited, .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll:hover, .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll:focus, .BVDI_QTFooterFilterSummary .BVDI_QTLinkRemoveAll:active {color: @less_text_colorAlertBad;}
+        .BVDI_QTFilterSummary .BVDI_QTFilterDisabled {display: none;}
+
+        /* Filter Styles */
+        ul.BVDI_QTFilterList {margin: 0; padding: 0; list-style-type: none; zoom: 1;}
+            li.BVDI_QTFilter {overflow: hidden;}
+            .BVDI_QTFilterList li.BVDI_QTFilter {padding-right: 10px;}
+                .BVDI_QTFilterList li.BVDI_QTFilter .BVDIValue em {.less_text_helper; padding-left: 5px;} /* locale has helper text */
+            .BVDI_QTFilterOdd {}
+            .BVDI_QTFilterEven {}
+            .BVDI_QTFilterFirst {}
+            .BVDI_QTFilterLast {}
+            .BVDI_QTPrefixFilter {}
+            .BVDI_QTSuffixFilter {display: none;}
+            .BVDI_QTFilterLast .BVDI_QTSuffixFilter {display: none;}
+            .BVDI_QTFilterLastSelected .BVDI_QTSuffixFilter {display: none;}
+            .BVDI_QTGroup .BVDI_QTSuffixFilter  {display: none;}
+            /* Filter checkbox links */
+            /* padding-left must be set to 0 because the padding is applied to the label (inside the filter) instead. */
+            .BVDI_QTFilterListCheckboxes .BVDI_QTFilter label {.less_text_checkFilterOff;}
+            .BVDI_QTFilterListCheckboxes .BVDI_QTFilterChecked label {.less_text_checkFilterOn;}
+            .BVDI_QTFilterListCheckboxes .BVDI_QTFilterDisabled label {.less_text_checkFilterDisabled;}
+            .BVDI_QTFilterListCheckboxes .BVDI_QTFilterHover label {.less_text_checkFilterOffHover;}
+            .BVDI_QTFilterListCheckboxes .BVDI_QTFilterCheckedHover label {.less_text_checkFilterOnHover;}
+            .BVDI_QTFilterListCheckboxes .BVDI_QTFilterFocus label {background-color: @less_box_colorPrimaryFadest;}
+            .BVDI_QTFilterListCheckboxes .BVDI_QTFilterFocus {background-color: @less_box_colorPrimaryFadest; outline: 1px dotted @less_box_borderColorMed;}
+            .BVDI_QTFilterListRadios .BVDI_QTFilter label {.less_text_radioFilterOff;}
+            .BVDI_QTFilterListRadios .BVDI_QTFilterChecked label {.less_text_radioFilterOn;}
+            .BVDI_QTFilterListRadios .BVDI_QTFilterDisabled label {.less_text_radioFilterDisabled;}
+            .BVDI_QTFilterListRadios .BVDI_QTFilterHover label {.less_text_radioFilterOffHover;}
+            .BVDI_QTFilterListRadios .BVDI_QTFilterCheckedHover label {.less_text_radioFilterOnHover;}
+            .BVDI_QTFilterListRadios .BVDI_QTFilterFocus {background-color: @less_box_colorPrimaryFadest; outline: 1px dotted @less_box_borderColorMed;}
+                .BVDI_QTFilter label {line-height: normal; display: inline-block; *display: inline; zoom: 1;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; - used to keep in line with checkbox inputs */
+                .BVDI_QTFilter label:hover {cursor: pointer;}
+                .BVDI_QTFilterDisabled label {}
+                .BVDI_QTFilterDisabled label:hover {cursor: auto;}
+                .BVDI_QTFilter .BVDIValue {}
+                .BVDI_QTFilter .BVDISuffix {.less_text_helper; margin-left: 1ex;}
+                .BVDI_QTFilter .BVDINumber {.less_text_helper; margin-left: 1ex;}
+                .BVDI_QTFilter input {margin-left: -40px; float: left;}
+            .BVDI_QTLevel0 label {color: @less_text_colorLow;} /* Disabled filters */
+            .BVDI_QTFilter label {}
+            .BVDI_QTLevel1 .BVDIValue {}
+            .BVDI_QTLevel2 .BVDIValue {}
+            .BVDI_QTLevel3 .BVDIValue {}
+            .BVDI_QTLevel4 .BVDIValue {}
+            .BVDI_QTLevel5 .BVDIValue {}
+            .BVDI_QTLevel6 .BVDIValue {}
+            .BVDI_QTLevel7 .BVDIValue {}
+            .BVDI_QTLevel8 .BVDIValue {}
+            .BVDI_QTLevel9 .BVDIValue {}
+            .BVDI_QTLevel10 .BVDIValue {}
+            .BVDI_QTLevel11 .BVDIValue {}
+            .BVDI_QTLevel12 .BVDIValue {}
+            .BVDI_QTLevel13 .BVDIValue {}
+            .BVDI_QTLevel14 .BVDIValue {}
+            .BVDI_QTLevel15 .BVDIValue {}
+                .BVDI_QTSuffixFilter {.less_text_helper; margin: 0 0 0 5px;}
+                .BVDI_QTFilterFilteringDisabled .BVDI_QTFilter .BVDIValue {color: @less_text_colorLow;}
+                .BVDI_QTFilterFilteringDisabled .BVDI_QTFilter label:hover {cursor: wait;}
+
+        .BVDI_QTFooterGroup {}
+        .BVDI_QTFooterGroup {overflow: hidden; zoom: 1; padding: 0 5px; position: relative; top: -2px;}
+        /* Toggle */
+        .BVDI_QT .BVDILinkToggle {}
+            .BVDI_QTFooterGroup .BVDILinkToggle {.less_box_widget; .less_box_borderLight; border-top-color: @less_box_colorBase; display: block; padding: 0 2px 2px; width: 80px; text-align: center;}
+            .BVDI_QTFooterGroup .BVDILinkToggle {.less_text_linkAction;}
+            .BVDI_QTFooterGroup .BVDILinkToggle:visited {.less_text_linkActionVisited;}
+            .BVDI_QTFooterGroup .BVDILinkToggle:hover {.less_text_linkActionHover; outline: none;}
+            .BVDI_QTFooterGroup .BVDILinkToggle:focus {.less_text_linkActionFocus; outline: none;}
+            .BVDI_QTFooterGroup .BVDILinkToggle:active {.less_text_linkActionActive; outline: none;}
+
+            /* These more/fewer links exist in the tag filtering footers - the span must be targeted because the link already has a background in default. */
+            .BVDI_QTGroupCollapsed .BVDI_QTFooterGroup .BVDILinkToggle .BVDILinkSpan {.less_text_iconDown;}
+            .BVDI_QTGroupExpanded .BVDI_QTFooterGroup .BVDILinkToggle .BVDILinkSpan {.less_text_iconUp;}
+
+        .BVDI_QT .BVDIToggleArea {width: 180px;}
+            .BVDI_QTAttributes .BVDIToggleArea {.less_box_fakeSelectOpen; position: absolute; padding: 10px; z-index: 2;}
+    .BVDI_QTFooter {}
+    .BVDI_QTSpacerInside {display: block; clear: left;}
+
+    /* Filtering customizations for Tags (i.e., non-popin filters) */
+    .BVDI_QTBodyTags .BVDI_QTGroupCollapsed .BVDITitle .BVDILinkToggle {}
+    .BVDI_QTBodyTags .BVDI_QTGroupExpanded .BVDITitle .BVDILinkToggle {}
+    .BVDI_QTTags .BVDIToggleArea {display: none !important;}
+        .BVDI_QTTags ul.BVDI_QTFilterList {display: inline;}
+        .BVDI_QTTags li.BVDI_QTFilter {display: block; float: left; margin-right: 10px; white-space: nowrap; zoom: 1;}
+        .BVDI_QTTags li.BVDI_QTFilter label {display: block; float: left; white-space: nowrap;}
+
+    /* Filtering customizations for Attributes (i.e., popin filters) */
+    /* --- OPTION 1: MINIMALIST --- */
+        /* @group Minimalist */
+        .BVDI_QTAttributes .BVDI_QTGroupExpanded .BVDITitle .BVDILinkToggle {.less_text_iconExpanded; display: inline-block;}
+        .BVDI_QTAttributes .BVDI_QTGroupCollapsed .BVDITitle .BVDILinkToggle {.less_text_iconCollapsed; display: inline-block;}
+        /* @end */
+    /* --- END OPTION 1: MINIMALIST --- */
+    /* --- OPTION 2: FAUX SELECT DROPDOWN --- */
+        /* @group FauxSelectDropdown */
+/*        .BVDI_QTAttributes .BVDI_QTGroup .BVDITitle .BVDILinkToggle, .BVDI_QTAttributes .BVDI_QTGroup .BVDITitle .BVDILinkToggle:visited, .BVDI_QTAttributes .BVDI_QTGroup .BVDITitle .BVDILinkToggle:hover, .BVDI_QTAttributes .BVDI_QTGroup .BVDITitle .BVDILinkToggle:focus, .BVDI_QTAttributes .BVDI_QTGroup .BVDITitle .BVDILinkToggle:active {.less_text_body;}
+        .BVDI_QTAttributes .BVDI_QTGroup .BVDITitle .BVDILinkToggle {.less_box_reset; .less_box_fakeSelect; padding: 3px 5px; display: inline-block; white-space: nowrap;}
+        .BVDI_QTAttributes .BVDI_QTGroup .BVDITitle .BVDILinkToggle:hover {.less_box_fakeSelectHover;}
+        .BVDI_QTAttributes .BVDI_QTGroup .BVDITitle .BVDILinkToggle .BVDILinkSpan {.less_text_iconDown;}
+*/
+        /* @end */
+    /* --- END OPTION 2: FAUX SELECT DROPDOWN --- */
+
+/* Quicktake styles used only in the inline content - COMING SOON */
+
+/* QuickTake styles used only in the dashboard.*/
+/* NOTE: Used by Stories and RR */
+.BVDI_QT {clear: both; zoom: 1;}
+.BVDI_QT:after {.less_box_clearFix;}
+    .BVDI_QTInside {padding: 15px 0; clear: both; zoom: 1;}
+    .BVDI_QTInside:after {.less_box_clearFix;}
+        .BVDI_QTHeader {}
+            .BVDI_QTTitle {.less_text_titleSection;}
+            .BVDI_QTSort {float: right;}
+            .BVDI_QTSubtitle {display: none;}
+        .BVDI_QTBody {height: auto;}
+            .BVDI_QT .BVDI_QTSummaryBox {float: left;}
+                .BVDI_QT .BVDI_QTHeaderSummaryBox {display: none;}
+            .BVDI_QT .BVDI_QTTags {margin-bottom: 10px; overflow: hidden; zoom: 1;}
+                .BVDI_QTTags .BVDI_QTHeaderGroup {margin-bottom: 5px;}
+                .BVDI_QTTags .BVDI_QTHeaderGroup a, .BVDI_QTTags .BVDI_QTHeaderGroup a:visited, .BVDI_QTTags .BVDI_QTHeaderGroup a:hover, .BVDI_QTTags .BVDI_QTHeaderGroup a:focus, .BVDI_QTTags .BVDI_QTHeaderGroup a:active {.less_text_body; .less_text_strong; cursor: default;}
+                .BVDI_QT .BVDI_QTHeaderTags {margin-bottom: 10px; display: none;}
+                .BVDI_QT .BVDI_QTBodyTags {}
+                    .BVDI_QT .BVDI_QTBodyTags .BVDI_QTGroup {width: 40%; margin-left: 0;}
+                .BVDI_QT .BVDI_QTSpacerBodyTags {display: block; clear: left;}
+            .BVDI_QT .BVDI_QTAttributes {margin-bottom: 10px; overflow: hidden;}
+                .BVDI_QT .BVDI_QTHeaderAttributes {margin-bottom: 10px;}
+                .BVDI_QT .BVDI_QTHeaderAttributes .BVDITitle {.less_text_strong;}
+                .BVDI_QT .BVDI_QTHeaderSummary .BVDITitle {}
+                .BVDI_QT .BVDI_QTFilterSummary .BVDI_QTFilterUnchecked {display: none;}
+                .BVDI_QT .BVDI_QTSummaryUnfiltered {display: none;}
+            .BVDI_QT .BVDI_QTBodyAttributes {}
+                .BVDI_QT .BVDI_QTBodyAttributes a span, .BVDI_QT .BVDI_QTBodyAttributes a:hover {}
+                /* Dashboard filtering links */
+                .BVDI_QT .BVDI_QTAttributes a, .BVDI_QT .BVDI_QTTags a {.less_text_linkAction; white-space: nowrap; line-height: 1.2em;}
+                .BVDI_QT .BVDI_QTAttributes a:visited, .BVDI_QT .BVDI_QTTags a:visited {.less_text_linkActionVisited;}
+                .BVDI_QT .BVDI_QTAttributes a:hover, .BVDI_QT .BVDI_QTTags a:hover {.less_text_linkActionHover;}
+                .BVDI_QT .BVDI_QTAttributes a:focus, .BVDI_QT .BVDI_QTTags a:focus {.less_text_linkActionFocus;}
+                .BVDI_QT .BVDI_QTAttributes a:active, .BVDI_QT .BVDI_QTTags a:active {.less_text_linkActionActive;}
+                .BVDI_QT .BVDI_QTTags a, .BVDI_QT .BVDI_QTTags a:visited, .BVDI_QT .BVDI_QTTags a:hover, .BVDI_QT .BVDI_QTTags a:focus, .BVDI_QT .BVDI_QTTags a:active {.less_text_body;}
+                .BVDI_QT .BVDI_QTAttributes a, .BVDI_QT .BVDI_QTAttributes a:visited, .BVDI_QT .BVDI_QTAttributes a:hover, .BVDI_QT .BVDI_QTAttributes a:focus, .BVDI_QT .BVDI_QTAttributes a:active {.less_text_body; .less_text_normal; outline: none;}
+                .BVDI_QT .BVDI_QTSpacerBodyAttributes {display: none;}
+            /* Dashboard filtering summary */
+            .BVDI_QT .BVDI_QTFilterSummary {float: right; width: 100%; margin-left: -275px; overflow: hidden;}
+                .BVDI_QT .BVDI_QTInsideFilterSummary {margin-left: 275px;}
+                    .BVDI_QT .BVDI_QTFilterSummaryNoContent .BVDIBody {.less_text_helper;}
+                        .BVDI_QT .BVDI_QTHeaderSummary {display: inline; zoom: 1; vertical-align: top; margin-right: 5px;}
+                        .BVDI_QT .BVDI_QTHeaderSummary .BVDITitle {.less_text_titleHelper;}
+
+
+/* Disabled States */
+.BVDI_QTGroupDisabled {}
+.BVDI_QT .BVDI_QTGroupDisabled a, .BVDI_QT .BVDI_QTGroupDisabled a:visited, .BVDI_QT .BVDI_QTGroupDisabled a:hover, .BVDI_QT .BVDI_QTGroupDisabled a:focus, .BVDI_QT .BVDI_QTGroupDisabled a:active {.less_text_linkAction; color: @less_text_colorLow;}
+
+
+/* QuickTake styles used only in the inline tag filtering. (RR & SY) */
+.BVDI_QTBodyInlineTags {.less_text_meta;}
+.BVDI_QTBodyInlineTags .BVDIBody {.less_text_meta;}
+.BVDI_QTBodyInlineTags .BVDI_QTFilterListCheckboxes .BVDI_QTFilter label {.less_text_checkFilterOff; .less_text_meta;}
+.BVDI_QTBodyInlineTags .BVDI_QTFilterListCheckboxes .BVDI_QTFilterChecked label {.less_text_checkFilterOn;}
+.BVDI_QTBodyInlineTags .BVDI_QTFilterListCheckboxes .BVDI_QTFilterDisabled label {.less_text_checkFilterDisabled;}
+.BVDI_QTBodyInlineTags .BVDI_QTFilterListCheckboxes .BVDI_QTFilterHover label {.less_text_checkFilterOffHover;}
+.BVDI_QTBodyInlineTags .BVDI_QTFilterListCheckboxes .BVDI_QTFilterCheckedHover label {.less_text_checkFilterOnHover;}
+.BVDI_QTBodyInlineTags .BVDI_QTFilterListCheckboxes .BVDI_QTFilterFocus label {background-color: @less_box_colorPrimaryFadest;}
+
+
+/* End QuickTake Display Style 2 DISPLAY (BVDI) */
+
+.BVDIOverlay {/*.less_box_opacity70; background-color: @less_box_colorBase; position: absolute;*/}
+
+/* General content excerpt containers */
+.BVDI_SU {.less_box_ugc;}
+    .BVDI_SURatingLabel {display: none;}
+    .BVDI_SURatingImage {float: left;}
+    .BVDI_SURatingImage img {display: block; float: left;}
+    .BVDI_SURatingOutOf {.less_text_helper; line-height: 24px;}
+    .BVDI_SUTitle {.less_text_titleItem; .less_text_size4;}
+    .BVDI_SUSignature {.less_text_meta; margin: 5px 0;}
+
+/*=== Media Widget (_MW) ===*/
+
+/* @group MediaWidget */
+
+/* @group MediaWidgetShared */
+/* This stuff appears in the inline carousel and the popup */
+
+/* Nav overlay must be hidden until we have javascript to make it disappear on a timer - otherwise it just hides part of the photo. */
+.BVDI_MWNavOverlay {display: none;}
+.BVDI_MWNav {}
+/* Count shows the "photo X of Y" text. */
+    .BVDI_MWCount {display: none; text-align: center;}
+        .BVDI_MWCountCurrent {}
+            .BVDI_MWCountCurrent .BVDIPrefix {.less_text_helper;}
+            .BVDI_MWCountCurrent .BVDINumber {.less_text_helper; .less_text_strong;}
+        .BVDI_MWCountTotal {.less_text_helper;}
+            .BVDI_MWCountCurrent .BVDIPrefix, .BVDI_MWCountTotal .BVDIPrefix {margin-right: 0.25em;}
+            .BVDI_MWCountTotal .BVDIPrefix {margin-left: 0.25em;}
+/* Media loading states*/
+            .BVDI_MWMediaLoading {.less_text_helper; width: 400px; height: 200px; background: @less_box_colorPrimaryFadest url(loadingGraphicLarge.gif) no-repeat 50% 50%;}
+                .BVDI_MWInsideMedia {}
+                .BVDI_MWInsideMedia img {width: 400px;}
+                .BVDI_MWMediaLoading .BVDI_MWInsideMedia {padding-top: 50px;}
+            .BVDI_MWBodyDetail .BVDI_MWCaption {display: none;}
+            .BVDI_MWBodyDetail .BVDI_SUHeader {display: none;}
+
+/* @end */
+
+/* @group MediaWidgetInline */
+
+/* @group MediaWidgetCarouselFrame */
+.BVDI_MW {.less_box_widget; margin-bottom: 10px; padding-bottom: 10px;}
+    .BVDI_MWInside {}
+    /* This header only appears when titles are defined in shared-static-resources/lib/mediaGalleryComponents.properties */
+    .BVDI_MWInside .BVDI_MWHeader {display: block;}
+        .BVDI_MWHeader {.less_box_toolbar; .less_box_borderBottom; padding: 5px 10px;}
+            .BVDI_MWHeader .BVDITitle {.less_text_titleWidget;}
+        /* In order to maintain vertical alignment of prev/next arrows and photo thumbs (which can be landscape or portrait orientation), the height here must be fixed so it matches the carousel height, and the image max heights. */
+        .BVDI_MWBody {.less_box_bodyWidget; .less_box_borderLight; position: relative; overflow: hidden; height: 127px;}
+/* @end */
+
+/* @group MediaWidgetCarousel */
+            /* BVDI_MWNavCarousel. */
+            .BVDI_MWNavCarouselOverlay {}
+            .BVDI_MWNavCarousel {}
+                .BVDI_MWNavCarousel .BVDI_MWCount {float: left; width: 545px;}
+            .BVDI_MWNavDetail {}
+                    .BVDI_MWNavControl .BVDILinkSpan, .BVDI_MWNavControl .BVDINumber {display: none;}
+            /* Nav in Carousel */
+            /* The next line controls the container which holds the left and right carousel arrows. Set its width accordingly.
+               You can also use it to put rounded corners / edge treatments on the left and right of the carousel. */
+            .BVDI_MWNavCarousel .BVDI_MWNavControl {.less_box_reset; position: absolute; height: 100%; width: 32px; overflow: hidden; top: 0; z-index: 1;}
+            .BVDI_MWNavCarousel .BVDI_MWNavControlPrevious {left: 0;}
+            .BVDI_MWNavCarousel .BVDI_MWNavControlNext {right: 0;}
+            /* Use the next line to set up width/height and position vertically of the symmetrical carousel left and carousel right arrows.*/
+            /* Carousel (large filmstrip) navigation arrow links */
+                .BVDI_MWNavCarousel .BVDILink {top: 50%; position: relative; margin-top: -16px;}
+                .BVDI_MWNavCarousel .BVDILink {.less_text_linkAction;}
+                .BVDI_MWNavCarousel .BVDILink:visited {.less_text_linkActionVisited;}
+                .BVDI_MWNavCarousel .BVDILink:hover {.less_text_linkActionHover;}
+                .BVDI_MWNavCarousel .BVDILink:focus {.less_text_linkActionFocus;}
+                .BVDI_MWNavCarousel .BVDILink:active {.less_text_linkActionActive;}
+                .BVDI_MWNavCarousel .BVDILink {.less_box_opacity70;}
+                .BVDI_MWNavCarousel .BVDILink:hover, .BVDI_MWNavCarousel .BVDILink:focus, .BVDI_MWNavCarousel .BVDILink:active {.less_box_opacity100;}
+                    .BVDI_MWNavCarousel .BVDI_MWNavControlPrevious .BVDILinkPrevious {.less_text_iconLeftLarge;}
+                    .BVDI_MWNavCarousel .BVDI_MWNavControlNext .BVDILinkNext {.less_text_iconRightLarge;}
+                .BVDI_MWNavCarousel .BVDI_MWNavControlDisabled .BVDILink {.less_box_opacity100;}
+                    .BVDI_MWNavCarousel .BVDI_MWNavControlDisabled .BVDILinkPrevious {.less_text_iconLeftDisabledLarge;}
+                    .BVDI_MWNavCarousel .BVDI_MWNavControlDisabled .BVDILinkNext {.less_text_iconRightDisabledLarge;}
+                /* Control the width here - this must be adjusted if you increase or decrease the size of the thumbnails or the width of the containing page. */
+                    .BVDI_MWClip, .BVDI_MWPage {width: 430px;}
+            /* BVDI_MWClip is the window through which the strip (BVDI_MWStrip) is visible. */
+            .BVDI_MWClip {overflow: hidden; zoom: 1; padding: 10px 0 0; margin: 0 auto;}
+                /* BVDI_MWStrip is the gallery strip that is clipped by BVDI_MWClip. Properties 'left' and 'width' will be initial values;
+                     the widget's javascript will compute these dynamically. */
+                .BVDI_MWStrip {margin-left: 0px; width: 500%;}
+                    /* BVDI_MWPage width styling governs how the thumbnails wrap to a produce single- or multi-column render. */
+                    .BVDI_MWPage {margin: 0; padding: 0; list-style-type: none; float: left;}
+                    .BVDI_MWPageOdd {}
+                    .BVDI_MWPageEven {}
+                    .BVDI_MWPageFirst {}
+                    .BVDI_MWPageLast {}
+                    .BVDI_MWPageOnly {}
+                        .BVDI_MWStrip .BVDI_MWPage .BVDI_MWPageItem {display: inline-block; *display: inline; margin: 0 0 0 13px; padding: 0; zoom: 1; vertical-align: middle;}
+                        .BVDI_MWStrip .BVDI_MWPage .BVDI_MWPageItemLast {margin-right: 13px;}
+                        .BVDI_MWPageItemOdd {}
+                        .BVDI_MWPageItemEven {}
+                        .BVDI_MWPageItemFirst {}
+                        .BVDI_MWPageItemLast {}
+                        .BVDI_MWPageItemOnly {}
+                        .BVDI_MWPageItemSelected {}
+                        .BVDI_MWPageItemLinked {}
+                        .BVDI_MWPageItemLoading {}
+                        .BVDI_MWPageItemSpacer {display: inline-block; *display: inline; height: 107px; vertical-align: middle; visibility: hidden; zoom: 1;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; - used to keep spacers in a single row */
+                            /* Set height to the greatest thumbnailImageSize value out of all sourceApplicationCodes' *SubmissionConfiguration.xml files */
+                            .BVDI_MWThumbnail {}
+                            /* When a thumbnail is still loading and scrolls into view, you need to style this div!! */
+                                .BVDI_MWThumbnailLoading {background: url(loadingGraphic.gif) no-repeat 50% 100%;}
+                                .BVDI_MWInsideThumbnail {overflow: hidden; text-align: center;}
+                                .BVDI_MWPageItemSelected .BVDI_MWThumbnail {}
+                                .BVDI_MWPageItemVisited .BVDI_MWThumbnail {}
+                            .BVDI_MWThumbnailPhoto {}
+                            .BVDI_MWThumbnailVideo {}
+                                .BVDI_MWThumbnail .BVDILink {.less_box_borderLight; .less_box_borderLarge; .less_box_opacity70; display: block; line-height: 1em; width: 50px; height: 50px; overflow: hidden;}
+                                .BVDI_MWThumbnail .BVDILink:hover, .BVDI_MWThumbnail .BVDILink:focus, .BVDI_MWThumbnail .BVDILink:active {.less_box_borderMed; .less_box_borderLarge; .less_box_opacity100;}
+                                .BVDI_MWThumbnail .BVDILink span {.less_box_reset; display: block;}
+                                .BVDI_MWThumbnail .BVDILink img {.less_box_reset; display: block; width: 100px; height: auto; margin-left: -25px;}
+                                .BVDI_MWThumbnail .BVDILink img {}
+                            .BVDI_MWDetail {display: none;}
+                                .BVDI_MWInsideDetail {.less_box_popin; padding: 20px;}
+        .BVDI_MWFooter {}
+/* @end */
+
+/* @group MediaWidgetPopin */
+.BVDI_MWPopInDetail {display: none; position: absolute; width: 450px; z-index: 10000; zoom: 1;}
+
+/* Nav in Popup */
+    .BVDI_MWPopInDetail .BVDI_MWNavDetail {position: absolute; top: 19px; left: 25px;}
+    .BVDI_MWPopInDetail .BVDI_MWNavControl {overflow: hidden; float: left; margin-right: 3px;}
+        .BVDI_MWPopInDetail .BVDI_MWNavControl .BVDILink {.less_box_opacity100; float: left;}
+        .BVDI_MWPopInDetail .BVDI_MWNavControl .BVDILink:hover, .BVDI_MWPopInDetail .BVDI_MWNavControl .BVDILink:focus, .BVDI_MWPopInDetail .BVDI_MWNavControl .BVDILink:active {.less_box_opacity70; outline: 0;}
+        .BVDI_MWPopInDetail .BVDI_MWNavControl .BVDILink {.less_text_linkAction;}
+        .BVDI_MWPopInDetail .BVDI_MWNavControl .BVDILink:visited {.less_text_linkActionVisited;}
+        .BVDI_MWPopInDetail .BVDI_MWNavControl .BVDILink:hover {.less_text_linkActionHover;}
+        .BVDI_MWPopInDetail .BVDI_MWNavControl .BVDILink:focus {.less_text_linkActionFocus;}
+        .BVDI_MWPopInDetail .BVDI_MWNavControl .BVDILink:active {.less_text_linkActionActive;}
+        .BVDI_MWPopInDetail .BVDI_MWNavControlDisabled .BVDILink, .BVDI_MWPopInDetail .BVDI_MWNavControlDisabled .BVDILink:visited, .BVDI_MWPopInDetail .BVDI_MWNavControlDisabled .BVDILink:hover, .BVDI_MWPopInDetail .BVDI_MWNavControlDisabled .BVDILink:focus, .BVDI_MWPopInDetail .BVDI_MWNavControlDisabled .BVDILink:active {.less_box_opacity50; cursor: default;}
+            .BVDI_MWPopInDetail .BVDI_MWNavControlPrevious .BVDILinkPrevious {.less_text_iconLeft; .less_text_iconOnly; margin-top: 2px;}
+            .BVDI_MWPopInDetail .BVDI_MWNavControlNext .BVDILinkNext {.less_text_iconRight; .less_text_iconOnly;}
+
+/* Popin */
+.BVDI_MWPopInDetail .BVDI_MWHeaderDetail {padding-top: 0; display: block; margin-bottom: 8px; zoom: 1;}
+    .BVDI_MWPopInDetail .BVDI_MWHeaderDetail:after {.less_box_clearFix;}
+        .BVDI_MWPopInDetail .BVDI_MWHeaderDetail .BVDI_MWCaption {.less_text_meta; width: 364px; display: block; text-align: center;}
+            .BVDI_MWPopInDetail .BVDI_MWHeaderDetail .BVDILinkClose {}
+    .BVDI_MWPopInDetail .BVDI_MWBodyDetail {zoom: 1;}
+    .BVDI_MWPopInDetail .BVDI_MWBodyDetail:after {.less_box_clearFix;}
+        .BVDI_MWPopInDetail .BVDI_MWBodyDetail .BVDI_MWCount {float: left; width: 360px;}
+        .BVDI_MWPopInDetail .BVDI_MWMedia {text-align: center; margin-bottom: 15px;}
+        .BVDI_MWPopInDetail .BVDI_MWMediaPhoto {}
+        .BVDI_MWPopInDetail .BVDI_MWMediaVideo {}
+            .BVDI_MWPopInDetail .BVDILinkGoTo {}
+/* MW Summary */
+.BVDI_MWPopInDetail .BVDI_SUHeader {margin-bottom: 10px;}
+.BVDI_MWPopInDetail .BVDI_SUContent {.less_text_normal; margin-left: 0; text-align: left;}
+    .BVDI_MWPopInDetail .BVDI_SUBody {}
+    .BVDI_MWPopInDetail .BVDI_SUReview {padding: 10px; margin: 0 0 10px;}
+    .BVDI_MWPopInDetail .BVDI_SURatingLabel, .BVDI_MWPopInDetail .BVDI_SURatingOutOf {display: none;}
+    .BVDI_MWPopInDetail .BVDI_SUText {display: none;}
+    .BVDI_MWPopInDetail .BVDI_AbbreviatedLink {display: block;}
+    .BVDI_MWPopInDetail .BVDI_FullLink {display: block;}
+    .BVDI_MWPopInDetail .BVDI_SURating {}
+    .BVDI_MWPopInDetail .BVDI_SURatingImage {float: none;}
+    .BVDI_MWPopInDetail .BVDI_SURatingImage img {float: none;}
+    .BVDI_MWPopInDetail .BVDI_SUTitle {}
+    .BVDI_MWPopInDetail .BVDI_SUDate {display: none;}
+    .BVDI_MWPopInDetail .BVDI_SUSignature {.less_text_meta; display: block; padding: 5px 0 10px;}
+        .BVDI_MWPopInDetail .BVDI_SUUserNicknameContainer {}
+            .BVDI_MWPopInDetail .BVDI_SUPrefixNickname {.less_text_lowercase; margin-right: 0.25em;}
+            .BVDI_MWPopInDetail .BVDI_SUUserNicknameContainer .BVDILinkSpan {.less_text_strong;}
+        .BVDI_MWPopInDetail .BVDI_SUUserLocationContainer {display: none;}
+            .BVDI_MWPopInDetail .BVDI_SUPrefixLocation {margin: 0 0.25em;}
+/* @end */
+
+/* @end */
+
+/*=== END OF Media Widget (_MW) ===*/
+
+/* BVDI_MH (Most Helpful Review) */
+.BVDI_MH {.less_box_borderMed; background: url(background_border.gif) repeat-y 50% 50%; /* LESSIFY ? - This feature isn't used currently */}
+.BVDI_MHInside {}
+    .BVDI_MHPair {clear: both; zoom: 1;}
+        .BVDI_MHPositive {float: left; width: 49.99%; zoom: 1;}
+            .BVDI_MHInsidePositive  {padding: 5px 30px 5px 10px; zoom: 1;}
+        .BVDI_MHCritical {float: left; width: 49.99%; zoom: 1;}
+            .BVDI_MHInsideCritical {padding: 5px 10px 5px 30px; zoom: 1;}
+        .BVDI_MHSpacerPair {clear: both;}
+    .BVDI_MHHeader {}
+        .BVDI_MHInsideHeader {}
+            .BVDI_MHPairTitle {}
+                .BVDI_MHTitleContainer {.less_text_titleItem; .less_text_size4;}
+            .BVDI_MHPairHeaderContentDetails {}
+                .BVDI_MHPairHeaderContentDetails .BVDI_MHReadMore {float: right;}
+                    .BVDI_MHReadMore .BVDILinkClose {}
+                    .BVDI_MHReadMore .BVDILinkClose .BVDILinkSpan {}
+    .BVDI_MHBody {}
+        .BVDI_MHInsideBody {background: url(mostHelpful.gif) no-repeat 50% 50%;} /* LESSIFY ? - This feature isn't used */
+            .BVDI_MHPairReviewTitleContainer {.less_text_titleItem; margin: 1em 0;}
+            .BVDI_MHPairRatingContainer {display: none;}
+            .BVDI_MHPairReviewDisplayContentContainer {}
+                .BVDI_MHReviewContentContainer .BVRRReviewProsConsContainer {margin: 0;}
+            .BVDI_MHPairUserDataContainer {}
+                .BVDI_MHPairUserDataContainer .BVRRUserDataContainer {.less_box_borderMed; .less_box_borderTop; padding-top: 1em;}
+                .BVDI_MHPairUserDataContainer .BVRRSignatureContainer .BVRRUserNicknameContainer {display: inline;}
+                .BVDI_MHPairUserDataContainer .BVRRSignatureContainer .BVRRUserLocationContainer {display: inline;}
+                .BVDI_MHPairUserDataContainer .BVRRSignatureContainer .BVRRReviewDateContainer {display: inline;}
+            .BVDI_MHPairActionContainer {.less_box_meta; margin: 1em 0;}
+    .BVDI_MHFooter {}
+        .BVDI_MHInsideFooter {}
+            .BVDI_MHPairFilterSentence {text-align: right;}
+                .BVDI_MHFooterLinks {position: relative; width: 100%;}
+
+.BVDI_MHPopup, #BVDI_MHPopupControlsFrameID {position: absolute; z-index: 400; width: 80%; margin: 100px auto auto 10%; zoom: 1;} /* Note: "overflow: hidden" here will truncate the Profile Snapshot */
+.BVDI_MHPopup {.less_box_popin;}
+    .BVDI_MHHeaderPopup {padding: 5px; zoom: 1;  overflow: hidden;}
+        .BVDI_MHHeaderPopup .BVDI_MHClose {float: right;}
+        .BVDI_MHHeaderPopup .BVDI_MHClose {.less_text_linkAction; .less_text_iconClose; .less_text_iconOnly;}
+        .BVDI_MHHeaderPopup .BVDI_MHClose:visited {.less_text_linkActionVisited;}
+        .BVDI_MHHeaderPopup .BVDI_MHClose:hover {.less_text_linkActionHover;}
+        .BVDI_MHHeaderPopup .BVDI_MHClose:focus {.less_text_linkActionFocus;}
+        .BVDI_MHHeaderPopup .BVDI_MHClose:active {.less_text_linkActionActive;}
+        .BVDI_MHTitlePopup {.less_text_titleItem;}
+    .BVDI_MHBodyPopup {padding: 5px;}
+    .BVDI_MHFooterPopup {padding: 5px 0 0;}
+
+/* Filtering Busy (BVDI_FB) */
+.BVDI_FBHideSelect {.less_box_borderNo; .less_box_opacity0; background-color: @less_box_colorBase; z-index: 1000;}
+.BVDI_FBOverlayContainer {.less_box_opacity70; background-color: @less_box_colorBase; z-index: 1100;}
+.BVDI_FBContainerHighlight {z-index: 1200 !important;}
+.BVDI_FBOverlayHighlight {z-index: 1300;}
+    .BVDI_FBImage {text-align: center; top: 50%; position: relative; margin-top: -8px;}
+    .BVDI_FBContainerHighlight .BVDI_QTFilter {background-image: none !important;}
+    .BVDI_QT .BVDI_QTFilterList .BVDI_QTFilterActive {.less_box_reset; background: url(filteringBusy.gif) no-repeat 0 0 !important; outline: none;} /* Necessary to override an inline style. */
+    .BVDI_QT .BVDI_QTFilterActive label {.less_box_reset;} /* Animated gif styles */
+
+/* Profile Snapshot (BVDI_PS) */
+.BVDI_PSSpacer {font-size: 0; height: 0; display: block; line-height: 0; overflow: hidden;} /* don't lessify - font size for layout only */
+.BVDI_PSPopin, #BVDI_PSIEControlsFrame {position: absolute; z-index: 10000000; margin: 7px; overflow: hidden; zoom: 1;} /* Note: margin-left/right are preserved when popin is dynamically repositioned */
+.BVDI_PS {.less_text_body; .less_box_popin; line-height: 1.5em; width: 450px;}
+    .BVDI_PS a {.less_text_link;}
+    .BVDI_PS a:visited {.less_text_linkVisited;}
+    .BVDI_PS a:hover {.less_text_linkHover;}
+    .BVDI_PS a:focus {.less_text_linkFocus;}
+    .BVDI_PS a:active {.less_text_linkActive;}
+    .BVDI_PSInside {padding: 15px;}
+        .BVDI_PSHeader {float: right;}
+            .BVDI_PSHeader .BVDILinkClose {display: none;}
+        .BVDI_PSBody {margin-bottom: 10px; clear: both;}
+            /* Styles common to all sections */
+            .BVDI_PSContainer {margin-bottom: 15px;}
+                .BVDI_PSHeaderContainer{}
+                .BVDI_PSBodyContainer {overflow: hidden; zoom: 1;}
+                    .BVDI_PSSection {}
+                        .BVDI_PSHeaderSection {}
+                        .BVDI_PSBodySection {}
+            /* Styles specific to a particular section */
+            .BVDI_PSContainerBasic {overflow: hidden; zoom: 1;}
+                .BVDI_PSAvatar {float: left; width: 45px; margin-right: 10px;}
+                .BVDI_PSAvatar a, .BVDI_PSAvatar img {display: block; float: left; width: 100%; height: auto;}
+                .BVDI_PSUserLocationContainer, .BVDI_PSContextDataContainer {clear: both;}
+                .BVDI_PSUserLocationContainer .BVDI_PSLabel, .BVDI_PSContextDataContainer .BVDI_PSLabel {.less_text_strong;}
+                .BVDI_PSHeaderBasic {}
+                .BVDI_PSBodyBasic {}
+                    .BVDI_PSSectionNickname {.less_text_nickname; .less_text_strong; float: left;}
+                        .BVDI_PS .BVDI_PSSectionNickname a {padding-top: 10px;}
+                    .BVDI_PSBodyBasic .BVDI_PSSectionBadges {float: right;}
+                        .BVDI_PSBodyBasic .BVDI_BABadges {margin-bottom: 5px;}
+                    .BVDI_PSSectionBadges .BVDI_BAItem .BVDILinkSpan {}
+                    .BVDI_PSSectionBadges {margin: 0;}
+                        .BVDI_PSSectionBadges .BVDI_BAList {margin: 0;}
+                        .BVDI_PSSectionBadges .BVDI_BAItem .BVDILink {height: auto;}
+                        .BVDI_PSSectionBadges .BVDI_BAItem .BVDILinkSpan {padding: 0;}
+                    .BVDI_PSSectionHistory {clear: both;}
+                        .BVDI_PSBodyHistory {.less_text_helper;}
+                            .BVDI_PSBodyHistory div {display: inline;} /* making the active since/through sentence display inline. remove to stack */
+                            .BVDI_PSBodyHistory .BVDI_PSValue {.less_text_strong;}
+                            .BVDI_PSBodyHistory .BVDI_PSLabelValuePair {padding-right: 5px;}
+            .BVDI_PSContainerCrossProduct {.less_box_meta; .less_text_meta; padding: 10px; clear: both;}
+                .BVDI_PSHeaderCrossProduct {}
+                .BVDI_PSBodyCrossProduct {}
+                    .BVDI_PSSectionContributions {}
+                        .BVDI_PSHeaderContributions {.less_text_strong; .less_text_size4;}
+                        .BVDI_PSBodyContributions {.less_text_size6; .less_text_lowercase; float: left; margin-top: 5px;}
+                            .BVDI_PSBodyContributions .BVDI_PSLabelValuePair {display: inline;}
+                                .BVDI_PSNumberContributions {.less_text_strong; display: inline;}
+            .BVDI_PSContainerProductSpecific {width: 45%; margin-right: 5%; float: left;}
+                .BVDI_PSHeaderProductSpecific {}
+                .BVDI_PSBodyProductSpecific {.less_text_meta;}
+                .BVDI_PSBodyProductSpecificPRR {}
+                    .BVDI_PSSectionAverageRating {overflow: hidden; zoom: 1; margin-bottom: 10px; padding: 2px 0;}
+                        .BVDI_PSSectionAverageRating .BVDI_PSRatingLabel {.less_text_strong; float: none; margin-bottom: 10px; overflow: hidden; zoom: 1;}
+                            /* These styles also apply under BVDI_PSSectionCrossLinkingPRR */
+                            .BVDI_PSRatingImage {float: left;}
+                                .BVDI_PSRatingImage img {width: 85px; -ms-interpolation-mode: bicubic;}
+                            .BVDI_PSRatingOutOf {display: none;}
+                                .BVDI_PSRatingOutOf .BVDINumber {.less_text_strong;}
+                    .BVDI_PSSectionHistogram {}
+                        .BVDI_PSHistogram {}
+                            .BVDI_PSHistogramTitle {display: none;}
+                                .BVDI_PSHistogramTitleText {}
+                                .BVDI_PSHistogramTitle .BVDI_PSCount {}
+                                    .BVDI_PSHistogramTitle .BVDI_PSNumber {}
+                            .BVDI_PSHistogramContent {}
+                                .BVDI_PSHistogramBarRow {overflow: hidden; zoom: 1; clear: left; margin-bottom: 2px; height: 11px;}
+                                .BVDI_PSHistStarLabel {float: left; display: block; width: 26px; height: 11px; background-position: 100% 0; background-repeat: no-repeat;}
+                                    .BVDI_PSHistogramBarRow5 .BVDI_PSHistStarLabel,
+                                    .BVDI_PSHistogramBarRow4 .BVDI_PSHistStarLabel,
+                                    .BVDI_PSHistogramBarRow3 .BVDI_PSHistStarLabel,
+                                    .BVDI_PSHistogramBarRow2 .BVDI_PSHistStarLabel,
+                                    .BVDI_PSHistogramBarRow1 .BVDI_PSHistStarLabel {background: url(profilesnap_histogramstar.gif) 12px -1px no-repeat;}
+                                        .BVDI_PSHistStarLabel .BVDI_PSHistStarLabelText {.less_text_strong; display: block; line-height: 12px; font-size: 10px;}
+                                    .BVDI_PSHistogramBar {.less_box_borderMed; background-color: @less_box_colorBase; float: left; margin: 0 5px; width: 100px; height: 8px; font-size: 6px;} /* Don't lessify This font size is just for layout - do not disturb */
+                                    .BVDI_PSHistogramBarRowZero .BVDI_PSHistogramBar {}
+                                        .BVDI_PSHistogramFullBar {background-color: @less_box_btnColorPrimaryMed; float: left; height: 8px;}
+                                    .BVDI_PSHistAbsLabel {float: left; display: none;}
+                                    .BVDI_PSHistPercLabel {float: left;}
+                .BVDI_PSBodyProductSpecificQA {}
+            .BVDI_PSContainerCrossLinking {.less_text_meta; margin-left: 45%;}
+                .BVDI_PSHeaderCrossLinking {.less_text_strong; margin-bottom: 10px;}
+                .BVDI_PSBodyCrossLinking {margin-bottom: 5px; padding: 5px;}
+                    .BVDI_PSSectionCrossLinking {}
+                        .BVDI_PSSectionCrossLinking .BVDI_PSLabelValuePair {clear: both; float: left; margin-bottom: 10px;}
+                .BVDI_PSBodyCrossLinkingPRR {}
+                    .BVDI_PSSectionCrossLinkingPRR {}
+                        .BVDI_PSSectionCrossLinkingPRR .BVDI_PSRatingLabel {.less_text_normal; display: none; float: left; margin-right: 15px; padding-right: 5px;}
+                        .BVDI_PSSectionCrossLinkingPRR .BVDI_PSRatingOutOf {display: none;}
+                    .BVDI_PSHeaderCrossLinkingPRR {.less_text_strong; margin-bottom: 10px;}
+                .BVDI_PSBodyCrossLinkingQA {clear: left;}
+                    .BVDI_PSSectionCrossLinkingQA {}
+                    .BVDI_PSHeaderCrossLinkingQA {.less_text_strong; margin-bottom: 10px;}
+                        .BVDI_PSSectionCrossLinkingQA .BVDI_PSLabelValuePair {clear: both; float: none; margin-bottom: 20px; zoom: 1;}
+                        .BVDI_PSSectionCrossLinkingQA .BVDI_PSLabelValuePair:after {.less_box_clearFix;}
+                            .BVDI_PSQuestionAnswersCount {.less_text_helper; float: right; margin-left: 10px; margin-bottom: 5px;}
+                            .BVDI_PSQuestion {margin-bottom: 5px;}
+                                .BVDI_PSQuestionPrefix {.less_text_strong;}
+                                .BVDI_PSQuestionText {}
+                            .BVDI_PSQuestion {}
+            .BVDI_PSContainerCredibility {clear: both; margin-bottom: 0;}
+                .BVDI_PSHeaderCredibility {}
+                .BVDI_PSBodyCredibilityVoting {}
+                        .BVDI_PSSectionFeedback, .BVDI_PSSectionFeedback div {float: left; height: 20px; line-height: 20px; white-space: nowrap;}
+                        .BVDI_PSSectionFeedback {.less_box_feedbackBackgroundLeft; .less_box_feedbackNormalLeft; .less_box_opacity70; .less_text_strong; .less_text_uppercase; margin-right: 10px; padding-left: 5px;}
+                            .BVDI_PSHeaderFeedback {display: none;}
+                            .BVDI_PSBodyFeedback {.less_box_feedbackBackgroundRight; .less_box_feedbackNormalRight; padding-right: 10px;}
+                                .BVDI_PSBodyFeedback .BVDI_PSLabelValuePair {}
+                                    .BVDI_PSBodyFeedback .BVDI_PSLabel {display: none;}
+                                    .BVDI_PSBodyFeedback .BVDI_PSValue {.less_text_feedbackIconDisabled; .less_text_titleHelper; margin-right: 10px;}
+                                .BVDI_PSLabelValuePairYes {}
+                                    .BVDI_PSLabelValuePairYes .BVDI_PSValue {.less_text_feedbackIconGood;}
+                                    .BVDI_PSLabelValuePairNo .BVDI_PSValue {.less_text_feedbackIconBad;}
+                    .BVDI_PSSectionBestAnswer {.less_text_helper; overflow: hidden; zoom: 1; vertical-align: baseline; line-height: 20px;}
+                        .BVDI_PSHeaderBestAnswer {display: block; float: left; margin: 0 10px;}
+                        .BVDI_PSBodyBestAnswer {}
+                        .BVDI_PSBodyBestAnswer .BVDI_PSLabelValuePair {float: left; margin-right: 10px;}
+                            .BVDI_PSBodyBestAnswer .BVDI_PSLabel {display: inline;}
+                            .BVDI_PSBodyBestAnswer .BVDI_PSValue {.less_box_reset; .less_text_titleHelper; display: inline;}
+                    .BVDI_PSSectionFeatured {overflow: hidden; zoom: 1; vertical-align: baseline; line-height: 20px;}
+                        .BVDI_PSHeaderFeatured {.less_text_normal; display: block; float: left; margin-right: 10px; margin-top: 5px;}
+                        .BVDI_PSBodyFeatured {}
+                        .BVDI_PSBodyFeatured .BVDI_PSLabelValuePair {float: left; margin-right: 10px;}
+                            .BVDI_PSBodyFeatured .BVDI_PSLabel {display: inline;}
+                            .BVDI_PSBodyFeatured .BVDI_PSValue {.less_text_meta; .less_text_size4; .less_text_strong; display: inline;}
+                .BVDI_PSBodyCredibilityBadges {margin-bottom: 0;}
+                    .BVDI_PSBodyCredibilityBadges .BVDI_PSSectionBadges {clear: both;}
+                        .BVDI_PSBodyCredibilityBadges .BVDI_BABadges {}
+        .BVDI_PSFooter {.less_box_toolbar; .less_box_borderTop; padding: 5px; text-align: right; clear: left; }
+            .BVDI_PSFooter .BVDI_PSUserProfileLink {}
+.BVDI_PS.BVDI_PSNotLoaded {width: 200px;}
+        .BVDI_PSSnapshotLoading {text-align: center;}
+        .BVDI_PSSnapshotTimeoutError {}
+
+/* Badges (BVDI_*Badge*) */
+.BVDI_BABadges {overflow: hidden; zoom: 1; margin-bottom: 10px;}
+    .BVDI_BABadge {.less_box_borderLight; float: left; margin-right: 5px; padding: 2px 0;}
+        .BVDI_BABadge a {.less_text_linkAction; color: @less_text_colorNormal;}
+        .BVDI_BABadge a:visited {.less_text_linkActionVisited; color: @less_text_colorNormal;}
+        .BVDI_BABadge a:hover {.less_text_linkActionHover; color: @less_text_colorNormal;}
+        .BVDI_BABadge a:focus {.less_text_linkActionFocus; color: @less_text_colorNormal;}
+        .BVDI_BABadge a:active {.less_text_linkActionActive; color: @less_text_colorNormal;}
+        .BVDI_BAExpertBadge, .BVDI_BAStaffBadge {.less_box_meta;}
+        .BVDI_BATop1ContributorBadge, .BVDI_BATop10ContributorBadge, .BVDI_BATop25ContributorBadge,
+            .BVDI_BATop50ContributorBadge, .BVDI_BATop100ContributorBadge, .BVDI_BATop250ContributorBadge,
+            .BVDI_BATop500ContributorBadge, .BVDI_BATop1000ContributorBadge
+                {background-color:  @less_box_colorBase;}
+            .BVDI_BABadgeGraphic {}
+            .BVDI_BAExpertGraphic, .BVDI_BAStaffGraphic {}
+/*            .BVDI_BAExpertGraphic {background-image: url(expert-reviewer-icon.gif);}
+            .BVDI_BAStaffGraphic {background-image: url(iconBadge.gif);}
+            .BVDI_BATop1ContributorGraphic, .BVDI_BATop10ContributorGraphic, .BVDI_BATop25ContributorGraphic,
+                .BVDI_BATop50ContributorGraphic, .BVDI_BATop100ContributorGraphic, .BVDI_BATop250ContributorGraphic,
+                .BVDI_BATop500ContributorGraphic, .BVDI_BATop1000ContributorGraphic
+                    {}
+            .BVDI_BATop1ContributorGraphic {background-image: url(top_1_contributor_icon.gif);}
+            .BVDI_BATop10ContributorGraphic {background-image: url(top_10_contributor_icon.gif);}
+            .BVDI_BATop25ContributorGraphic {background-image: url(top_25_contributor_icon.gif);}
+            .BVDI_BATop50ContributorGraphic {background-image: url(top_50_contributor_icon.gif);}
+            .BVDI_BATop100ContributorGraphic {background-image: url(top_100_contributor_icon.gif);}
+            .BVDI_BATop250ContributorGraphic {background-image: url(top_250_contributor_icon.gif);}
+            .BVDI_BATop500ContributorGraphic {background-image: url(top_500_contributor_icon.gif);}
+            .BVDI_BATop1000ContributorGraphic {background-image: url(top_1000_contributor_icon.gif);}
+*/
+            .BVDI_BABadgeLabel {.less_text_strong;}
+                .BVDI_BAFeaturedLabel {.less_text_iconFeatured;}
+                .BVDI_BAExpertLabel {.less_text_iconExpert;}
+                .BVDI_BAStaffLabel {.less_text_iconStaff;}
+                .BVDI_BATop1ContributorLabel, .BVDI_BATop10ContributorLabel, .BVDI_BATop25ContributorLabel, .BVDI_BATop50ContributorLabel, .BVDI_BATop100ContributorLabel, .BVDI_BATop250ContributorLabel, .BVDI_BATop500ContributorLabel, .BVDI_BATop1000ContributorLabel
+                    {.less_text_iconContributor;}
+    .BVDI_BABadgeSpacer {}
+
+/* Badges 2.0 (BVDI_BA*) */
+.BVDI_BA {.less_text_body;}
+    .BVDI_BAHeader {}
+    .BVDI_BABody {}
+        .BVDI_BAList {margin: 5px 0 0; padding: 0; list-style-type: none;}
+            .BVDI_BAItem {margin: 0 5px 0 0; display: inline-block; *display: inline;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; - used to create single row of badges */
+
+/* ===== Badge Sprite Guide =====
+     0  - Miscellaneous
+   - 24 - Contributor
+   - 48 - Top Contributor
+   - 72 - Expert Contributor
+   - 96 - Staff Contributor
+   -120 - Best Content
+   -144 - Featured Content
+*/
+
+/* ===== Vertical Alignment Hack =====
+   Browsers calculate vertical alignment differently, so a combination of height, line-height, and top padding was used to get all text to appear to be vertical-align: middle in relation to the badge image.
+   .BVDI_BAItem .BVDILink {height: 24px;}
+     .BVDI_BAItem .BVDILinkSpan {line-height: 20px; padding-top: 4px; vertical-align: top;}
+*/
+            .BVDI_BAItem .BVDILink {text-transform: uppercase; height: 16px; display: inline-block; overflow: hidden; cursor: pointer;}
+            .BVDI_BAItem .BVDILink {.less_text_linkAction;}
+            .BVDI_BAItem .BVDILink:visited {.less_text_linkActionVisited;}
+            .BVDI_BAItem .BVDILink:hover {.less_text_linkActionHover;}
+            .BVDI_BAItem .BVDILink:focus {.less_text_linkActionFocus;}
+            .BVDI_BAItem .BVDILink:active {.less_text_linkActionActive;}
+            .BVDI_BAItem .BVDILink {background: url(iconBadge.gif) no-repeat scroll 0 0 transparent;}
+                .BVDI_BAItem .BVDILink:hover {}
+                .BVDI_BAItem .BVDILink:active {}
+                .BVDI_BAItem .BVDILinkDisabled:hover {}
+            .BVDI_BAItemContributor .BVDILink {background-position: 0 -80px; padding-left: 20px;}
+                .BVDI_BAItemContributor .BVDILink:hover {}
+                .BVDI_BAItemContributor .BVDILink:active {}
+                .BVDI_BAItemContributor .BVDILinkDisabled:hover {}
+            .BVDI_BAItemTop1Contributor .BVDILink {background-position: 0 0; padding-left: 20px;}
+                .BVDI_BAItemTop1Contributor .BVDILink:hover {}
+                .BVDI_BAItemTop1Contributor .BVDILink:active {}
+                .BVDI_BAItemTop1Contributor .BVDILinkDisabled:hover {}
+            .BVDI_BAItemExpert .BVDILink {background-position: 0 -120px; padding-left: 20px;}
+                .BVDI_BAItemExpert .BVDILink:hover {}
+                .BVDI_BAItemExpert .BVDILink:active {}
+                .BVDI_BAItemExpert .BVDILinkDisabled:hover {}
+            .BVDI_BAItemStaff .BVDILink {background-position: 0 -37px; padding-left: 20px;}
+                .BVDI_BAItemStaff .BVDILink:hover {}
+                .BVDI_BAItemStaff .BVDILink:active {}
+                .BVDI_BAItemStaff .BVDILinkDisabled:hover {}
+            .BVDI_BAItemBuckleStoreLeader .BVDILink {background-position: 0 -37px; padding-left: 20px;}
+            .BVDI_BAItemMerchandiseBuyer .BVDILink {background-position: 0 -37px; padding-left: 20px;}
+            .BVDI_BAItemBuckleStylist .BVDILink {background-position: 0 -37px; padding-left: 20px;}
+            .BVDI_BAItemBrandRepresentative .BVDILink {background-position: 0 -120px; padding-left: 20px;}
+            .BVDI_BAItemBuckleTeammate .BVDILink {background-position: 0 -37px; padding-left: 20px;}
+            .BVDI_BAItemBest .BVDILink {}
+                .BVDI_BAItemBest .BVDILink:hover {}
+                .BVDI_BAItemBest .BVDILink:active {}
+                .BVDI_BAItemBest .BVDILinkDisabled:hover {}
+            .BVDI_BAItemFeatured .BVDILink {background: url(featured-icon.gif); width: 175px;}
+                .BVDI_BAItemFeatured .BVDILink:hover {}
+                .BVDI_BAItemFeatured .BVDILink:active {}
+                .BVDI_BAItemFeatured .BVDILinkDisabled:hover {}
+            .BVDI_BAItemSocialAnsweringSubscriber .BVDILink {}
+                .BVDI_BAItemFeatured .BVDILink:hover {}
+                .BVDI_BAItemFeatured .BVDILink:active {}
+                .BVDI_BAItemFeatured .BVDILinkDisabled:hover {}
+                .BVDI_BAItemFeatured .BVDILink .BVDILinkSpan {display: none;}
+
+            .BVDI_BAItem .BVDILinkSpan {white-space: no-wrap; vertical-align: top; display: inline-block;}
+            .BVDI_BAItem .BVDILinkDisabled, .BVDI_BAItem .BVDILinkDisabled:visited, .BVDI_BAItem .BVDILinkDisabled:hover, .BVDI_BAItem .BVDILinkDisabled:focus, .BVDI_BAItem .BVDILinkDisabled:active {.less_text_meta; color: #961206; cursor: default;}
+
+    .BVDI_BAFooter {}
+
+/* Badges 2.0 Tooltip */
+.BVDI_BAPopup {text-align: left; top: 0; width: 150px; word-wrap: break-word;}
+        .BVDI_BAInsidePopup {.less_box_popin; padding: 10px 10px 5px;}
+        .BVDI_BAPopup .BVDI_BAHeader {}
+        .BVDI_BAPopup .BVDIBody {.less_text_titleHelper;}
+        /* BVDI_BAList and BVDI_BAItem are a <dl> and <dt> in the badge definition */
+            dl.BVDI_BAList {list-style-type: none; margin: 0;}
+                dl.BVDI_BAList dd, dl.BVDI_BAList dt {margin: 0; padding: 0;}
+                    dl.BVDI_BAList dt {display: none;} /* don't show the badge in duplicate */
+                dl.BVDI_BAList dd p {margin: 0 0 5px 0;}
+        .BVDI_BAPopup .BVDI_BAFooter {}
+
+
+/* Shared photo (BVDI_PH) */
+.BVDI_PH {.less_box_reset; display: inline-block; vertical-align: top; width: auto; zoom: 1; *display: inline;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; - used to keep photo and video on one line */
+    .BVDI_PHPhotoSectionLabel, .BVDI_PHPhotoSectionHint {display: none;}
+    .BVDI_PHPhoto {.less_box_reset; margin: 0 5px 5px 0; display: inline-block; *display: inline; zoom: 1;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; - used to create single row of thumbnails */
+    .BVDI_PHPhotoLine {.less_box_reset; padding: 0; display: inline;}
+
+    /* Photo Hero */
+    .BVDI_PHPhotoHeroContainer {text-align: center;}
+    .BVDI_PHPhotoHeroCaption {padding: 5px;}
+    .BVDI_PHPhotoHeroContainer .BVDI_PHPhotoLine {padding: 5px 0; overflow: hidden; zoom: 1;}
+        .BVDI_PHPhotoHeroContainer .BVDI_PHPhoto {float: left; margin: 5px 5px 5px 0;}
+
+    /* Photo Thumbs */
+    .BVDI_PHPhotoSectionThumbnail {.less_box_opacity70; .less_box_borderLight; .less_box_borderLarge; display: block; cursor: pointer; overflow: hidden; height: 50px; width: 50px;}
+    .BVDI_PHPhotoSectionThumbnail img {width: 100px; margin-left: -25px; height: auto;}
+    .BVDI_PHPhotoSectionThumbnail:hover {.less_box_opacity100; .less_box_borderMed; .less_box_borderLarge;}
+
+    /* Photo Popin */
+.BVDI_PHPhotoPopup {.less_box_popin; .less_text_body; .less_text_helper; padding: 10px; cursor: pointer; position: absolute; z-index: 1000; zoom: 1; *width: 500px;} /* co photo popup needs IE width */
+    .BVDI_PHPhotoPopupHint {.less_text_iconClose; .less_text_iconOnly; float: right; /*position: absolute; top: 5px; right: 13px;*/} /* can have float IF popup has fixed width in IE */
+    .BVDI_PHPhotoPopupImage {text-align: center;}
+    .BVDI_PHPhotoPopupImage img {*width: 300px; height: auto; -ms-interpolation-mode: bicubic; zoom: 1;} /* Flexible widths work on all browsers except early IE, so we're forcing resize on IE6 & 7 */
+    .BVDI_PHPhotoPopupCaption {text-align: center; display: block; margin: 3px auto; width: 400px !important;} /* The important is required because the javascript attempts to auto-size the popup. */
+
+
+/* Shared video */
+.BVDI_VI {display: inline-block; vertical-align: top; zoom: 1; *display: inline;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; - used to keep photo and video on one line */
+.BVDI_VIVideoSectionHeader {display: none;}
+    .BVDI_VIVideoSectionLabel {.less_text_strong;}
+    .BVDI_VIVideoSectionHint {.less_text_helper;}
+    .BVDI_VIInternalVideoPreview {.less_box_borderLight; padding: 5px;}
+
+    .BVVIVideoPopup {.less_box_popin; .less_text_helper; position: absolute; z-index: 1004; *width: 360px;} /* Fixed width required for IE 6-7, should be in sync with site.embeddedVideoWidth + padding */
+        .BVVIVideoPopup a img {border: 0;}
+        .BVVIVideoPopup .BVDIInside {padding: 20px; text-align: center;}
+        .BVVIInternalVideoPreview .BVDIInside {.less_text_helper; text-align: center;}
+        .BVVIVideoPopupClose {overflow: hidden; zoom: 1; margin-bottom: 5px; text-align: right; white-space: nowrap;}
+        .BVVIVideoPopup .BVVIVideoPlayer {text-align: center;}
+        .BVVIVideoPopup .BVVIVideoSingleCaption {.less_text_helper; display: block; width: 320px; margin-top: 5px; text-align: center;}
+        .BVVIVideoPopup .BVVIVideo embed {.less_box_borderNo; margin: 0 auto;}
+
+    .BVVIInternalVideoPreview {clear: both; width: 280px; height: 210px;}
+
+
+    /* Video Thumbnail with Play Button Icon */
+    .BVDI_VIVideoThumbnail, .BVVIVideoThumbnail {.less_box_borderLight; .less_box_borderLarge; .less_box_opacity70; position: relative; cursor: pointer; display: inline-block; height: 50px; width: 50px; margin: 0 5px 5px 0; *display: inline; zoom: 1;} /* HACK: IE6 IE7 [dbeberniss] display: inline; property necessary due to incomplete support of display: inline-block; - used to create single row of thumbnails */
+    .BVDI_VIVideoThumbnail:hover, .BVVIVideoThumbnail:hover {.less_box_borderMed; .less_box_borderLarge; .less_box_opacity100;}
+        .BVVIVideoThumbnail img, .BVVIVideoThumbnail img {height: 100%; width: 100%;}
+
+        .BVVIVideoIcon {.less_box_reset; width: 25px; margin-left: -12px; height: 25px; margin-top: -12px; position: absolute; left: 50%; top: 50%; z-index: 1;}
+        .BVVIVideoIcon img {height: 100%; width: 100%; margin-left: 0;}
+            .BVVIVideoIcon img, .BVVIVideoIcon img:hover {background-color: transparent !important;}
+
+
+/* Additional Fields (BVDI_AT) */
+.BVDI_AT {}
+    .BVDI_ATAdditionalFieldsContainer {}
+        .BVDI_ATAdditionalFieldValueContainer {}
+            .BVDI_ATTitleAdditionalFieldValueContainer {.less_text_strong;}
+            .BVDI_ATParagraph {margin-top: 0;}
+            .BVDI_ATFirstParagraph {}
+            .BVDI_ATLastParagraph {}
+            .BVDI_ATParagraphOnly {}
+                .BVDI_ATLabel {}
+                .BVDI_ATValue {}
+
+/* Ratings (BVDI_RA) */
+.BVDI_RA {}
+    .BVDI_RARatingContainerStar, .BVDI_RARatingContainerSlider, .BVDI_RARatingContainerRadio {margin-bottom: 10px;}
+        .BVDI_RARatingEntry {overflow: hidden; zoom: 1;}
+            .BVDI_RARatingHeader {.less_text_strong;}
+            .BVDI_RARating {}
+                .BVDI_RALabel {float: left; width: 80px; margin-right: 5px;}
+                .BVDI_RARatingNormalImage {float: left; margin-right: 5px;}
+                .BVDI_RARatingNormalOutOf {float: left;}
+                .BVDI_RARatingSliderLabel1, .BVDI_RARatingRadioLabel1 {float: left; margin-right: 5px; width: 80px;}
+                .BVDI_RARatingSliderLabel2, .BVDI_RARatingRadioLabel2 {float: left;}
+                .BVDI_RARatingSliderImage, .BVDI_RARatingRadioImage {float: left; margin-right: 5px;}
+                .BVDI_RANumber {}
+                    .BVDI_RARatingNumber {}
+                    .BVDI_RARatingRangeNumber {}
+                    .BVDI_RASeparatorText {padding: 0 1ex;}
+
+/* Contextual Data (BVDI_CD) */
+.BVDI_CD {}
+    .BVDI_CDUserLocationContainer, .BVDI_CDContextDataValueContainer {overflow: hidden; zoom: 1;}
+        .BVDI_CDLabel {display: block; float: left; width: 80px; margin-right: 5px;}
+        .BVDI_CDValue {display: block; float: left;}
+
+/* Messages (_ME) */
+.BVDI_ME {.less_box_alert; margin-top: 5px;}
+
+.BVDI_MESubmitted {.less_box_alertGood;}
+.BVDI_MERejected {.less_box_alertBad; .less_text_error;}
+.BVDI_MEBody {}
+
+.BVDI_MEPopin {.less_box_popin; width: 350px; z-index: 100; padding: 10px;}
+.BVDI_MEPopin .BVDI_MEBody {width: 330px;}
+
+/* Feedback (BVDI_FV) */
+.BVDI_FV {zoom: 1;}
+    .BVDI_FV:after {.less_box_clearFix;}
+    .BVDI_FVVoting {float: left; margin: 0; line-height: normal; zoom: 1;}
+    .BVDI_FVVoting:after {.less_box_clearFix;}
+
+/* Feedback voting */
+.BVDI_FVVoting .BVDI_FVSum {.less_text_strong; .less_text_meta; display: none;}
+.BVDI_FVSum .BVDINumber {margin-right: .5em;}
+.BVDI_FVVoting .BVDI_FVCounts {.less_text_helper; display: none;}
+.BVDI_FVCounts .BVDINumber {margin-right: .5em;}
+.BVDI_FVVotes .BVDIPrefix {float: left; line-height: 20px; margin-right: 5px;}
+.BVDI_FVVote {margin-right: 10px; float: left;}
+/*  Ensuring that the inline voting links have enough vertical padding for the entire background images to show through.
+    This could also be done using display: inline-block, and *display: inline for IE6-7 */
+    .BVDI_FV .BVDI_FVVote a, .BVDI_FV .BVDI_FVVote span {.less_text_linkAction; float: left; line-height: 20px; height: 20px; white-space: nowrap;}
+    /* voting link text styles */
+    .BVDI_FV .BVDI_FVVotes a, .BVDI_FV .BVDI_FVVotes a:visited, .BVDI_FV .BVDI_FVVotes a:hover, .BVDI_FV .BVDI_FVVotes a:focus, .BVDI_FV .BVDI_FVVotes a:active  {.less_text_linkAction;}
+    .BVDI_FVVotes .BVDINumber {color: #999999 !important; font-weight: normal;}
+        /* Background images */
+            .BVDI_FV .BVDI_FVVote a {cursor: pointer;}
+            .BVDI_FVVotes .BVDILinkSpan {}
+            /* Hover state */
+            .BVDI_FVVote a:hover, .BVDI_FVVote a:focus, .BVDI_FVVote a:active {.less_box_opacity100;}
+            /* Disabled state */
+            .BVDI_FVVotes .BVDI_FVLevel0 a, .BVDI_FVVotes .BVDI_FVLevel0 a:visited {.less_box_feedbackDisabledLeft; cursor: default;}
+            .BVDI_FVVotes .BVDI_FVLevel0 a:hover, .BVDI_FVVotes .BVDI_FVLevel0 a:focus, .BVDI_FVVotes .BVDI_FVLevel0 a:active {.less_box_feedbackDisabledLeft;}
+            .BVDI_FVVotes .BVDI_FVLevel0 .BVDILinkSpan {.less_box_feedbackDisabledRight;}
+            /* Undo states (currently require value-specific selectors) */
+            .BVDI_FVVotes .BVDI_FVPositiveUndo a, .BVDI_FVVotes .BVDI_FVPositiveUndo a:visited, .BVDI_FVVotes .BVDI_FVPositiveUndo a:hover,
+            .BVDI_FVVotes .BVDI_FVPositiveUndo a:focus, .BVDI_FVVotes .BVDI_FVPositiveUndo a:active,
+            .BVDI_FVVotes .BVDI_FVNegativeUndo a, .BVDI_FVVotes .BVDI_FVNegativeUndo a:visited, .BVDI_FVVotes .BVDI_FVNegativeUndo a:hover, .BVDI_FVVotes .BVDI_FVNegativeUndo a:focus, .BVDI_FVVotes .BVDI_FVNegativeUndo a:active {.less_box_feedbackUndoLeft;}
+            .BVDI_FVVotes .BVDI_FVPositiveUndo .BVDILinkSpan, .BVDI_FVVotes .BVDI_FVNegativeUndo .BVDILinkSpan {.less_box_feedbackUndoRight;}
+        /* Thumb graphics */
+            .BVDI_FVVotes .BVDILabel {margin-right: 5px;}
+            .BVDI_FVVotes .BVDI_FVPositive .BVDILabel {.less_text_feedbackIconGood;}
+                .BVDI_FVVotes .BVDI_FVPositive a:hover .BVDILabel {background-position: 0 -40px;}
+                .BVDI_FVVotes .BVDI_FVPositive.BVDI_FVLevel0 a .BVDILabel, .BVDI_FVVotes .BVDI_FVPositive.BVDI_FVLevel0 a:hover .BVDILabel {background-position: 0 -80px;}
+            .BVDI_FVVotes .BVDI_FVNegative .BVDILabel {.less_text_feedbackIconBad;}
+                .BVDI_FVVotes .BVDI_FVNegative a:hover .BVDILabel {background-position: 0 -40px;}
+                .BVDI_FVVotes .BVDI_FVNegative.BVDI_FVLevel0 a .BVDILabel, .BVDI_FVVotes .BVDI_FVNegative.BVDI_FVLevel0 a:hover .BVDILabel {background-position: 0 -80px;}
+            /* Undo states */
+            .BVDI_FVVotes .BVDI_FVPositiveUndo .BVDILabel {}
+            .BVDI_FVVotes .BVDI_FVNegativeUndo .BVDILabel {}
+            /* Hover state */
+            .BVDI_FVVotes .BVDI_FVPositiveUndo a:hover .BVDILabel {.less_text_feedbackIconGoodUndo; padding-left: 20px;} /* slight fix to keep voting width the same with smaller undo icon */
+            .BVDI_FVVotes .BVDI_FVNegativeUndo a:hover .BVDILabel {.less_text_feedbackIconBadUndo; padding-left: 20px;} /* slight fix to keep voting width the same with smaller undo icon */
+            /* Disabled states */
+            .BVDI_FVVotes .BVDI_FVLevel0 a .BVDILabel, .BVDI_FVVotes .BVDI_FVLevel0 a:visited .BVDILabel,
+            .BVDI_FVVotes .BVDI_FVLevel0 a:hover .BVDILabel, .BVDI_FVVotes .BVDI_FVLevel0 a:focus .BVDILabel, .BVDI_FVVotes .BVDI_FVLevel0 a:active .BVDILabel
+                {.less_text_feedbackIconDisabled;}
+            .BVDI_FVVotes .BVDI_FVLevel0 a, .BVDI_FVVotes .BVDI_FVLevel0 a:visited,
+            .BVDI_FVVotes .BVDI_FVLevel0 a:hover, .BVDI_FVVotes .BVDI_FVLevel0 a:focus, .BVDI_FVVotes .BVDI_FVLevel0 a:active
+                {.less_box_opacity70;}
+
+            /* Voting-dimension-specific stuff */
+            /* Currently, RR only supports helpfulness and inappropriate voting. */
+            .BVDI_FVDisabledVotesHelpfulness .BVDI_FVVotes .BVDIPrefix {} /* Disabled state for helpfulness links prefix */
+
+            /* Report Link */
+            .BVDI_FVReportLinkInappropriate {float: left; margin-top: 0;}
+                .BVDI_FVReportLink a {.less_box_opacity70; .less_text_feedbackIconFlag; .less_text_feedbackIconOnly; .less_text_emphasis; float: left; margin: -1px 0 0;}
+                .BVDI_FVReportLink a:hover, .BVDI_FVReportLink a:focus, .BVDI_FVReportLink a:visited {.less_box_opacity100;}
+                .BVDI_FVReportLink a {.less_text_linkAction;}
+                .BVDI_FVReportLink a:visited {.less_text_linkActionVisited;}
+                .BVDI_FVReportLink a:hover {.less_text_linkActionHover;}
+                .BVDI_FVReportLink a:focus {.less_text_linkActionFocus;}
+                .BVDI_FVReportLink a:active {.less_text_linkActionActive;}
+                .BVDI_FVDisabledReportInappropriate .BVDI_FVReportLink, .BVDI_FVDisabledReportInappropriate .BVDI_FVReportLink a:hover {} /* Disabled state for report link */
+
+/* In-frame Report */
+.BVDI_FVReport {.less_box_alertBad;}
+.BVDI_FVReportPopin {.less_box_popin; width: 350px; margin-top: 2em; z-index: 100;}
+    .BVDI_FVReportPopin .BVSU_FVForm .BVSUFieldTextArea {width: 300px;}
+.BVDI_FVReportInline {margin-top: 10px;}
+    .BVDI_FVInsideReport {padding: 10px; margin-left: 10px;}
+        .BVDI_FVHeaderReport {display: none;}
+            .BVDI_FVTitleReport {.less_text_strong;}
+        .BVDI_FVBodyReport {}
+            .BVDI_FVBodyReport .BVSUFieldLabelReasonText {padding-bottom: 6px;}
+            .BVSU_FVForm {}
+                .BVSU_FVForm .BVSUFieldContainer {}
+                .BVSUFieldContainerReport {}
+                    .BVSUFieldContainerReport label {display: block;}
+                    .BVSU_FVForm .BVSUFieldTextArea {width: 400px; margin-bottom: 10px;}
+                .BVSU_FVForm .BVSUFieldContainerButtons {}
+    .BVDI_FVActiveReport .BVDI_FVInappropriate .BVDILink {.less_text_error;}
+
+/* _FV overrides to other generic classes */
+.BVDI_FV .BVDI_ME {.less_box_borderNo; padding: 10px 0 0; margin-bottom: 10px; clear: both;}
+.BVDI_FV .BVDI_ME .BVDI_MEInside {.less_box_borderGood;}
+.BVDI_FV .BVSUFieldContainerButtons {float: none;}
+.BVDI_FV .BVSUFieldContainer label {float: none; width: auto;}
+
+/* Social bookmarking */
+.BVDI_SB .BVDITitle {display: none;}
+.BVDI_SB a {.less_box_opacity70;}
+.BVDI_SB a:hover, BVDI_SB a:focus, BVDI_SB a:active {.less_box_opacity100;}
+.BVDI_SB a img {height: 20px; width: 20px; -ms-interpolation-mode: bicubic;}
+
+/* Content Attribution */
+.BVDI_SUAttribution {.less_box_meta; .less_box_borderLight; .less_text_meta; overflow: hidden; zoom: 1; margin-bottom: 15px; padding: 5px 0 0 5px;}
+.BVDI_SUAttribution .BVDI_SUSubjectImage {float: left; margin-right: 10px;}
+.BVDI_SUAttribution .BVDI_SUSubjectImage img {width: 30px;}
+.BVDI_SUAttribution .BVDI_SUSubjectName {padding-top: 8px;}
+.BVDI_SUAttribution .BVDI_SUSubjectName .BVDIPrefix {.less_text_emphasis;}
+
+/* Comments (BVDI_CO) */
+.BVDI_CO {}
+    .BVDI_CO .BVDI_COToggleArea {.less_box_meta; margin-top: 10px; padding: 10px 20px 20px; margin-left: 220px; overflow: hidden; zoom: 1; clear: both;}
+        .BVDI_CO .BVDI_COToggleArea:after {.less_box_clearFix;}
+    .BVDI_COBody {*display: inline;}
+        .BVDI_CONoComments .BVDI_COBody {.less_text_size4; padding: 10px;}
+        .BVDI_COBodyComments {margin: 10px 0;}
+            .BVDI_COInsideBodyComments {}
+                .BVDI_COComment {.less_box_ugc; .less_box_borderMed; .less_text_meta; clear: both; margin-bottom: 25px; padding: 20px 10px 10px; zoom: 1;}
+                .BVDI_COInsideComment {}
+                    .BVDI_COUser {.less_box_meta; margin-bottom: 10px; padding: 8px 10px; overflow: hidden; zoom: 1;}
+                     .BVDI_COUserSignature {float: left; width: 58%; margin-top: 4px;}
+                        .BVDI_COAvatar {display: none; float: left; margin-right: 5px;}
+                        .BVDI_COAvatar img {width: 15px;}
+                        .BVDI_COUserNicknameContainer, .BVDI_COUserLocationContainer {.less_text_meta;}
+                        .BVDI_COUserNicknamePrefix {display: none;}
+                            .BVDI_COUserLocationPrefix {.less_text_strong;}
+                    .BVDI_COComment .BVDI_BABadges {}
+                        .BVDI_COComment .BVDI_BABadge {float: none; margin-bottom: 5px;}
+                        .BVDI_COComment .BVDI_BA {float: right;}
+                        .BVDI_COComment .BVDI_BAItem {display: block; margin-bottom: 5px;}
+                .BVDI_COContent {display: block;}
+                    .BVDI_COInsideContent {}
+                            .BVDI_COContentPrimary {}
+                                .BVDI_COCommentTitleContainer {.less_text_titleItem; .less_text_size4; margin-bottom: 5px;}
+                                .BVDI_COCommentDateContainer {.less_text_helper; zoom: 1;}
+                                    .BVDI_COCommentDateValuePrefix {display: none;}
+                                    .BVDI_COCommentDateValue {display: inline;}
+                                .BVDI_COCommentTextParagraph {margin-top: 10px;}
+                            .BVDI_COContentSecondary {padding-top: 10px; overflow: hidden; width: 100%;}
+
+
+                                .BVDI_COMedia {margin-bottom: 10px;}
+                                    .BVDI_COComment .BVDI_PHPhotoSectionThumbnail {height: 35px; width: 35px;}
+                                    .BVDI_COComment .BVDI_VIVideoThumbnail {height: 35px; width: 35px;}
+
+
+                                .BVDI_COComment .BVDI_PL {clear: both;}
+                                    .BVDI_COComment .BVDI_PLProduct {}
+                                        .BVDI_COComment .BVDI_PLInsideProduct {}
+                                            .BVDI_COComment .BVDI_PLProductImage {}
+
+                        /* Locale attribution */
+                        .BVDI_COComment .BVAttributionLocale {.less_box_borderTop; padding: 15px 0 0; margin: 15px 0 0;}
+
+                    .BVDI_COActions {.less_box_toolbar; .less_box_borderNoBottom; margin-top: 15px; padding: 10px 0; overflow: hidden;}
+                        .BVDI_COActions .BVDI_SB {float: left;}
+                        .BVDI_COActions .BVDI_FVReportInline {margin-left: 5px; margin-right: 5px;}
+                        .BVDI_COActions .BVDI_FVSubmitted {margin-left: 5px; margin-right: 5px;}
+                        .BVDI_COActions .BVDI_FVVote.BVDI_FVPositive .BVDILabel {} /* still show bg images but no text */
+                            .BVDI_COActions .BVDI_FVVote.BVDI_FVNegative .BVDILabel {} /* no text on this one */
+                        .BVDI_COActions .BVDI_FV {float: left;}
+
+        .BVDI_COHeaderBody, .BVDI_COFooterBody {clear: both; padding-bottom: 0;}
+        .BVDI_COFooterBody {padding: 0 10px;}
+                .BVDI_COFooterBody .BVDI_COLinkPost {float: right; padding-top: 8px; background-position: 0 -353px;}
+                .BVDI_COHeaderBody .BVDI_COLinkPost {display: none;}
+
+        .BVDI_COHeaderBody {zoom: 1;}
+            .BVDI_COHeaderBody:after {.less_box_clearFix;}
+
+            .BVDI_COPagerColumn {float: right; padding: 5px;}
+            .BVDI_COLinkPost {.less_text_iconComment; margin-left: 10px; outline: none; line-height: 1em;}
+                .BVDI_CO .BVDI_COLinkPost {.less_text_linkAction;}
+                    .BVDI_CO .BVDI_COLinkPost:visited {.less_text_linkActionVisited;}
+                    .BVDI_CO .BVDI_COLinkPost:hover {.less_text_linkActionHover;}
+                    .BVDI_CO .BVDI_COLinkPost:focus {.less_text_linkActionFocus;}
+                    .BVDI_CO .BVDI_COLinkPost:active {.less_text_linkActionActive;}
+
+            .BVDI_COLinkNext {padding: 5px;}
+            .BVDI_COHeaderBody .BVDITitle {.less_text_titleHelper; margin: 0 10px 0 0; float: left;}
+            .BVDI_COHeaderBody .BVDI_COLinkPost {float: right}
+            .BVDI_COHeaderBody .BVDI_COControls {display: none}
+            .BVDI_COHeaderBody .BVDI_COPageBasedPager {margin-bottom: 0;}
+            .BVDI_COHeaderBody .BVDI_COLinkPost {.less_text_strong; margin-top: 5px; float: left;}
+            .BVDI_COFooterBody .BVDITitle {display: none;}
+    .BVDI_COHeader, .BVDI_COFooter {zoom: 1;}
+        .BVDI_COHeader:after, .BVDI_COFooter:after {.less_box_clearFix;}
+    .BVDI_COHeader {padding: 2px 0 0; zoom: 1;}
+        .BVDI_COExpanded .BVDI_COHeader {}
+    .BVDI_COFooter {zoom: 1;}
+        .BVDI_COFooter:after {.less_box_clearFix;}
+        .BVDI_COLinkToggle {.less_box_borderMed; .less_box_borderRight; .less_text_strong; padding-right: 10px; float: right; outline: none; line-height: 1em;}
+            .BVDI_CO .BVDI_COLinkToggle {.less_text_linkAction;}
+                .BVDI_CO .BVDI_COLinkToggle:visited {.less_text_linkActionVisited;}
+                .BVDI_CO .BVDI_COLinkToggle:hover {.less_text_linkActionHover;}
+                .BVDI_CO .BVDI_COLinkToggle:focus {.less_text_linkActionFocus;}
+                .BVDI_CO .BVDI_COLinkToggle:active {.less_text_linkActionActive;}
+        .BVDI_COHeader .BVDI_COLinkToggle {}
+        .BVDI_COFooter .BVDI_COLinkToggle {.less_box_borderNo; padding-top: 8px;}
+            .BVDI_COFooter .BVDI_COLinkToggle .BVDILinkSpan {.less_text_iconClose;}
+        .BVDI_COHeader .BVDI_COLinkPost {display: block; float: right;}
+        .BVDI_COHeader .BVDI_COLinkToggleNoComments {display: none;}
+        .BVDI_COControls {float: left;}
+            .BVDI_COPageBasedPager {.less_box_pagination; .less_text_pagination; text-align: right; clear: both; padding: 5px 0;}
+            .BVDI_COPageNumber a {padding: 5px 10px;}
+            .BVDI_COPageNumber a {.less_text_linkAction;}
+            .BVDI_COPageNumber a:visited {.less_text_linkActionVisited;}
+            .BVDI_COPageNumber a:hover {.less_text_linkActionHover;}
+            .BVDI_COPageNumber a:focus {.less_text_linkActionFocus;}
+            .BVDI_COPageNumber a:active {.less_text_linkActionActive;}
+            .BVDI_COSelectedPageNumber {.less_box_paginationSelected; .less_box_borderMed; .less_text_paginationSelected; padding: 5px 10px;}
+            .BVDI_COPagerArrows {display: none;}
+
+.BVDI_COSubmittedMessage, .BVDI_COSubmitted {clear: both; float: left; margin-top: 0; border: 0; padding: 0; display: none;}
+
+/* SEO Interactive Archive */
+.BVDIUgcPageLinkContainer {.less_text_pagination; .less_box_ugc; text-align: right; clear: both; margin: 0; padding: 5px 0;}
+.BVDISubjectPageLinkContainer {.less_text_pagination; .less_box_ugc; text-align: right; clear: both; margin: 0; padding: 5px 0;}
+
+/* Redirect page (BVDI_RP) */
+.BVDI_RP {.less_text_body; text-align: center; margin: 0; padding: 5% 50px;}
+    .BVDI_RPHeader {.less_text_titlePage;}
+    .BVDI_RPBody {width: 50%; margin: 0 auto; padding: 60px; background: url(loading.gif) no-repeat 50% 20px;} /* don't LESSIFY loading graphic */
+        .BVDI_RPWarningMessage {margin: 10px;}
+
+/* ******** SUBMISSION (BVSU) ******** */
+/*
+    The following sections are also used on inline submission forms as well as standalone forms.
+    Refer to bazaarvoiceSubmitShared for the remaining sections.
+*/
+
+/* General */
+.BVSUHidden {display: none;}
+.BVSUSpacer {height: 0; line-height: 0; overflow: hidden;}
+.BVSUModalContent {}
+.BVSUOverlay {position: absolute;}
+.BVSUSeparator {clear:both;}
+
+.BVSUStep {}
+.BVSUStepEdit, .BVSUStepPreview, .BVSUStepThankYou {}
+.BVSUHeaderStep {margin-bottom: 20px;}
+    .BVSUTitleStep {.less_text_titleSection;}
+.BVSUBodySummary {.less_box_quotedUgc; zoom: 1; padding: 20px; margin-bottom: 10px;}
+.BVSUBodySummary:after {.less_box_clearFix;}
+.BVSUForm {margin: 0;}
+    .BVSUBodyStep {}
+
+/* Submission Field General Styles */
+.BVSUFieldContainer {}
+    .BVSUFieldLabel {.less_text_labelLow; display: block; padding-bottom: 5px;}
+        .BVSUFieldLegendSuffix {}
+        .BVSURequiredFieldIndicator {}
+    .BVSUFieldInput {} /* All non-button input fields (non-button <input>, <textarea>, and <select>) */
+    .BVSUFieldText {padding: 5px; width: 400px;} /* <input type="text"> and <textarea> */
+    .BVSUFieldTextInput {} /* <input type="text"> */
+    .BVSUFieldTextArea {} /* <textarea> */
+    .BVSUFieldCheckbox {} /* <input type="checkbox" */
+    .BVSUFieldSelect {} /* <select> */
+    .BVSUFieldRadio {} /* <input type="radio"> */
+    .BVSUFieldSubmit {} /* <input type="submit"> */
+    .BVSUFieldImage {.less_box_borderNo; vertical-align: top;} /* <input type="image"> */
+    .BVSUFieldFile {} /* <input type="file"> */
+    .BVSUFieldRadioSet {}
+        .BVSUFieldRadioSetItem {}
+    .BVSUFieldHelper {.less_text_helper;}
+
+/* Content Subscriptions */
+.BVQASummaryBox .BVContentSubscription, .BVRRRatingSummary .BVContentSubscription {.less_box_borderLight; .less_box_borderLeft; padding-left: 10px; margin-left: 8px; float: left; margin-top: 5px;}
+.BVContentSubscriptionContainer {.less_box_shadow; .less_box_ugc; border: @less_box_borderWidthSmall @less_box_borderColorDark solid !important; position: absolute; visibility: hidden; width: 277px; padding: 5px; margin: 5px 0 0 5px; z-index: 1009;}
+.BVContentSubscription .BVDILinkClose {.less_text_iconClose; .less_text_iconOnly; float: right; outline: 0; z-index: 1101; zoom: 1;}
+.BVContentSubscription .BVDILinkClose:hover, .BVContentSubscription .BVDILinkClose:active, .BVContentSubscription .BVDILinkClose:focus {.less_text_iconClose; .less_text_iconOnly; float: right; outline: 0; z-index: 1101; zoom: 1;}
+
+/* Content Subscriptions, Legacy Specific */
+.BVDI_CSPopup {.less_text_body; padding: 0 0 15px 15px;}
+    .BVDI_CSPopup a {.less_text_link;}
+    .BVDI_CSPopup a:visited {.less_text_linkVisited;}
+    .BVDI_CSPopup a:hover {.less_text_linkHover;}
+    .BVDI_CSPopup a:focus {.less_text_linkFocus;}
+    .BVDI_CSPopup a:active {.less_text_linkActive;}
+    .BVDI_CSPopup .BVSUFieldLabel {.less_text_labelLow; display: block; padding-bottom: 5px;}
+    .BVDI_CSPopup .BVSUFieldError .BVSUFieldLabel {.less_text_error;}
+    .BVDI_CSPopup .BVSURequiredFieldIndicator {.less_text_labelLow; .less_text_error;}
+    .BVDI_CSPopup .BVSUFieldText {.less_box_textInputLow; width: 217px; margin: 0 5px 0 0; line-height: 20px; padding: 6px 3px;}
+    .BVDI_CSPopup .BVSUFieldText:focus {.less_box_textInputLowFocus;}
+    .BVDI_CSPopup .BVSUFieldContainer {margin-bottom: 5px;}
+    .BVSUFieldLabelSubscriber, .BVDI_CSBodyPopup .BVSUBodyModule .BVSUFieldLabel {.less_text_labelLow; display: inline !important;}
+.BVDI_CSPopup form {margin: 0; padding: 0;}
+.BVSU_CSHeaderStep {margin-bottom: 0;}
+    .BVDI_CSPopup .BVSUModule .BVSUHeader {.less_box_ugc; .less_box_borderNo; padding: 0;}
+    .BVDI_CSHeaderPopup, .BVDI_CSPopup .BVSUHeader {.less_text_titleWidget; font-weight: bold; overflow: hidden; margin: 0 0 10px;}
+        .BVDI_CSPopup .BVDITitle {.less_text_titleWidget; .less_box_borderLight; .less_box_borderBottom; display: block; padding-top: 15px; padding-bottom: 7px; margin-right: 20px;}
+        .BVDI_CSPopup .BVSUTitle {.less_text_titleWidget; .less_text_normal;}
+.BVDI_CSBodyPopup {padding-right: 20px;}
+.BVSU_CSBodyStep {.less_text_body;}
+    .BVSU_CSBodyStep .BVSUModule {border: none; margin-bottom: 15px;}
+    .BVSU_CSBodyStep .BVSUModuleUnsubscribeFrom {margin-bottom: 1em;}
+        .BVSU_CSBodyStep .BVSUHeader {background-color: transparent; padding: 0; margin-bottom: 5px;}
+            .BVSU_CSBodyStep .BVSUHeader .BVSUTitle {color: @less_text_colorMeta;}
+        .BVSU_CSBodyStep .BVSUBody {}
+            .BVSU_CSBodyStep .BVSUModuleSubscribeTo .BVSUHeaderModule .BVSUTitle {.less_text_size4; .less_text_strong; color: @less_text_colorMeta; overflow: hidden; margin: 0 0 10px; display: inline;}
+            .BVSUError, .BVSUFieldError, .BVDI_CSPopup .BVSUFieldError .BVSUFieldLabel {.less_text_error;}
+            .BVSUFieldError .BVSUFieldText {.less_box_textInputLowError;}
+            .BVDI_CSPopup .BVSU_MERejected {.less_text_error; .less_box_reset; padding: 10px; margin: 7px 0 15px 0;}
+                            .BVDI_CSPopup .BVSU_MERejected ul {margin: 0; padding: 0 0 0 12px;}
+                            .BVDI_CSPopup .BVSU_MERejected li {list-style: disc !important;}
+            .BVSU_CSBodyStep .BVSUFieldLabel {float: none; margin-right: 0; width: auto;}
+            .BVSU_CSBodyStep label {.less_text_size5; display: inline !important;}
+            .BVSU_CSBodyStep .BVSUFieldContainerUnsubscribeFromAll {margin-top: 1em;}
+.BVSU_CSStepThankYou .BVSU_CSMessage {margin-bottom: 10px;}
+    .BVDI_CSInsidePopup .BVSU_CSStepThankYou .BVSUTitle {.less_text_size4; color: @less_text_colorNormal; .less_text_normal; line-height: 14px; padding: 0;}
+
+
+
+/* Navigational Widgets Styles */
+
+/** Top Rated Product Widget **/
+.BVDI_WGTopRated {.less_box_borderMed; .less_text_body; width: 300px;}
+    .BVDI_WGTopRatedHeader {.less_box_headerWidget; .less_text_titleWidget; padding: 5px 0;}
+    .BVDI_WGTopRatedBody {.less_box_bodyWidget; padding: 5px;}
+        .BVDI_WGTopRatedItem {padding: 10px; margin-top: 5px; zoom: 1;}
+            .BVDI_WGTopRatedProductImage {float: left; margin: 0 8px 8px 0;}
+            .BVDI_WGTopRatedProductImage img {display: block;}
+            .BVDI_WGTopRatedProductImage a {.less_box_borderLight; .less_box_borderLarge; display: block;}
+            .BVDI_WGTopRatedProductImage a:hover, .BVDI_WGTopRatedProductImage a:focus, .BVDI_WGTopRatedProductImage a:active {.less_box_borderMed; .less_box_borderLarge;}
+            .BVDI_WGTopRatedOverallRatingImage {vertical-align: middle;}
+            .BVDI_WGTopRatedRatingImageSuffix {padding-left: 5px; padding-top: 1px;}
+            .BVDI_WGTopRatedProductName {padding-top: 8px; padding-bottom: 8px;}
+                .BVDI_WGTopRatedProductName a {.less_text_strong; .less_text_size4;}
+                .BVDI_WGTopRatedProductName a {.less_text_linkAction;}
+                .BVDI_WGTopRatedProductName a:visited {.less_text_linkActionVisited;}
+                .BVDI_WGTopRatedProductName a:hover {.less_text_linkActionHover;}
+                .BVDI_WGTopRatedProductName a:focus {.less_text_linkActionFocus;}
+                .BVDI_WGTopRatedProductName a:active {.less_text_linkActionActive;}
+            .BVDI_WGTopRatedItemSeparator {.less_box_borderLight; .less_box_borderTop; clear: both; height: 0; display: block; overflow: hidden; zoom: 1;}
+            .BVDI_WGTopRatedItemSeparatorLast {clear: both;}
+
+/** Latest Stories Widget **/
+.BVDI_WGLatestStories {.less_box_borderMed; .less_text_body; width: 300px;}
+    .BVDI_WGLatestStoriesHeader {.less_box_headerWidget; .less_text_titleWidget; padding: 5px 0;}
+        .BVDI_WGHeaderTitlePrefix {margin-right: 0.25em;}
+    .BVDI_WGLatestStoriesBody {.less_box_bodyWidget; padding: 5px;}
+        .BVDI_WGLatestStoriesItem {padding: 10px; margin-top: 5px; zoom: 1;}
+            .BVDI_WGLatestStoriesItem a {.less_text_strong;}
+                .BVDI_WGLatestStoriesItemInfo {padding: 2px 0 3px;}
+                .BVDI_WGLatestStoriesAuthorDetails {}
+                    .BVDI_WGLatestStoriesItemUserName {.less_text_titleHelper;}
+                    .BVDI_WGLatestStoriesItemElapsedTime {.less_text_helper;}
+                .BVDI_WGLatestStoriesPhotoContainer {float: left; margin: 0 8px 8px 0;}
+                .BVDI_WGLatestStoriesPhotoContainer img {display: block;}
+                .BVDI_WGLatestStoriesPhotoContainer a {.less_box_borderLight; .less_box_borderLarge; display: block;}
+                .BVDI_WGLatestStoriesPhotoContainer a:hover, .BVDI_WGLatestStoriesPhotoContainer a:focus, .BVDI_WGLatestStoriesPhotoContainer a:active {.less_box_borderMed; .less_box_borderLarge;}
+                .BVDI_WGLatestStoriesContinueReading {padding-left: 1em;}
+            .BVDI_WGLatestStoriesFeedback {.less_text_helper; clear: both; padding-top: 4px;}
+                .BVDI_WGLatestStoriesPositiveCount, .BVDI_WGLatestStoriesCommentCount {padding-right: 4px;}
+                .BVDI_WGLatestStoriesCommentCount {padding-left: 6px;}
+        .BVDI_WGLatestStoriesItemSeparator {.less_box_borderLight; .less_box_borderTop; clear: both; height: 0; display: block; overflow: hidden; zoom: 1;}
+        .BVDI_WGLatestStoriesItemSeparatorLast {clear: both;}
+
+/** Latest Questions Widget **/
+.BVDI_WGLatestQuestions {.less_box_borderMed; .less_text_body; width: 300px;}
+    .BVDI_WGLatestQuestionsHeader {.less_box_headerWidget; .less_text_titleWidget; padding: 5px 0;}
+        .BVDI_WGHeaderTitlePrefix {margin-right: 0.25em;}
+    .BVDI_WGLatestQuestionsBody {.less_box_bodyWidget; padding: 5px;}
+        .BVDI_WGLatestQuestionsItem {padding: 10px; margin-top: 5px; zoom: 1;}
+            .BVDI_WGLatestQuestionsItem a {.less_text_strong;}
+                .BVDI_WGLatestQuestionsItemInfo {padding: 2px 0 3px;}
+                .BVDI_WGLatestQuestionsAuthorDetails {}
+                    .BVDI_WGLatestQuestionsItemUserName {.less_text_titleHelper;}
+                    .BVDI_WGLatestQuestionsItemElapsedTime {.less_text_helper;}
+                .BVDI_WGLatestQuestionsPhotoContainer {float: left; margin: 0 8px 8px 0;}
+                .BVDI_WGLatestQuestionsPhotoContainer img {display: block;}
+                .BVDI_WGLatestQuestionsPhotoContainer a {.less_box_borderLight; .less_box_borderLarge; display: block;}
+                .BVDI_WGLatestQuestionsPhotoContainer a:hover, .BVDI_WGLatestQuestionsPhotoContainer a:focus, .BVDI_WGLatestQuestionsPhotoContainer a:active {.less_box_borderMed; .less_box_borderLarge;}
+                .BVDI_WGLatestQuestionsContinueReading, .BVDI_WGLatestQuestionsRead {margin-left: 0.25em;}
+            .BVDI_WGLatestQuestionsAnswerLinkContainer {clear: both;}
+        .BVDI_WGLatestQuestionsItemSeparator {.less_box_borderLight; .less_box_borderTop; clear: both; height: 0; display: block; overflow: hidden; zoom: 1;}
+        .BVDI_WGLatestQuestionsItemSeparatorLast {clear: both;}
+
+/* Zero Deploy Lightbox Styles (BVZDLB) */ /* LESSIFY */
+#BVZDLBHideSelect {.less_box_opacity0; background-color: @less_box_colorBase; .less_box_borderNo; position: fixed; z-index: 2000; top: 0; left: 0; height: 100%; width: 100%;}
+#BVZDLBOverlay {position: fixed; z-index: 1001; top: 0; left: 0; height: 100%; width: 100%;}
+.BVZDLBOverlayMacFFBGHack {background: url(macFFBackgroundHack.png) repeat;} /* LESSIFY ? - I'm not sure if this is necessary - doesn't look like it should be */
+.BVZDLBOverlayBG {background-color: @less_text_colorHigh; .less_box_opacity70;}
+#BVZDLBLoading {position: fixed; display: none; height: 13px; width: 208px; z-index: 2003; top: 50%; left: 50%; margin: -6px 0 0 -104px;}
+#BVZDLBWindow {width: 75%; position: absolute; z-index: 1002; display: none; margin-top: 20px;}
+#BVZDLBContainer {clear: both; background-color: white; padding: 20px;}
+
+* html #BVZDLBHideSelect, * html #BVZDLBOverlay {/* ie6 hack */ position: absolute; /* height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');*/}
+* html #BVZDLBLoading {/* ie6 hack */ position: absolute; top: 50%; /* margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px')*/}
+
+.BVZD {background-color: #fff;}
+    .BVZDHeader {text-align: right; overflow: hidden; margin-bottom: 10px;}
+        .BVZDHeader .BVLinkClose, .BVZDHeader .BVLinkClose:visited {.less_text_iconClose; .less_text_iconOnly; float: right; position: relative; z-index: 300; zoom: 1;}
+    .BVZDContainer #BVQAContainer {margin: 0;}
+    .BVZDFooter {padding: 0;}
+
+/* AU Hosted Authentication */
+.BVAUSignOut {.less_text_body; margin: 0; vertical-align: middle; display: inline-block;}
+
+.BVAUSignedIn {.less_text_body; padding-left: 20px; background: no-repeat 0 50%; display: inline-block;}
+
+/* ME SignedIn */
+.BVMESignedIn {background-color: @less_box_colorPrimaryFadest; .less_box_borderLight; padding: 10px;}
+
+/* URL Environment Status */
+#BVUESContent {.less_text_body; text-align: center; .less_box_borderDark; background-color: @less_box_colorPrimaryFadest; position: fixed; top: 5px; right: 5px; padding: 5px; max-width: 150px;}
+* html #BVUESContent {position: absolute; width: auto;}
+    #BVUESHeader {line-height: 32px; font-size: 18px; font-weight: bold;}
+    #BVUESHeader:after {.less_box_clearFix;}
+        #BVUESHeaderIcon {background: url(alertLarge.png) no-repeat; height: 32px; width: 32px; float: left;}
+        * html #BVUESHeaderIcon {.less_tool_pngfixBackground;}
+    #BVUESDetailsLink {.less_text_iconInfo; .less_text_iconOnly; display: inline-block; margin-left: 2px;}
+    #BVUESDetails {.less_box_borderDark; background-color: @less_box_colorPrimaryFader; margin-top: 5px; padding: 5px;}
+        .BVUESEnvironmentLabel {font-weight: bold;}

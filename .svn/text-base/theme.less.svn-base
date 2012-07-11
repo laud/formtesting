@@ -1,0 +1,688 @@
+/* LESS THEME: SmartDisplay Theme One */
+
+/* ----------------------------------------------- */
+/* ------------ =TABLE OF CONTENTS --------------- */
+/* ----------------------------------------------- */
+
+/*
+
+I. SMARTDISPLAY_INSTRUCTIONS - Everything between here and "customization instructions" is fair game for SmartDisplay clients.
+
+II. VARIABLES - Always define these.
+    A. Font_variables
+        1. Font families
+        2. Font sizes
+        3. Font colors
+    B. Background_color_variables
+    C. Border_variables
+        1. Border Widths
+        2. Border Colors
+    D. Button_variables
+        1. Primary Buttons
+        2. Secondary Buttons
+        3. Disabled Buttons
+        
+III. BASIC_LINK_STYLES
+    A. General links
+    B. Action links
+
+IV . CUSTOMIZATION_INSTRUCTIONS - From here on is non-SmartDisplay only
+  
+V. SHARED_FUNCTIONS - You may refer to these in your code, but do not edit them.
+    A. Borders
+        1. Basic borders
+        2. Specific borders
+    B. Font_styles
+    C. Effects
+        1. Opacity
+    D. Tools
+        1. Clear fix
+        2. Png fix
+        3. Background and border reset
+    E. CSS3
+        1. Rounded corners
+        2. Drop shadow
+        3. Inner shadow
+        4. Outer glow
+        5. Vertical gradients
+        6. Text shadow
+        7. Transitions
+
+VI. EDITABLE_STYLES - refer to these in your code, but never change them for low-tier clients.
+    A. Body_copy
+        1. General
+        2. Titles
+        3. Secondary content
+        4. Helper text
+        5. Message boxes
+    B. Icons
+        1. General framework
+        2. Regular icons
+        3. Large icons
+        4. Filtering icons
+        5. Feedback icons
+            a. backgrounds
+            b. thumbs / flags
+        6. Badges
+    C. Tabs
+        1. Backgrounds
+        2. Labels
+    D. Buttons
+        1. Secondary
+        2. Primary
+        3. Disabled
+    E. Form_elements
+        1. Form Containers
+        2. Labels
+        3. Text inputs
+    F. Standalone_pages
+    G. Sidebar_navigation
+    H. Popins
+    I. Pagination
+        
+VII. NAMED_COMPONENTS
+    A. UGC
+    B. Secondary content
+    C. Toolbars
+    D. Messages / Alerts
+    E. Modules / Widgets
+
+VIII. CUSTOM_COMPONENTS - Only add to this section for high-effort clients, or during support
+    A. Implementation_added_components
+    B. Support_added_components
+
+*/
+
+
+
+/* ----------------------------------------------- */
+/* --------- =SMARTDISPLAY_INSTRUCTIONS ---------- */
+/* ----------------------------------------------- */
+/*  Everything between here and 
+    "CUSTOMIZATION_INSTRUCTIONS" should be 
+    customized for all clients, including 
+    SmartDisplay. 
+    
+   You may not add, remove, or re-order this file at 
+   all for a SmartDisplay client. For high-effort 
+   clients, see CUSTOMIZATION_INSTRUCTIONS below.
+*/
+
+
+/* Example of a custom LESS mixin added with comment. */
+/* CUSTOMLESS: [cgarcia] The odd-numbered review titles on the page must be in a new color to accomodate the client's mockup */
+.less_text_example {}
+
+
+
+/* ----------------------------------------------- */
+/* --------------- =VARIABLES -------------------- */
+/* ----------------------------------------------- */
+/*  All clients should have the variables section
+    customized. These should be pulled from the 
+    client site's color scheme. Not all variables 
+    need to be unique - a client may reuse 
+    "font-size: 12px" for several of their
+    .less_text_sizes, for instance.
+*/
+
+
+/* =FONT_VARIABLES
+----------------------------------------------- */
+
+/* Font families */
+.less_text_fontFamily {font-family: Arial, sans-serif;}
+.less_text_fontFamilyTitle {.less_text_fontFamily;} /* Use if the client has a secondary font-family for titles. */
+.less_text_fontFamilyButton {.less_text_fontFamily;} /* Use if the client has a secondary font-family for buttons. */
+
+/* Font sizes */
+.less_text_size1 {font-size: 18px;} /* page titles */
+.less_text_size2 {font-size: 18px;} /* section headers */
+.less_text_size3 {font-size: 16px;} /* review titles */
+.less_text_size4 {font-size: 14px;} /* nickname, high-importance text */
+.less_text_size5 {font-size: 12px;} /* ugc text */
+.less_text_size6 {font-size: 11px;} /* date, helper text, etc */
+
+/* Font colors */
+/* All colors should use 6-character hex values, if you want to support IE filters for gradients. */
+@less_text_colorNormal: #404040; /* normal importance text - body copy */
+@less_text_colorHigh: #404040; /* high importance text - an accent color normally used for titles. If the site doesn't use an accent color, set this to use the normal font color. */
+@less_text_colorLow: #999999; /* low - helper text, disabled text, low-importance text */
+@less_text_colorMeta: #666666; /* meta - used for user data and text over a light background - secondary, but not low-value */
+@less_text_colorAlertBad: #7c0000; /* bad alert/error */
+@less_text_colorAlertGood: #498700; /* good alert */
+@less_text_colorLink: #404040; /* normal link color */
+@less_text_colorHover: #8797AD; /* hover/focus link color */
+@less_text_colorReverse: #ffffff; /* reversed-out text for high-contrast backgrounds */
+
+
+/* =BACKGROUND_COLOR_VARIABLES
+----------------------------------------------- */
+
+@less_box_colorBase: #ffffff; /* the basic background color, normally white */
+@less_box_colorPrimaryNormal: #333333; /* high contrast - suitable for reversed out text */
+@less_box_colorPrimaryFaded: #666666; /* medium contrast */
+@less_box_colorPrimaryFader: #eeeeee; /* light - suitable for putting behind text */
+@less_box_colorPrimaryFadest: #f7f7f7; /* very light - suitable for putting behind text */
+@less_box_colorHighlight: @less_text_colorHigh; /* literally used for highlighting searched text, should be dark enough for reversed text to appear. change if you want to be a different color than the high title text color */
+@less_box_colorAccent: #961206; /* accent or star color, used for histogram. change if you want to be different than the link color. */
+
+/* =BORDER_VARIABLES
+----------------------------------------------- */
+
+/* Border Widths */
+@less_box_borderWidthSmall: 1px; /* used on almost everything */
+@less_box_borderWidthLarge: 1px; /* thick border width - use on required / important submission  fields */
+
+/* Border Colors */
+@less_box_borderColorLight: #eeeeee; /* lowest contrast (i.e., lightest with a light base color, otherwise darkest) */
+@less_box_borderColorMed: #cccccc; /* medium contrast */
+@less_box_borderColorDark: #999999; /* high contrast */
+@less_box_borderColorHighlight: @less_text_colorHigh; /* accent color - use very sparingly */
+@less_box_borderColorBad: @less_text_colorAlertBad; /* error message border color */
+@less_box_borderColorGood: @less_text_colorAlertGood; /* success message border color */
+
+
+/* =BUTTON_VARIABLES
+----------------------------------------------- */
+
+/* Use 6-character hex colors in order to support IE filters for gradients */
+/* Primary Buttons */
+@less_text_btnColorPrimary: #ffffff; /* primary button text */
+@less_box_btnColorPrimaryLight: #999999; /* light color on primary button gradient */
+@less_box_btnColorPrimaryMed: #515252; /* base color on primary button gradient */
+@less_box_btnColorPrimaryDark: #333333; /* border color on primary button */
+
+/* Secondary Buttons */
+@less_text_btnColorSecondary: #666666; /* secondary button text */
+@less_box_btnColorSecondaryLight: #f7f7f7; /* light color on secondary button gradient */
+@less_box_btnColorSecondaryMed: #b1b1b1; /* base color on secondary button gradient */
+@less_box_btnColorSecondaryDark: #9f9f9f; /* border color on secondary button */
+
+/* Disabled Buttons */
+@less_text_btnColorDisabled: #ffffff; /* disabled button text */
+@less_box_btnColorDisabledLight: #dddddd; /* light color on disabled button gradient */
+@less_box_btnColorDisabledMed: #cccccc; /* base color on disabled button gradient */
+@less_box_btnColorDisabledDark: #bbbbbb; /* border color on disabled button */
+
+
+
+/* ----------------------------------------------- */
+/* ------------- =LINKS -------------------------- */
+/* ----------------------------------------------- */
+/* In the template files, each link must be specified for all its states (except for :link, we allow the general declaration to cascade for that one) 
+   :visited
+   :hover
+   :focus
+   :active
+
+   That lets us map each state to a LESS mixin. 
+   If a client wants no distinction between regular and visited links, you just use one declaration for .less_text_link, .less_text_linkVisited
+   If a client want distinctions between them, give them each their own rule in this file, and the structure already exists in the template files.
+*/
+
+
+/* General links */
+.less_text_link {color: @less_text_colorLink; text-decoration: none;}
+    .less_text_linkVisited {color: @less_text_colorLink; text-decoration: none;}
+    .less_text_linkHover {color: @less_text_colorHover; text-decoration: underline;}
+    .less_text_linkFocus {color: @less_text_colorHover; text-decoration: underline;}
+    .less_text_linkActive {color: @less_text_colorHover; text-decoration: underline;}
+
+
+/* Action links: for links that don't act as navigational elements, clients sometimes use a different color or remove the underline. */
+.less_text_linkAction {color: @less_text_colorLink; text-decoration: none;}
+    .less_text_linkActionVisited {color: @less_text_colorLink; text-decoration: none;}
+    .less_text_linkActionHover {color: @less_text_colorHover; text-decoration: none;}
+    .less_text_linkActionFocus {color: @less_text_colorHover; text-decoration: none;}
+    .less_text_linkActionActive {color: @less_text_colorHover; text-decoration: none;}
+
+
+
+/* ----------------------------------------------- */
+/* ----- =CUSTOMIZATION_INSTRUCTIONS ------------- */
+/* ----------------------------------------------- */
+/* For non-SmartDisplay clients, you can add new 
+   variables and mixins, but any new construction
+   must have a comment preceding it that includes
+       # the tag "CUSTOMLESS:", in all caps
+       # the LDAP username of the person who added it
+       # a description of why the addition was necessary.
+
+   All added LESS mixins should be prefixed with:
+       .less_text_ (only applies font styles)
+       .less_box_ (only applies background and border styles)
+       .less_mix_ (includes a mix of text and box)
+
+   When adding to theme.less during implementation, you must 
+   have the theme file reviewed by a senior designer or higher.
+   Whenever possible, re-use existing colors from 
+   theme.less instead of adding new ones.
+   
+   Customizing this file is only allowed for high-effort
+   client implementations and resolving support cases
+   for non-SmartDisplay clients.
+*/
+
+
+
+/* ----------------------------------------------- */
+/* ------------- =SHARED_FUNCTIONS --------------- */
+/* ----------------------------------------------- */
+/* You can use these in your code, but don't edit them! 
+These are meant to be universal functions, available for 
+use in other mixins or directly in CSS. */
+
+
+/* =BORDERS
+----------------------------------------------- */
+/*  To add a border to CSS, first use a border mixin that specifies the color. 
+    Then specify the specific sides to use a border on (if not all) OR specify a large border.
+    There's currently no way to specify 1, 2, or 3 sided large borders.
+    EXAMPLES:
+        .borderAllTheWayAround {.less_box_borderLight;}
+        .borderTopRightLeft {.less_box_borderLight; .less_box_borderNoBottom;}
+        .borderThick {.less_box_borderLight; .less_box_borderLarge;}
+     */
+
+/* Basic Borders: Generate a small border of the chosen color on all sides. */
+.less_box_borderLight {border-style: solid; border-width: @less_box_borderWidthSmall; border-color: @less_box_borderColorLight;} /* light */
+.less_box_borderMed {border-style: solid; border-width: @less_box_borderWidthSmall; border-color: @less_box_borderColorMed;} /* medium */
+.less_box_borderDark {border-style: solid; border-width: @less_box_borderWidthSmall; border-color: @less_box_borderColorDark;} /* dark */
+.less_box_borderHighlight {border-style: solid; border-width: @less_box_borderWidthSmall; border-color: @less_box_borderColorHighlight;} /* highlight */
+.less_box_borderBad {border-style: solid; border-width: @less_box_borderWidthSmall; border-color: @less_box_borderColorBad;} /* bad */
+.less_box_borderGood {border-style: solid; border-width: @less_box_borderWidthSmall; border-color: @less_box_borderColorGood;} /* good */
+
+/* Specific Borders: Specify a specific side or sides for a border to appear on, or change its thickness. */
+.less_box_borderNo {border-width: 0;} /* no border */
+.less_box_borderSmall {border-width: @less_box_borderWidthSmall;} /* all sides small */
+.less_box_borderLarge {border-width: @less_box_borderWidthLarge;} /* all sides large */
+.less_box_borderTop {border-width: @less_box_borderWidthSmall 0 0;} /* used in list items */
+.less_box_borderRight {border-width: 0 @less_box_borderWidthSmall 0 0;} /* used in list items */
+.less_box_borderBottom {border-width: 0 0 @less_box_borderWidthSmall;} /* used in list items */
+.less_box_borderLeft {border-width: 0 0 0 @less_box_borderWidthSmall;} /* used in list items */
+.less_box_borderNoTop {border-top-width: 0;}
+.less_box_borderNoRight {border-right-width: 0;}
+.less_box_borderNoBottom {border-bottom-width: 0;}
+.less_box_borderNoLeft {border-left-width: 0;}
+.less_box_borderHorizontal {border-width: @less_box_borderWidthSmall 0;} /* used for standalone-ish items in a stack */
+.less_box_borderVertical {border-width: 0 @less_box_borderWidthSmall;} /* used for sidebar things, not very common */
+
+
+/* =FONT_STYLES
+----------------------------------------------- */
+
+.less_text_emphasis {font-style: italic;}
+.less_text_strong {font-weight: bold;}
+.less_text_lowercase {text-transform: lowercase;}
+.less_text_uppercase {text-transform: uppercase;}
+.less_text_blink {text-decoration: blink;} /* :) */
+.less_text_noLine {text-decoration: none;}
+.less_text_normal {font-style: normal; font-weight: normal; text-transform: none;}
+
+
+/* =EFFECTS
+----------------------------------------------- */
+
+/* Opacity */
+.less_box_opacity0 {opacity: 0; filter: alpha(opacity=0); -ms-filter: alpha(opacity=0); zoom: 1;}
+.less_box_opacity50 {opacity: 0.5; filter: alpha(opacity=50); -ms-filter: alpha(opacity=50); zoom: 1;}
+.less_box_opacity70 {opacity: 0.7; filter: alpha(opacity=70); -ms-filter: alpha(opacity=70); zoom: 1;}
+.less_box_opacity100 {opacity: 1.0; filter: alpha(opacity=100); -ms-filter: alpha(opacity=100); zoom: 1;}
+
+/* =TOOLS
+----------------------------------------------- */
+
+/* Clear fix */
+.less_box_clearFix {content: "."; height: 0; width: 0; visibility: hidden; display: block; clear: both;}
+
+/* IE6 Transparent PNG fix */
+/* see https://bits.bazaarvoice.com/confluence/display/TS/CSS+Tips+and+Tricks */
+.less_tool_pngfixBackground {behavior:expression((this.runtimeStyle.behavior = "none") &&(this.currentStyle.backgroundImage.toString().toLowerCase().indexOf(".png")> -1) &&(this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" +this.currentStyle.backgroundImage.toString().split('"')[1] + "',sizingMethod='crop')",this.runtimeStyle.zoom = 1,this.runtimeStyle.backgroundImage = "none"));} /* Works on a div with a 24-bit png background image. */
+.less_tool_pngfixImg {behavior: expression((this.runtimeStyle.behavior="none") && (this.src.toLowerCase().indexOf('.png')>-1) && (this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='crop')",this.height = this.clientHeight,this.src=this.src.substring(0, this.src.lastIndexOf('/'))+'/spacer.gif'));} /* Works on an <img> tag containing a 24-bit png image. Requires an empty (transparent) 1px square image called "spacer.gif" to exist in the *static-resources directory. */
+
+/* Background and border reset */
+.less_box_reset {background: transparent none; .less_box_borderNo; .less_box_opacity100; filter:progid:DXImageTransform.Microsoft.Gradient(enabled=0); -ms-filter:progid:DXImageTransform.Microsoft.Gradient(enabled=0);}
+
+
+/* =CSS3
+----------------------------------------------- */
+/* This section stays in the theme file regardless of whether CSS3 is used. 
+By including or excluding the file "progressive" (from shared-static-resources), you control whether these mixins are applied. */
+
+/* Rounded corners */
+.less_box_rounded (@less_rounded_radius: 6px) {-moz-border-radius: @less_rounded_radius; -webkit-border-radius: @less_rounded_radius; border-radius: @less_rounded_radius;}
+
+/* Drop shadow */
+.less_box_shadow (@less_shadow_offsetx: 10px, @less_shadow_offsety: 10px, @less_shadow_blur: 40px, @less_shadow_color: rgba(0,0,0,.2)) {-moz-box-shadow: @less_shadow_offsetx @less_shadow_offsety @less_shadow_blur @less_shadow_color; -webkit-box-shadow: @less_shadow_offsetx @less_shadow_offsety @less_shadow_blur @less_shadow_color; box-shadow: @less_shadow_offsetx @less_shadow_offsety @less_shadow_blur @less_shadow_color;}
+
+/* Inner shadow */
+.less_box_shadowInner (@less_shadow_offsetx: 1px, @less_shadow_offsety: 1px, @less_shadow_blur: 5px, @less_shadow_color: rgba(0,0,0,.2)) {-moz-box-shadow: @less_shadow_offsetx @less_shadow_offsety @less_shadow_blur @less_shadow_color inset; -webkit-box-shadow: @less_shadow_offsetx @less_shadow_offsety @less_shadow_blur @less_shadow_color inset; box-shadow: @less_shadow_offsetx @less_shadow_offsety @less_shadow_blur @less_shadow_color inset;}
+
+/* Outer glow */
+.less_box_glow (@less_glow_offsetx: 0px, @less_glow_offsety: 0px, @less_glow_blur: 4px, @less_glow_color: rgba(255,255,255,.8)) {.less_box_shadow(@less_glow_offsetx, @less_glow_offsety, @less_glow_blur, @less_glow_color);}
+
+/* Vertical gradients */
+/* IE gradient filter requires the full, 6-character hex color, no abbreviations or rgb colors. */
+.less_box_fade (@bottom: @less_box_colorPrimaryFadest, @top: @less_box_colorBase) {background-image: -webkit-gradient(linear, left top, left bottom,  from(@top), to(@bottom)); background-image: -moz-linear-gradient(top,  @top,  @bottom); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@top, endColorstr=@bottom); zoom: 1; position: relative;}
+
+/* Text shadow */
+.less_text_shadow (@less_shadow_offsetx: 1px, @less_shadow_offsety: 1px, @less_shadow_blur: 2px, @less_shadow_color: rgba(0, 0, 0, 0.5)) {text-shadow: @less_shadow_color @less_shadow_offsetx @less_shadow_offsety @less_shadow_blur;}
+
+/* Transitions */
+/* options for transition properties: http://www.w3.org/TR/css3-transitions/#properties-from-css-  note that you cannot transition gradients as they are background-images, despite what that chart says. */
+.less_box_transition (@less_transition_property: opacity, @less_transition_duration: 0.3s, @less_transition_timingfunction: ease-out) {-moz-transition: @less_transition_property @less_transition_duration @less_transition_timingfunction; -o-transition: @less_transition_property @less_transition_duration @less_transition_timingfunction; -webkit-transition: @less_transition_property @less_transition_duration @less_transition_timingfunction;} /* Used for opacity fading in and out*/
+.less_text_transition (@less_transition_property: color, @less_transition_duration: 0.3s, @less_transition_timingfunction: ease-out) {.less_box_transition(@less_transition_property, @less_transition_duration, @less_transition_timingfunction);} /* Used for text color fade */
+
+
+/* ----------------------------------------------- */
+/* ------------- =EDITABLE_STYLES ----------------- */
+/* ----------------------------------------------- */
+
+
+
+/* =BODY_COPY
+----------------------------------------------- */
+
+/* General */
+.less_text_body {.less_text_fontFamily; line-height: 1.5em; color: @less_text_colorNormal; .less_text_size5;}
+.less_text_error {color: @less_text_colorAlertBad;}
+
+/* Titles */
+.less_text_titlePage {color: @less_text_colorNormal; .less_text_fontFamilyTitle; .less_text_size1; .less_text_normal; line-height: normal;} /* profile, thank you, MSVP, etc. can have multiple per page. h1. */
+.less_text_titleSection {color: @less_text_colorNormal; .less_text_fontFamilyTitle; .less_text_size2; .less_text_normal; line-height: normal;} /* h2. secondary titles (MSVP review title), qa "product qa" title, submission step title */
+.less_text_titleItem {color: @less_text_colorNormal; .less_text_fontFamilyTitle; .less_text_size3; .less_text_normal; line-height: normal;} /* h3. review titles, comment titles, etc. */
+.less_text_titleWidget {color: @less_text_colorHigh; .less_text_fontFamilyTitle; .less_text_size4; .less_text_normal; line-height: normal;}
+.less_text_titleHelper {color: @less_text_colorLow; .less_text_fontFamilyTitle; .less_text_size5; .less_text_normal;} /* seo text on msvp, etc. */
+.less_text_titleFilters {.less_text_fontFamilyTitle; .less_text_strong;} /* Filter Item title in QuickTake */
+
+/* Secondary content */
+.less_text_meta {color: @less_text_colorMeta; .less_text_size5;}
+.less_text_nickname {.less_text_size4;}
+
+/* Helper text */
+.less_text_helper {color: @less_text_colorLow; .less_text_size6; line-height: 1.5;} /* Any place small helper text appears */
+.less_text_helperForm {color: @less_text_colorLow; .less_text_size6; .less_text_emphasis; line-height: 1.5;} /* Specifically for the text that accompanies each form element */
+.less_text_guidelines {color: @less_text_colorLow; .less_text_size6; line-height: 1.5;} /* For inline tips and guidelines that appear in their own box on a form */
+
+
+/* =ICONS
+----------------------------------------------- */
+
+/* General framework - frequently used on links, but the link styles aren't included, so they don't interfere with hover / focus states */
+.less_text_icon {padding-left: 20px; background-image: url(iconText.gif); background-repeat: no-repeat; background-position: 0 0; text-decoration: none;}
+.less_text_iconOnly {padding: 0; display: block; width: 16px; height: 16px; text-align: left; text-indent: -999em; text-decoration: none; zoom: 1; overflow: hidden;}
+.less_text_iconOnlyLarge {background-image: url(iconLarge.gif); background-repeat: no-repeat; background-position: 0 0; text-decoration: none; padding: 0; display: block; width: 32px; height: 32px; text-align: left; text-indent: -999em; text-decoration: none; zoom: 1; overflow: hidden;}
+
+/* Regular icons */
+.less_text_iconPopout {.less_text_icon; background-position: 0 0px;} /* popout opens new window, t&cs */
+.less_text_iconPopin {.less_text_icon; background-position: 0 -40px;} /* popin (i.e., histogram, profile snapshot, or anchor link on profile) */
+.less_text_iconCollapsed {.less_text_icon; background-position: 0 -120px;} /* div collapsed */
+.less_text_iconExpanded {.less_text_icon; background-position: 0 -80px;} /* div expanded */
+.less_text_iconInfo {.less_text_icon; background-position: 0 -158px;} /* info or guidelines */
+.less_text_iconAlert {.less_text_icon; background-position: 0 -196px;} /* used for negative and neutral alerts - a caution sign (e.g., an exclamation point in a triangle) */
+.less_text_iconDate {.less_text_icon; background-position: 0 -240px;} /* calendar icon */
+.less_text_iconClose {.less_text_icon; background-position: 0 -280px;} /* close */
+.less_text_iconClear {.less_text_icon; background-position: 0 -320px;} /* trash or delete (e.g., clear section on active profiles, remove photo) */
+.less_text_iconComment {.less_text_icon; background-position: 0 -361px;} /* usually a tiny word bubble, appears on the write a comment link */
+.less_text_iconPrint {.less_text_icon; background-position: 0 -400px;} /* printer icon */
+.less_text_iconUp {.less_text_icon; background-position: 0 -440px;}
+.less_text_iconRight {.less_text_icon; background-position: 0 -478px;}
+.less_text_iconDown {.less_text_icon; background-position: 0 -520px;}
+.less_text_iconLeft {.less_text_icon; background-position: 0 -560px;}
+.less_text_iconGood {.less_text_icon; background-position: 0 -598px;} /* checkmark / smiley / thumbs up */
+.less_text_iconBad {.less_text_icon; background-position: 0 -638px;}  /* x / frown / thumbs down */
+.less_text_iconEmail {.less_text_icon; background-position: 0 -680px;}  /* hosted authentication */
+
+/* Large icons */
+.less_text_iconLeftLarge {.less_text_iconOnlyLarge; background-position: 0 0;}
+.less_text_iconLeftDisabledLarge {.less_text_iconOnlyLarge; background-position: 0 -40px;}
+.less_text_iconRightLarge {.less_text_iconOnlyLarge; background-position: 0 -80px;}
+.less_text_iconRightDisabledLarge {.less_text_iconOnlyLarge; background-position: 0 -120px;}
+
+/* Filtering icons */
+.less_text_iconFilter {.less_text_icon; background-image: url(iconFilters.gif);}
+.less_text_checkFilterOff {.less_text_iconFilter; color: @less_text_colorNormal; background-position: 0 -120px;} /* filter items default */ 
+.less_text_checkFilterOffHover {.less_text_iconFilter; color: @less_text_colorAlertGood; background-position: 0 -80px;} /* green hover + */
+.less_text_checkFilterOn {.less_text_iconFilter; color: @less_text_colorAlertGood; background-position: 0 -40px;} /* green on */
+.less_text_checkFilterOnHover {.less_text_iconFilter; color: @less_text_colorAlertBad; background-position: 0 0;} /* on filters red - hover to turn off */
+.less_text_checkFilterDisabled {.less_text_iconFilter; color: @less_text_colorLow; background-position: 0 -160px;}
+.less_text_radioFilterOff {.less_text_iconFilter; color: @less_text_colorNormal; background-position: 0 -320px;} /* filter items default */ 
+.less_text_radioFilterOffHover {.less_text_iconFilter; color: @less_text_colorAlertGood; background-position: 0 -280px;} /* green hover + */
+.less_text_radioFilterOn {.less_text_iconFilter; color: @less_text_colorAlertGood; background-position: 0 -240px;} /* green on */
+.less_text_radioFilterOnHover {.less_text_iconFilter; color: @less_text_colorAlertBad; background-position: 0 200px;} /* on filters red - hover to turn off */
+.less_text_radioFilterDisabled {.less_text_iconFilter; color: @less_text_colorLow; background-position: 0 -360px;}
+
+
+/* Feedback icons */
+/* Backgrounds */
+.less_box_feedbackBackgroundLeft {background-repeat: no-repeat; background-image: url(votingBackgroundSprite.gif);}
+.less_box_feedbackBackgroundRight {background-repeat: no-repeat; background-image: url(votingBackgroundRightSprite.gif);}
+.less_box_feedbackNormalLeft {background-position: 0 -40px;}
+.less_box_feedbackNormalRight {background-position: right -40px;}
+.less_box_feedbackDisabledLeft {background-position: 0 0;}
+.less_box_feedbackDisabledRight {background-position: right 0;}
+.less_box_feedbackUndoLeft {background-position: 0 0;}
+.less_box_feedbackUndoRight {background-position: right 0;}
+/* Thumbs / flags */
+.less_text_feedbackIcon {background: no-repeat; background-position: 0 0; padding-left: 20px;}
+.less_text_feedbackIconOnly {.less_text_iconOnly; height: 20px; width: 20px;}
+.less_text_feedbackIconGood {.less_text_feedbackIcon; background-image: url(votingThumbUpSprite.gif);}
+.less_text_feedbackIconGoodUndo {.less_text_iconClear; background-position: 0 -317px;}
+.less_text_feedbackIconBad {.less_text_feedbackIcon; background-image: url(votingThumbDownSprite.gif);}
+.less_text_feedbackIconBadUndo {.less_text_iconClear; background-position: 0 -317px;}
+.less_text_feedbackIconFlag {.less_text_feedbackIcon; background-image: url(iconReport.gif);}
+.less_text_feedbackIconDisabled {background-position: 0 -80px;}
+
+/* Badges */
+.less_text_iconBadges {.less_text_icon; background-image: url(iconBadges.gif); color: @less_text_colorNormal;} /* badges, needs box styles */
+.less_text_iconFeatured {.less_text_iconBadges; background-position: 0 0;}
+.less_text_iconContributor {.less_text_iconBadges; background-position: 0 -40px;}
+.less_text_iconStaff {.less_text_iconBadges; background-position: 0 -80px;}
+.less_text_iconExpert {.less_text_iconBadges; background-position: 0 -120px;}
+.less_text_iconSocialAnsweringSubscriber {.less_text_iconBadges; background-position: 0 -160px;}
+
+/* Multi-view icons */
+.less_box_iconSocialRecommendations {background: url(icon_social-rec.png) no-repeat 0 0; height: 45px; width: 45px;}
+.less_box_iconTags {background: url(icon_tags.png) no-repeat 0 0; height: 45px; width: 33px;}
+.less_box_iconPhoto {background: url(icon_photo.png) no-repeat 0 0; height: 45px; width: 35px;}
+.less_box_iconVideo {background: url(icon_video.png) no-repeat 0 0; height: 45px; width: 36px;}
+
+
+
+/* =TABS
+----------------------------------------------- */
+
+/* These are usually related to action links (they're non-nav links), but are frequently not styled as links. */
+/* Backgrounds */
+.less_box_tab {.less_box_borderLight; background-color: @less_box_colorBase; outline: 0;} /* regular, unselected tab */
+.less_box_tabHover {.less_box_borderLight; background-color: @less_box_colorPrimaryFaded; outline: 0;} /* unselected tab on hover */
+.less_box_tabSelected {.less_box_tabHover;} /* selected tab */
+.less_box_tabSelectedHover {.less_box_tabHover;} /* selected tab on hover */
+/* Labels */
+.less_text_tab {color: @less_text_colorLink; text-decoration: none;} /* regular, unselected tab text */
+.less_text_tabHover {color: @less_text_colorReverse; .less_text_strong; text-decoration: none;} /* unselected tab text on hover */
+.less_text_tabSelected {.less_text_tabHover;} /* selected tab text */
+.less_text_tabSelectedHover {.less_text_tabHover;} /* selected tab text on hover */
+
+
+
+/* =BUTTONS
+----------------------------------------------- */
+/* Each buttons needs a box and a text style.
+In the template files, keep the button size, padding, and layout elements on a separate line from the button and hover styles for box and text. 
+Example (regular button):
+button {.less_box_btn; .less_text_btn;}
+button:hover {.less_box_btnHover; .less_text_btnHover;}
+.fieldDisabledClass button, .fieldDisabledClass button:hover {.less_box_btnDisabled; .less_text_btnDisabled;}
+
+a.button, a.button:visited {.less_box_btn; .less_text_btn;}
+a.button:hover, a.button:focus, a.button:active {.less_box_btnHover; .less_text_btnHover;}
+.fieldDisabledClass a.button, .fieldDisabledClass a.button:visited, .fieldDisabledClass a.button:hover, .fieldDisabledClass a.button:active, .fieldDisabledClass a.button:focus {.less_box_btnDisabled; .less_text_btnDisabled;}
+
+*/
+
+/* Secondary (low-importance) */
+.less_box_btnLow {display: inline-block; background: url(button_thin.png) no-repeat scroll 0 -170px transparent; height: 39px; line-height: 39px; width: 90px; text-align: center; *display: inline; zoom: 1; padding: 0;} /* HACK: IE6 IE7 [ccochran] Fix display issue in IE6 and 7 */
+.less_box_btnLowHover {.less_box_btnLow; background-position: 0px -200px;}
+.less_text_btnLow {color: @less_text_btnColorPrimary; .less_text_fontFamily; .less_text_size6; .less_text_noLine; font-weight: bold;}
+.less_text_btnLowHover {.less_text_btnLow;}
+
+/* Primary (high-importance) */
+.less_box_btnHigh {display: inline-block; background: url("button_tall.png") no-repeat scroll 0 0 transparent; height: 39px; line-height: 39px; width: 119px; text-align: center; *display: inline; zoom: 1; padding: 0;}
+.less_box_btnHighHover {.less_box_btnHigh; background-position: 0px -49px;}
+.less_text_btnHigh {color: @less_text_btnColorPrimary; .less_text_fontFamily; .less_text_size6; .less_text_noLine; font-weight: bold;}
+.less_text_btnHighHover {.less_text_btnHigh;}
+
+/* Disabled */
+.less_box_btnDisabled {display: inline-block; background-color: @less_box_btnColorDisabledMed; .less_box_borderMed; border-color: @less_box_btnColorDisabledDark; *display: inline; zoom: 1;}
+.less_text_btnDisabled {color: @less_text_btnColorDisabled; .less_text_size4; .less_text_strong; text-decoration: none;}
+
+
+
+/* =FORM_ELEMENTS
+----------------------------------------------- */
+/* Like buttons, there are high and low-importance inputs.
+   Each label has a high or low importance text style. 
+   This generally corresponds to required fields and the core
+   UGC fields (like review text, review title, story text, etc).
+   
+   The importance of the label and input should match, if
+   the input is a text-type or text area.
+
+*/
+
+/* Form containers */
+.less_box_form {} /* whole form */
+    .less_box_formSection {} /* sections */
+        .less_box_formHeader {.less_box_borderLight; .less_box_borderBottom;} /* header */
+        .less_box_formBody {} /* body */
+
+/* Labels */
+.less_text_labelLow {color: @less_text_colorHigh; .less_text_size4; font-weight: normal; line-height: 1.5;} /* submission item labels, normal (e.g., Video) */
+.less_text_labelHigh {color: @less_text_colorHigh; .less_text_size4; font-weight: normal; line-height: 1.5;} /* submission item labels, primary (i.e., main item like review/question/answer, optionally use for other required elements) */
+
+/* Text inputs */
+/* Each input has a high or low importance box and text style.
+   This only covers input type="text" and textarea.
+
+   Input examples:
+   textarea, .textInput {.less_box_textInput; .less_text_textInput;}
+   textarea, .textInput:focus {.less_box_textInputFocus; .less_text_textInputFocus;}
+   .fieldErrorClass textarea, .fieldErrorClass .textInput {.less_box_textInputError; .less_text_textInputError;}
+*/
+.less_box_textInputLow {.less_box_borderMed;}
+.less_box_textInputLowFocus {.less_box_borderHighlight; background-color: @less_box_colorPrimaryFadest;}
+.less_box_textInputLowError {.less_box_borderBad;}
+.less_text_textInputLow {.less_text_size5; color: @less_text_colorNormal;}
+.less_text_textInputLowFocus {color: @less_text_colorNormal;}
+.less_text_textInputLowError {.less_text_strong;}
+
+.less_box_textInputHigh {.less_box_borderDark; .less_box_borderLarge;}
+.less_box_textInputHighFocus {.less_box_textInputLowFocus; .less_box_borderLarge;}
+.less_box_textInputHighError {.less_box_borderBad; .less_box_borderLarge;}
+.less_text_textInputHigh {.less_text_size4; color: @less_text_colorNormal;}
+.less_text_textInputHighFocus {color: @less_text_colorNormal;}
+.less_text_textInputHighError {.less_text_strong;}
+
+
+/* =STANDALONE_PAGES
+----------------------------------------------- */
+
+/* Standalone page containers */
+.less_box_page {background-color: @less_box_colorPrimaryFader;} /* page - standalone page, .less_xxroot */
+    .less_box_pageContent {background-color: @less_box_colorBase;} /* page content */
+    .less_box_pageHeader {background-color: @less_box_colorBase;} /* page header */
+
+
+/* =SIDEBAR_NAVIGATION
+----------------------------------------------- */
+
+/* Sidebar nagivation link lists */
+.less_box_nav {background: @less_box_colorBase; .less_box_borderLight; .less_box_borderTop;} /* "internal" nav blocks - corresponds to "BVRRSCategoryHierarchyItem0" on reviews microsite */
+    .less_box_subNav {} /* nested navigation for nested category structure - corresponds to "BVRRSCategoryHierarchyItem1" on reviews microsite */
+        .less_box_subSubNav {} /* nested navigation for nested category structure - corresponds to "BVRRSCategoryHierarchyItem2" on reviews microsite */
+.less_text_nav {.less_text_strong; .less_text_size4;} /* nav List items for top level - corresponds to "BVRRSCategoryHierarchyItemLabel0" */
+    .less_text_subNav {}  /* nav List items for second level - corresponds to "BVRRSCategoryHierarchyItemLabel1" */
+        .less_text_subSubNav {} /* nav List items for third level - corresponds to "BVRRSCategoryHierarchyItemLabel2" */
+
+
+/* =POPINS
+----------------------------------------------- */
+
+/* Popins */
+.less_box_popin {background-color: @less_box_colorBase; .less_box_borderDark; .less_box_shadow;} /* popin */
+
+/* Fake select box popins */
+.less_box_fakeSelect {background-color: @less_box_colorPrimaryFadest; .less_box_borderMed;} /* Wraps around the whole select box */
+.less_box_fakeSelectHover {background-color: @less_box_colorBase; .less_box_borderMed;}
+    .less_box_fakeSelectDefaultText {.less_box_borderMed; .less_box_borderRight; .less_text_linkAction; .less_text_strong;} /* faux select box (e.g., category dropdown in microsite, filtering dropdowns to look like a <select>) */
+    .less_box_fakeSelectDefaultTextHover {}
+    .less_box_fakeSelectHandle {} /* Wraps around the whole select box also, but this part is revealed */
+    .less_box_fakeSelectHandleHover {}
+.less_box_fakeSelectOpen {.less_box_borderLight; background: @less_box_colorBase; .less_box_shadow;} /* hover/expanded states */
+    .less_box_fakeSelectOptions {.less_box_borderLight; .less_box_borderBottom; background: @less_box_colorBase;} /* select dropdown options */
+        .less_box_fakeSelectOptionsHover {border-color: @less_text_colorLink; background: @less_text_colorLink; color: @less_text_colorReverse;}
+
+
+/* =PAGINATION
+----------------------------------------------- */
+
+/* Pagination */
+.less_box_pagination {background-color: @less_box_colorPrimaryFadest;} /* pagination */
+.less_text_pagination {.less_text_meta;}
+.less_box_paginationSelected {}
+.less_text_paginationSelected {color: @less_text_colorHover; .less_text_strong;}
+
+
+
+/* ----------------------------------------------- */
+/* ------------- =NAMED_COMPONENTS --------------- */
+/* ----------------------------------------------- */
+
+
+/* UGC */
+.less_box_ugc {background-color: @less_box_colorBase;} /* single piece of UGC */
+.less_box_quotedUgc {.less_box_opacity70; background-color: @less_box_colorBase; .less_box_borderLight; .less_box_borderLarge; .less_text_meta;} /* Quoted (threaded with child content emphasized, like showing question on answer submission) */
+
+/* Secondary content */
+.less_box_meta {background-color: @less_box_colorPrimaryFadest;} /* UGC meta information */
+
+/* Toolbars */
+.less_box_toolbar {background-color: @less_box_colorBase; .less_box_borderLight; .less_box_borderHorizontal;} /* toolbar */
+
+/* Messages / Alerts */
+.less_box_alert {.less_box_borderLight; color: @less_text_colorMeta;} /* alert */
+.less_box_alertGood {.less_box_borderGood; color: @less_text_colorAlertGood;} /* good */
+.less_box_alertBad {.less_box_borderBad;  color: @less_text_colorAlertBad;} /* bad */
+
+/* Modules / Widgets (top rated on a microsite, for instance) */
+.less_box_widget {background-color: @less_box_colorBase;} /* widget */
+.less_box_headerWidget {background-color: @less_box_colorPrimaryFadest; .less_box_borderMed;}
+.less_box_bodyWidget {.less_box_borderLight;}
+
+
+
+/* ----------------------------------------------- */
+/* ------------- =CUSTOM_COMPONENTS -------------- */
+/* ----------------------------------------------- */
+/* When you add a new mixin to this section, you must add a comment indicating its purpose and the 
+   rationale for adding a new component instead of reusing existing ones.
+
+   The only two allowed uses are:
+       # Matching mockups for high-effort clients (these should always be reviewed by a Senior Implementation Designer or a manager from Design Services).
+       # Resolving support requests for non-SmartDisplay clients.
+
+   Each custom component must include a comment with:
+       # the tag "CUSTOMLESS:", in all caps
+       # the LDAP username of the person who added it
+       # a description of why the addition was necessary.
+*/
+
+
+/* =IMPLEMENTATION_ADDED_COMPONENTS
+----------------------------------------------- */
+
+
+/* =SUPPORT_ADDED_COMPONENTS
+----------------------------------------------- */
