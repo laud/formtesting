@@ -38,11 +38,12 @@
         <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
         <div role="main">
             <img style="padding:15px;" src="img/buckle-logo.jpg" alt="Buckle" />
-            <div class="formErrors">
+            <div id="formErrors">
                 
             </div>
             
             <form target="bv-submission-target"
+                  id="submission-form"
                   action="http://reviews.buckle.com/bvstaging/data/submitreview.json" method="POST">
                 <input type="hidden" name="passkey" value="p6rprcg4uup7cii1v15oov04f" class="bv-noremember" />
                 <input type="hidden" name="action" value="preview" class="bv-noremember" />
@@ -55,7 +56,7 @@
                 <section id="page1">
                     <fieldset class="incomplete stars">
                         <div class="legend">How do you rate this product overall?</div>
-                        <input type="radio" name="rating" id="overall-1" value="1" /> <label for="overall-1">S</label>
+                        <input type="radio" name="rating" id="overall-1" value="1" class="required" /> <label for="overall-1">S</label>
                         <input type="radio" name="rating" id="overall-2" value="2" /> <label for="overall-2">S</label>
                         <input type="radio" name="rating" id="overall-3" value="3" /> <label for="overall-3">S</label>
                         <input type="radio" name="rating" id="overall-4" value="4" /> <label for="overall-4">S</label>
@@ -68,14 +69,14 @@
                     </fieldset>
                     <button id="page1button" class="nextButton" type=button>Next</button>
                 </section>
-                <section id="page2">
+                <section id="page2" style="display: none;">
                      <fieldset class="incomplete">
                         <label class="legend">Title of your review</label>
-                        <input type="text" name="title" placeholder="Ex: This product has great features" />
+                        <input type="text" name="title" class="required" placeholder="Ex: This product has great features" />
                     </fieldset>
                     <fieldset class="incomplete">
                         <label class="legend">Your product review</label>
-                        <textarea name="reviewtext"></textarea>
+                        <textarea name="reviewtext" class="required"></textarea>
                     </fieldset>
                     <fieldset class="incomplete">
                         <div class="legend">How do you prefer to shop?</div>
@@ -86,7 +87,7 @@
                     </fieldset>
                     <button id="page2button" class="nextButton" type=button>Next</button>
                 </section>
-                <section id="page3">
+                <section id="page3" style="display: none;">
                     <fieldset class="incomplete">
                         <label class="legend">Choose a nickname</label>
                         <input type="text" name="usernickname" />
@@ -172,7 +173,7 @@
                     </fieldset>
                     <button id="page3button" class="nextButton" type=button>Next</button>
                 </section>
-                <section id="page4">
+                <section id="page4" style="display: none;">
                     <fieldset class="incomplete">
                         <div class="legend">Would you recommend Buckle to a friend?</div>
                         <input type="radio" name="NetPromoterScore" id="NetPromoterScore-1" value="1" /> <label for="NetPromoterScore-1">1</label>
@@ -209,6 +210,7 @@
 
         <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
 
         <!-- scripts concatenated and minified via build script -->
         <script src="js/plugins.js"></script>

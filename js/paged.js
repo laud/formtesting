@@ -1,20 +1,38 @@
 $(document).ready(function(){
     setupHandlers();
-    hideAllPages();
-    showPage(1);
 });
 
 function setupHandlers(){
     $("#page1button").click(function(){
-        hideAllPages();
-        showPage(2);
+        
+        if($("#page1 input").valid())
+        {
+            showPage(2);
+        } 
+        else 
+        {
+            alert("no");
+        }
     });
-     $("#page2button").click(function(){
-        hideAllPages();
-        showPage(3);
+    $("#page2button").click(function(){
+        if($("#page2 input").valid())
+        {
+            showPage(3);
+        } 
+        else 
+        {
+            alert("no");
+        }
     });
-     $("#page3button").click(function(){
-        hideAllPages();
+    $("#page3button").click(function(){
+        if($("#page2 input").valid())
+        {
+            showPage(4);
+        } 
+        else 
+        {
+            alert("no");
+        }
         showPage(4);
     });
 }
@@ -27,7 +45,8 @@ function hideAllPages(){
 }
 
 function showPage(page){
-   $("#page" + page).show();
+    $("#page" + (page - 1)).hide();
+    $("#page" + page).show();
 }
 
 

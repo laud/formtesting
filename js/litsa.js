@@ -6,6 +6,13 @@ $(document).ready(function(){
     makeSubmission();
     setupGenderBasedDisplay();
     setupParameters();
+    $("#submission-form").validate({
+        errorElement: "div",
+        errorPlacement: function(error, element) {
+            alert(error.valueOf());
+            element.parent().append(error);
+        }
+    })
 });
 
 
@@ -141,11 +148,11 @@ function makeProgress(){
 function postHandler(json){
     if(json.HasErrors)
     {
-        $(".formErrors").empty();
+        $("#formErrors").empty();
         for(var fieldError in json.FormErrors.FieldErrors)
         {
             var errorMessage = json.FormErrors.FieldErrors[fieldError]['Message'];
-            $(".formErrors").append("<p>"+errorMessage+"</p>");
+            $("#formErrors").append("<p>"+errorMessage+"</p>");
         }
         $("#submit").removeClass("submitted");
         $("#spinner").hide();
