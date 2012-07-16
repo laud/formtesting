@@ -8,10 +8,6 @@ function setupHandlers(){
         if($("#page1 input").valid())
         {
             showPage(2);
-        } 
-        else 
-        {
-            alert("no");
         }
     });
     $("#page2button").click(function(){
@@ -19,21 +15,12 @@ function setupHandlers(){
         {
             showPage(3);
         } 
-        else 
-        {
-            alert("no");
-        }
     });
     $("#page3button").click(function(){
-        if($("#page2 input").valid())
+        if($("#page3 input").valid())
         {
             showPage(4);
         } 
-        else 
-        {
-            alert("no");
-        }
-        showPage(4);
     });
 }
 

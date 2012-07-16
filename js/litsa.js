@@ -3,13 +3,17 @@ $(document).ready(function(){
     makeForWork();
     makeToggle();
     makeProgress();
-    makeSubmission();
-    setupGenderBasedDisplay();
-    setupParameters();
-    $("#submission-form").validate({
+    
+    api_server = "http://reviews.buckle.com/bvstaging/data";
+    api_key = "p6rprcg4uup7cii1v15oov04f";
+    api_version = "5.2";
+    
+    setupRPC(api_server, api_key, api_version);
+    setupSpecificFormElements(api_server, api_key, api_version);
+    
+    $("#bv-submission-form").validate({
         errorElement: "div",
         errorPlacement: function(error, element) {
-            alert(error.valueOf());
             element.parent().append(error);
         }
     })
@@ -36,17 +40,6 @@ function hex2a(hex) {
     return str;
 }
 
-function setupParameters(){
-    userstring = getParameterByName("user").substring(32);
-    userstring = hex2a(userstring);
-    userstring = "?" + userstring;
-    userid = getParameterByName("userid", userstring);
-    useremail = getParameterByName("emailaddress", userstring);
-    productid = getParameterByName("productid");
-    $('input[name=productid]').val(productid);
-    $('input[name=useremail]').val(useremail);
-    $('input[name=userid]').val(userid);
-}
 
 function makeStars(){
     var stars = $(".stars input");
@@ -163,11 +156,12 @@ function postHandler(json){
 
 }
 
-function makeSubmission(){
+function setupRPC(api_server, api_key, api_version)
+{
     
-    api_server = "http://reviews.buckle.com/bvstaging/data";
-    api_key = "p6rprcg4uup7cii1v15oov04f";
-    api_ver = "5.2";
+
+    
+    $("#bv-submission-form").get(0).setAttribute('action', api_server + "/submitreview.json");
     
     /*    
     var rpcFailure = _.delay(function () {
@@ -178,7 +172,7 @@ function makeSubmission(){
     var rpcConfig = {
         swf : window.location.protocol + '//display.bazaarvoice.com/common/util/easyxdm.swf',
         remote : api_server + '/rpcfile?apiversion=' +
-        api_ver + '&passkey=' +
+        api_version + '&passkey=' +
         api_key
     };
     
@@ -194,7 +188,7 @@ function makeSubmission(){
         $(this).addClass("submitted");
         $("#spinner").show();
     });
-    
+   
     return new easyXDM.Rpc(rpcConfig, rpcFunctions);
 }
 
@@ -211,7 +205,8 @@ function getIndex(elem){
     return(index);
 }
 
-function setupGenderBasedDisplay(){
+function setupSpecificFormElements(api_server, api_key, api_version)
+{
     $("#contextdatavalue_Gender").change( function() {
         if($(this).val() == "Male")
         {
@@ -228,4 +223,43 @@ function setupGenderBasedDisplay(){
         }
     
     });
+    
+    $("#NetPromoterScore-slider").slider({
+        value:5,
+        min: 0,
+        max: 10,
+        step: 1,
+        slide: function( event, ui ) {
+            $("#NetPromoterScore").val(ui.value);
+        }
+    });
+    
+    userstring = getParameterByName("user").substring(32);
+    userstring = hex2a(userstring);
+    userstring = "?" + userstring;
+    userid = getParameterByName("userid", userstring);
+    useremail = getParameterByName("emailaddress", userstring);
+    productid = getParameterByName("productid");
+    $('input[name=productid]').val(productid);
+    $('input[name=useremail]').val(useremail);
+    $('input[name=userid]').val(userid);
+    
+    $.getJSON(api_server+"/submitreview.json?callback=?", 
+        "apiversion=" + api_version + "&passkey=" + api_key + "&productid=" + productid + "&userid=" + userid,
+        function(json){
+            if(json.Data.Groups.rating)
+            {
+                ratingName = json.Data.Groups.rating.SubElements[0].Id;
+                fields = json.Data.Fields[ratingName].Options;
+                $("#bv-rating-field").show();
+                select = $("#bv-rating-field select");
+                select.attr("name", ratingName)
+                $.each(fields, function(index, field) {
+                {
+                    select.append("<option value=" + field.Value + ">" + field.Label + "</option>");
+                }
+                });
+            }
+        });
+    
 }

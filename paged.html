@@ -22,6 +22,8 @@
 
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet/less" type="text/css" href="css/style.less">
+        <link rel="stylesheet/less" type="text/css" href="css/jquery-ui.css">
+
 
         <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
@@ -43,15 +45,14 @@
             </div>
             
             <form target="bv-submission-target"
-                  id="submission-form"
-                  action="http://reviews.buckle.com/bvstaging/data/submitreview.json" method="POST">
+                  id="bv-submission-form"
+                  action="javascript:void(0);" method="POST">
                 <input type="hidden" name="passkey" value="p6rprcg4uup7cii1v15oov04f" class="bv-noremember" />
                 <input type="hidden" name="action" value="preview" class="bv-noremember" />
                 <input type="hidden" name="apiversion" value="5.2" class="bv-noremember" />
                 <input type="hidden" name="callback" value="parent.rpc.returnSubmissionResponse" class="bv-noremember" />
                 <input type="hidden" name="productid" value="1000001" class="bv-noremember" />
                 <input type="hidden" name="userid" value="asdgasdgffasd" class="bv-noremember" />
-                <input type="hidden" name="useremail" value="sdgasdgfalkjkasdg@asdgasd.com" class="bv-noremember" />
 
                 <section id="page1">
                     <fieldset class="incomplete stars">
@@ -77,6 +78,12 @@
                     <fieldset class="incomplete">
                         <label class="legend">Your product review</label>
                         <textarea name="reviewtext" class="required"></textarea>
+                    </fieldset>
+                    <fieldset id="bv-rating-field" class="incomplete" style="display:none;">
+                        <div class="legend">How would you describe the fit of this product?</div>
+                        <select name="rating_"> 
+                            <option selected="selected" disabled="disabled"></option>
+                        </select>
                     </fieldset>
                     <fieldset class="incomplete">
                         <div class="legend">How do you prefer to shop?</div>
@@ -169,23 +176,15 @@
                     </fieldset>
                     <fieldset class="incomplete">
                         <label class="legend">Your email</label>
-                        <input type="text" name="UserEmail" />
+                        <input type="text" name="useremail" />
                     </fieldset>
                     <button id="page3button" class="nextButton" type=button>Next</button>
                 </section>
                 <section id="page4" style="display: none;">
                     <fieldset class="incomplete">
-                        <div class="legend">Would you recommend Buckle to a friend?</div>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-1" value="1" /> <label for="NetPromoterScore-1">1</label>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-2" value="2" /> <label for="NetPromoterScore-2">2</label>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-3" value="3" /> <label for="NetPromoterScore-1">3</label>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-4" value="4" /> <label for="NetPromoterScore-2">4</label>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-5" value="5" /> <label for="NetPromoterScore-1">5</label>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-6" value="6" /> <label for="NetPromoterScore-2">6</label>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-7" value="7" /> <label for="NetPromoterScore-1">7</label>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-8" value="8" /> <label for="NetPromoterScore-2">8</label>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-9" value="9" /> <label for="NetPromoterScore-1">9</label>
-                        <input type="radio" name="NetPromoterScore" id="NetPromoterScore-10" value="10" /> <label for="NetPromoterScore-2">10</label>
+                        <div class="legend">Would you recommend Buckle to a friend? (0 = Never, 10 = Definitely)?</div>
+                        <input type="text" id="NetPromoterScore" name ="NetPromoterScore" style="border:0; color:#f6931f; font-weight:bold;" />
+                        <div id="NetPromoterScore-slider" style="margin:10px; width:250px;"></div>
                     </fieldset>
                     <fieldset class="incomplete">
                         <label class="legend">Please tell us why:</label>
@@ -211,6 +210,7 @@
         <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
 
         <!-- scripts concatenated and minified via build script -->
         <script src="js/plugins.js"></script>
@@ -220,4 +220,4 @@
         <!-- end scripts -->
 
     </body>
-</html>
+</html> 
