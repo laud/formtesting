@@ -12,9 +12,9 @@ $(document).ready(function(){
     setupSpecificFormElements(api_server, api_key, api_version);
     
     $("#bv-submission-form").validate({
-        errorElement: "div",
+        errorElement: "p",
         errorPlacement: function(error, element) {
-            element.parent().append(error);
+			$(element).closest('fieldset').addClass('invalid');
         }
     })
 });
@@ -42,10 +42,15 @@ function hex2a(hex) {
 
 
 function makeStars(){
-    var stars = $(".stars input");
+    var stars = $("#fstars input");
     $(stars).change(function(){
         var i, j, label, index;
-        var color = new Array("#944444", "#c16114", "#dcc926", "#9bbd40", "#3a8c55");
+        var color = new Array(
+        	"#944444", "#c16114", "#dcc926", "#9bbd40", "#3a8c55"
+        );
+        var message = new Array(
+        	"Terrible", "Unsatisfactory", "Average", "Satisfactory", "Excellent"
+        );
         var id = this.id;
         var labels = $(this).siblings("label");
         
@@ -66,6 +71,9 @@ function makeStars(){
                 }
             }
         }
+        
+        $('#fstars .value').text(message[index]);
+        $('#fstars .value').css('color', color[index]);
     });
 }
 
@@ -91,6 +99,7 @@ function makeProgress(){
         var complete = checksiblings(siblings);
         if(complete){
             $(fieldset).removeClass("incomplete");
+            $(fieldset).removeClass("invalid");
             $(fieldset).addClass("complete");
         }else{
             $(fieldset).removeClass("complete");
@@ -231,6 +240,7 @@ function setupSpecificFormElements(api_server, api_key, api_version)
         step: 1,
         slide: function( event, ui ) {
             $("#NetPromoterScore").val(ui.value);
+            $(".ui-slider-handle").text(ui.value);
         }
     });
     
