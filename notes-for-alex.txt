@@ -1,17 +1,31 @@
-* We should have a back button.  It does not need to interact with validation.  I stuck a sample back button on the first page where it obviously doesn't belong just so you will have styles.
-* Validation does not work on "Your product review."  Maybe because it is a textarea instead of field?  It does work if you enter text and then delete it.  Actually, if you enter text and delete it, it will give the error.  The review title text, on the other hand, does not display an error if you delete it.  Even if the form things the review text field is invalid, it will let you go to the next page.  Buggy.
+* I added back buttons.  I was very tempted to click the browser back button.  The back buttons slightly help, but I expect peeps to abandon submission accidentally.  Can we put a "Are you sure you want to leave this form" interstitial on the browser-back?
+
+* Validation does not work on "Your product review."  Maybe because it is a textarea instead of field?  It does work if you enter text and then delete it.  Actually, if you enter text and delete it, it will give the error.  The review title text, on the other hand, does not display an error if you delete it.  Even if the form thinks the review text field is invalid, it will let you go to the next page.  Buggy.
+
 * The "complete" class is not getting removed when you clear a fieldset that contains checkboxes.
+
 * The NPS slider does not make the fieldset "Complete". 
-* I added "Oops! At least one required field has been skipped" to each section.  This will need to be displayed conditionally.  It shows up upon clicking the form button; it disappears when the invalid field is corrected.
+
+* I added the required field error message at the top.  I decided against inline messages; the icon and color changing on the field legend should get the message across.  When people click "Next" they should get a response to know clicking the button did something.  This response is scrolling to the top of the page.  Conveniently, jQuery and server errors also appear there.
+
 * Our traditional form auto-populates all fields for which we have values.  This includes location, context data values, and email address.  We should figure out how to do that.  If you're concerned about privacy issues regarding email, let's at least not display that field if we know their email address already.
+
 * If we know the person's nickname, we need to auto-populate the nickname field and disable it.  Why?  We don't allow nickname editing in Review submission.
+
 * Inline styles trump external styles and are hard to detect.  Avoid.
+
 * We will need to get Angel Tsang to QA this for us on the browsers they support.
+
 * I'll talk to Dave about doing user tests so we can do some qualitative interviewing.
+
 * Slider needs that touch plugin to be mobile-friendly
-* formtesting/  is 4MB!  That's nuts!
-* Android: every click has at least a half second latency. Scroll is jaggedy.  On iPad there's no problem, but clearly form is eating up more processing power than an Android is cool with.  Don't have iPhone on me.
-* I added "hack" to paged.js so that the buttons always result in the user starting at the top of the page. Unfortunately, it doesn't really work for Android.  It doesn't take 'em all the way to the top.  =/
+
+* formtesting/  is 4MB!  That's nuts!  Can we cut down the size?  BTW, the UI was totally clunky when I had webkit transforms on there.  Using media queries to make transforms only happen on big displays helped a lot.  Amazing.  4MB is still nuts though, and the form isn't exactly smooth on Android.
+
+* I added "hack" to paged.js so that the buttons always result in the user starting at the top of the page. Unfortunately, it doesn't really work for Android.  It doesn't take 'em all the way to the top.  =/  Anu has the iPhone, so I haven't been able to test iPhone.
+
 * Transfered all styles from .less to .css.  Deleted all the .less stuff.
-* What is the difference between the "focus" and "active" classes?  Can we have "focus" actually mean focus in that when you click off the fieldset the focus goes away?
-* Their "How do you prefer to shop" question has the dumbest answers: store, computer, mobile, all.  All?  They are checkboxes.  You can check "all" if you mean "all".  It's really hard to interpret "Mobile, All" in spreadsheets.  Let's change the phrasing on our form to: "At the store", "On my computer," "On my phone", and "On my tablet."  We're hijacking "All" to mean "Tablet" now, but we'll be able to separate those out using the Campaign ID.
+
+* What is the difference between the "focus" and "active" classes?  Can we have "focus" actually mean focus in that when you click off the fieldset the focus goes away?  If you are happy with the current interaction, then let's just get rid of "focus".
+
+* Their "How do you prefer to shop" question has the dumbest answers: store, computer, mobile, all.  All?  They are checkboxes.  You can check all three boxes if you mean "all".  It's really hard to interpret "Mobile, All" in spreadsheets.  Let's change the phrasing on our form to: "At the store", "On my computer," "On my phone", and "On my tablet."  We're hijacking "All" to mean "Tablet" now, but we'll be able to separate those out using the Campaign ID.
