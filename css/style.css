@@ -71,7 +71,6 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
 a { color: #00e; }
 a:visited { color: #551a8b; }
 a:hover { color: #06e; }
-a:focus { outline: thin dotted; }
 
 /* Improve readability when focused and hovered in all browsers: h5bp.com/h */
 a:hover, a:active { outline: 0; }
@@ -365,12 +364,12 @@ select{
 .required .inside:before {content: '*';}
 .invalid .inside:before, #formErrors li:before {content: '!';}
 .complete .inside:before {content: '%'; color: #3a8c55;}
-.focus .legend {font-weight: bold;}
+.active .legend {font-weight: bold;}
 .legend {margin-bottom: .5em; display: block;}
 .legend .error {font-size: .8em; display: inline-block;}
 #formErrors {list-style-type: none; margin: 1em 0 0 0; padding: .5em; display: none;}
 #formErrors li:before {margin-right: .5em;}
-.focus {background: #e2f0f5;}
+.active {background: #e2f0f5;}
 .fieldpair input, .fieldpair label {line-height: 1.5em; vertical-align: middle;}
 .fieldpair {display: inline-block; padding: .5em; margin: 0 .5em .5em 0;}
 #fstars label{color: #ccc; font-size: 44px; display: inline-block; line-height: 1em; height: 44px; overflow: hidden; text-shadow: 0 -1px rgba(0, 0, 0, 0.6), 0 1px rgba(255, 255, 255, .6);}

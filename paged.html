@@ -11,7 +11,9 @@
         <!-- Use the .htaccess and remove these lines to avoid edge case issues.
            More info: h5bp.com/i/378 -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+        
+        
         <title>Write a review</title>
         <meta name="description" content="">
 
@@ -29,270 +31,274 @@
            Modernizr enables HTML5 elements & feature detects for optimal performance.
            Create your own custom Modernizr build: www.modernizr.com/download/ -->
         <script src="js/libs/modernizr-2.5.3.min.js"></script>
-        <script type="text/javascript" src="js/easyXDM/easyXDM.debug.js"></script>
     </head>
     <body>
         <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.<h3 class="legend">
            chromium.org/developers/how-tos/chrome-frame-getting-started -->
         <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
         <header id="top">
-        	<div class="inside">
-				<img src="img/buckle-logo.jpg" alt="Buckle" />
-				<ul id="formErrors">
-					<li>Oops! At least one required field was skipped.</li>
-				</ul>
+            <div class="inside">
+                <img src="img/buckle-logo.jpg" alt="Buckle" />
+                <ul id="formErrors">
+                    <li>Oops! At least one required field was skipped.</li>
+                </ul>
             </div>
         </header>
         <div id="main" role="main">
             <form target="bv-submission-target"
                   id="bv-submission-form"
                   action="javascript:void(0);" method="POST">
-                <input type="hidden" name="passkey" value="p6rprcg4uup7cii1v15oov04f" class="bv-noremember" />
+                <input type="hidden" name="passkey" value="" class="bv-noremember" />
                 <input type="hidden" name="action" value="preview" class="bv-noremember" />
                 <input type="hidden" name="apiversion" value="5.2" class="bv-noremember" />
                 <input type="hidden" name="callback" value="parent.rpc.returnSubmissionResponse" class="bv-noremember" />
-                <input type="hidden" name="productid" value="1000001" class="bv-noremember" />
-                <input type="hidden" name="userid" value="asdgasdgffasd" class="bv-noremember" />
+                <input type="hidden" name="productid" value="" class="bv-noremember" />
+                <input type="hidden" name="userid" value="" class="bv-noremember" />
 
+                
                 <section id="page1">
-                	<div class="progress">
-                		<span class="current">1</span>
-                		<span>2</span>
-                		<span>3</span>
-                		<span>4</span>
-                	</div>
+                    <div class="progress">
+                        <span class="current">1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                    </div>
                     <fieldset id="fstars" class="incomplete required">
-                    	<div class="inside">
-                        <div class="legend">How do you rate this product overall?</div>
-							<input type="radio" name="rating" id="overall-1" value="1" class="required" /> <label for="overall-1">*</label>
-							<input type="radio" name="rating" id="overall-2" value="2" /> <label for="overall-2">*</label>
-							<input type="radio" name="rating" id="overall-3" value="3" /> <label for="overall-3">*</label>
-							<input type="radio" name="rating" id="overall-4" value="4" /> <label for="overall-4">*</label>
-							<input type="radio" name="rating" id="overall-5" value="5" /> <label for="overall-5">*</label>
-                        <em class="value">No selection</em>
-                    	</div>
+                        <div class="inside">
+                            <div class="legend">How do you rate this product overall?</div>
+                            <input type="radio" name="rating" id="overall-1" value="1" class="required" /> <label for="overall-1">*</label>
+                            <input type="radio" name="rating" id="overall-2" value="2" /> <label for="overall-2">*</label>
+                            <input type="radio" name="rating" id="overall-3" value="3" /> <label for="overall-3">*</label>
+                            <input type="radio" name="rating" id="overall-4" value="4" /> <label for="overall-4">*</label>
+                            <input type="radio" name="rating" id="overall-5" value="5" /> <label for="overall-5">*</label>
+                            <em class="value">No selection</em>
+                        </div>
                     </fieldset>
                     <fieldset id="frecommend" class="incomplete">
-                    	<div class="inside">
-							<div class="legend">Do you recommend this product?</div>
-							<span class="fieldgroup">
-								<span class="fieldpair">
-									<input type="radio" name="IsRecommended" id="recommend-1" value="true" /> 
-									<label for="recommend-1">Yes</label>
-								</span>
-								<span class="fieldpair">
-								<input type="radio" name="IsRecommended" id="recommend-2" value="false" /> 
-								<label for="recommend-2">No</label>
-								</span>
-							</span>
-                    	</div>
+                        <div class="inside">
+                            <div class="legend">Do you recommend this product?</div>
+                            <span class="fieldgroup">
+                                <span class="fieldpair">
+                                    <input type="radio" name="IsRecommended" id="recommend-1" value="true" /> 
+                                    <label for="recommend-1">Yes</label>
+                                </span>
+                                <span class="fieldpair">
+                                    <input type="radio" name="IsRecommended" id="recommend-2" value="false" /> 
+                                    <label for="recommend-2">No</label>
+                                </span>
+                            </span>
+                        </div>
                     </fieldset>
                     <fieldset class="buttons">
-                    <div class="inside">
-                    <button id="page1buttonnext" class="nextButton" type="button">Next</button>
-                    </div>
+                        <div class="inside">
+                            <button id="page1buttonnext" class="nextButton" type="button">Next</button>
+                        </div>
                     </fieldset>
                 </section>
                 <section id="page2" style="display: none;">
-                	<div class="progress">
-                		<span>1</span>
-                		<span class="current">2</span>
-                		<span>3</span>
-                		<span>4</span>
-                	</div>
+                    <div class="progress">
+                        <span>1</span>
+                        <span class="current">2</span>
+                        <span>3</span>
+                        <span>4</span>
+                    </div>
                     <fieldset id="ftitle" class="incomplete required">
-                     	<div class="inside">
-                        <label class="legend">Title of your review</label>
-                        <input type="text" name="title" class="required" placeholder="Ex: Good price, okay features" />
-						</div>
+                        <div class="inside">
+                            <label class="legend">Title of your review</label>
+                            <input type="text" name="title" class="required" placeholder="Ex: Good price, okay features" />
+                        </div>
                     </fieldset>
                     <fieldset id="freview" class="incomplete required">
-                    	<div class="inside">
-                        <label class="legend">Your product review</label>
-                        <textarea name="reviewtext" class="required"></textarea>
-                    	</div>
+                        <div class="inside">
+                            <label class="legend">Your product review</label>
+                            <textarea name="reviewtext" class="required" minlength="200"></textarea>
+                        </div>
+                    </fieldset>
+                     <fieldset id="bv-rating-field" class="incomplete required" style="display:none;">
+                        <div class="inside">
+                            <div class="legend">How would you describe the fit of this product?</div>
+                            <select name="rating_"> 
+                                <option selected="selected" disabled="disabled"></option>
+                            </select>
+                        </div>
                     </fieldset>
                     <fieldset id="ftags" class="incomplete">
-                    	<div class="inside">
-							<div class="legend">How do you prefer to shop?</div>
-							<span class="fieldgroup">
-								<span class="fieldpair">
-									<input type="checkbox" name="contextdatavalue_Shopping" id="contextdatavalue_Shopping-1" value="InStore" /> 
-									<label for="contextdatavalue_Shopping-1">At the store</label>
-								</span>
-								<span class="fieldpair">
-									<input type="checkbox" name="contextdatavalue_Shopping" id="contextdatavalue_Shopping-2" value="Computer" /> 
-									<label for="contextdatavalue_Shopping-2">On my computer</label>
-								</span>
-								<span class="fieldpair">
-									<input type="checkbox" name="contextdatavalue_Shopping" id="contextdatavalue_Shopping-3" value="Mobile" /> 
-									<label for="contextdatavalue_Shopping-3">On my phone</label>
-								</span>
-								<span class="fieldpair">
-									<input type="checkbox" name="contextdatavalue_Shopping" id="contextdatavalue_Shopping-4" value="Tablet" /> 
-									<label for="contextdatavalue_Shopping-4">On my tablet</label>
-								</span>
-							</span>
-                    	</div>
+                        <div class="inside">
+                            <div class="legend">How do you prefer to shop?</div>
+                            <span class="fieldgroup">
+                                <span class="fieldpair">
+                                    <input type="checkbox" name="contextdatavalue_Shopping" id="contextdatavalue_Shopping-1" value="InStore" /> 
+                                    <label for="contextdatavalue_Shopping-1">At the store</label>
+                                </span>
+                                <span class="fieldpair">
+                                    <input type="checkbox" name="contextdatavalue_Shopping" id="contextdatavalue_Shopping-2" value="Computer" /> 
+                                    <label for="contextdatavalue_Shopping-2">On my computer</label>
+                                </span>
+                                <span class="fieldpair">
+                                    <input type="checkbox" name="contextdatavalue_Shopping" id="contextdatavalue_Shopping-3" value="Mobile" /> 
+                                    <label for="contextdatavalue_Shopping-3">On my phone</label>
+                                </span>
+                            </span>
+                        </div>
                     </fieldset>
                     <fieldset class="buttons">
-						<div class="inside">
-							<button id="page2buttonprevious" class="previousButton" type="button">Previous</button>
-							<button id="page2buttonnext" class="nextButton" type="button">Next</button>
-						</div>
+                        <div class="inside">
+                            <button id="page2buttonprevious" class="previousButton" type="button">Previous</button>
+                            <button id="page2buttonnext" class="nextButton" type="button">Next</button>
+                        </div>
                     </fieldset>
                 </section>
                 <section id="page3" style="display: none;">
-                	<div class="progress">
-                		<span>1</span>
-                		<span>2</span>
-                		<span class="current">3</span>
-                		<span>4</span>
-                	</div>
-                    <fieldset id="fnickname" class="incomplete">
-                    	<div class="inside">
-                        <label class="legend">Choose a nickname</label>
-                        <input type="text" name="usernickname" />
-                    	</div>
+                    <div class="progress">
+                        <span>1</span>
+                        <span>2</span>
+                        <span class="current">3</span>
+                        <span>4</span>
+                    </div>
+                    <fieldset id="fnickname" class="incomplete required">
+                        <div class="inside">
+                            <label class="legend">Choose a nickname</label>
+                            <input type="text" name="usernickname" class="required"/>
+                        </div>
                     </fieldset>
                     <fieldset id="flocation" class="incomplete">
-                    	<div class="inside">
-                        <label class="legend">Where are you located?</label>
-                        <input type="text" name="userlocation" />
-                    	</div>
+                        <div class="inside">
+                            <label class="legend">Where are you located?</label>
+                            <input type="text" name="userlocation" />
+                        </div>
                     </fieldset>
                     <fieldset id="fage" class="incomplete">
-                    	<div class="inside">
-                        <div class="legend">What is your age?</div>
-                        <select name="contextdatavalue_Age"> 
-                            <option selected="selected" disabled="disabled"></option>
-                            <option value="Under18">Under 18</option>
-                            <option value="18to24">18-24</option>
-                            <option value="25to34">25-34</option>
-                            <option value="35to44">35-44</option>
-                            <option value="45to54">45-54</option>
-                            <option value="45to54">45-54</option>
-                            <option value="55to64">55-64</option>
-                            <option value="Over65">65 or Over</option>
-                        </select>
-                    	</div>
+                        <div class="inside">
+                            <div class="legend">What is your age?</div>
+                            <select name="contextdatavalue_Age"> 
+                                <option selected="selected" disabled="disabled"></option>
+                                <option value="Under18">Under 18</option>
+                                <option value="18to24">18-24</option>
+                                <option value="25to34">25-34</option>
+                                <option value="35to44">35-44</option>
+                                <option value="45to54">45-54</option>
+                                <option value="45to54">45-54</option>
+                                <option value="55to64">55-64</option>
+                                <option value="Over65">65 or Over</option>
+                            </select>
+                        </div>
                     </fieldset>
                     <fieldset id="fgender" class="incomplete">
-                     	<div class="inside">
-                        <div class="legend">What is your gender?</div>
-                        <select id="contextdatavalue_Gender" name="contextdatavalue_Gender"> 
-                            <option selected="selected" disabled="disabled"></option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                        </select>
-                    	</div>
+                        <div class="inside">
+                            <div class="legend">What is your gender?</div>
+                            <select id="contextdatavalue_Gender" name="contextdatavalue_Gender"> 
+                                <option selected="selected" disabled="disabled"></option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
                     </fieldset>
                     <fieldset class="incomplete" id="contextdatavalue_FemaleBodyType" style="display:none;">
                         <div class="inside">
-                        <div class="legend">Describe your body type:</div>
-                        <select name="contextdatavalue_FemaleBodyType"> 
-                            <option selected="selected" disabled="disabled"></option>
-                            <option value="Athletic">Athletic</option>
-                            <option value="Curvy">Curvy</option>
-                            <option value="TallAndLean">Tall and Lean</option>
-                            <option value="PearShaped">Pear Shaped</option>
-                            <option value="Petite">Petite</option>
-                            <option value="Slender">Slender</option>
-                        </select>
-                    	</div>
+                            <div class="legend">Describe your body type:</div>
+                            <select name="contextdatavalue_FemaleBodyType"> 
+                                <option selected="selected" disabled="disabled"></option>
+                                <option value="Athletic">Athletic</option>
+                                <option value="Curvy">Curvy</option>
+                                <option value="TallAndLean">Tall and Lean</option>
+                                <option value="PearShaped">Pear Shaped</option>
+                                <option value="Petite">Petite</option>
+                                <option value="Slender">Slender</option>
+                            </select>
+                        </div>
                     </fieldset>
                     <fieldset class="incomplete" id="contextdatavalue_MaleBodyType" style="display:none;">
                         <div class="inside">
-                        <div class="legend">Describe your body type:</div>
-                        <select name="contextdatavalue_MaleBodyType"> 
-                            <option selected="selected" disabled="disabled"></option>
-                            <option value="Tall">Tall</option>
-                            <option value="Short">Short</option>
-                            <option value="Athletic">Athletic</option>
-                            <option value="Thin">Thin</option>
-                            <option value="Stocky">Stocky</option>
-                        </select>
-                    	</div>
+                            <div class="legend">Describe your body type:</div>
+                            <select name="contextdatavalue_MaleBodyType"> 
+                                <option selected="selected" disabled="disabled"></option>
+                                <option value="Tall">Tall</option>
+                                <option value="Short">Short</option>
+                                <option value="Athletic">Athletic</option>
+                                <option value="Thin">Thin</option>
+                                <option value="Stocky">Stocky</option>
+                            </select>
+                        </div>
                     </fieldset>
                     <fieldset class="incomplete" id="contextdatavalue_PersonalStyle" style="display:none;">
                         <div class="inside">
-							<div class="legend">Describe your personal style:</div>
-							<select name="contextdatavalue_PersonalStyle"> 
-								<option selected="selected" disabled="disabled"></option>
-								<option value="Casual">Casual</option>
-								<option value="Polished">Polished</option>
-								<option value="Athletic">Athletic</option>
-								<option value="WestCoast">West Coast</option>
-								<option value="Edgy">Edgy</option>
-							</select>
-                    	</div>
+                            <div class="legend">Describe your personal style:</div>
+                            <select name="contextdatavalue_PersonalStyle"> 
+                                <option selected="selected" disabled="disabled"></option>
+                                <option value="Casual">Casual</option>
+                                <option value="Polished">Polished</option>
+                                <option value="Athletic">Athletic</option>
+                                <option value="WestCoast">West Coast</option>
+                                <option value="Edgy">Edgy</option>
+                               </select>
+                        </div>
                     </fieldset>
                     <fieldset id="fshop" class="incomplete">
                         <div class="inside">
-							<div class="legend">How often do you shop at Buckle?</div>
-							<select name="contextdatavalue_ShoppingFrequency"> 
-								<option selected="selected" disabled="disabled"></option>
-								<option value="EveryDay">Every Day</option>
-								<option value="OnceAWeek">Once a Week</option>
-								<option value="OnceAMonth">Once a Month</option>
-								<option value="OnceASeason">Once a Season</option>
-								<option value="OnceAYear">Once a Year</option>
-							</select>
-                    	</div>
+                            <div class="legend">How often do you shop at Buckle?</div>
+                            <select name="contextdatavalue_ShoppingFrequency"> 
+                                <option selected="selected" disabled="disabled"></option>
+                                <option value="EveryDay">Every Day</option>
+                                <option value="OnceAWeek">Once a Week</option>
+                                <option value="OnceAMonth">Once a Month</option>
+                                <option value="OnceASeason">Once a Season</option>
+                                <option value="OnceAYear">Once a Year</option>
+                            </select>
+                        </div>
                     </fieldset>
                     <fieldset id="femail" class="incomplete">
                         <div class="inside">
-							<label class="legend">Your email</label>
-							<input type="text" name="useremail" />
-                    	</div>
+                            <label class="legend">Your email</label>
+                            <input type="text" name="useremail" />
+                        </div>
                     </fieldset>
                     <fieldset id="fnotify" class="incomplete">
                         <div class="inside">
-                        	<span class="fieldpair">
-								<input type="checkbox" checked="checked" name="sendemailalertwhenpublished" id="value-1" /> 
-								<label for="value-1">Notify me when my review is posted</label>
-							</span>
-                    	</div>
+                            <span class="fieldpair">
+                                <input type="checkbox" checked="checked" name="sendemailalertwhenpublished" id="value-1" /> 
+                                <label for="value-1">Notify me when my review is posted</label>
+                            </span>
+                        </div>
                     </fieldset>
                     <fieldset class="buttons">
-                    <div class="inside">
-                    <button id="page3buttonprevious" class="previousButton" type="button">Previous</button>
-                    <button id="page3buttonnext" class="nextButton" type="button">Next</button>
-                    </div>
+                        <div class="inside">
+                            <button id="page3buttonprevious" class="previousButton" type="button">Previous</button>
+                            <button id="page3buttonnext" class="nextButton" type="button">Next</button>
+                        </div>
                     </fieldset>
                 </section>
                 <section id="page4" style="display: none;">
-                	<div class="progress">
-                		<span>1</span>
-                		<span>2</span>
-                		<span>3</span>
-                		<span class="current">4</span>
-                	</div>
+                    <div class="progress">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span class="current">4</span>
+                    </div>
                     <fieldset id="fnetpromoter" class="incomplete">
                         <div class="inside">
-							<div class="legend">On a scale of 0 to 10, how likely are you to recommend Buckle to a friend?</div>
-							<input type="input" id="NetPromoterScore" name ="NetPromoterScore" />
-							<div class="slider-wrapper">
-								<div id="NetPromoterScore-slider"></div>
-								<div class="values">
-									<span class="never">Never</span> 
-									<span class="maybe">&nbsp;</span>
-									<span class="definitely">Definitely</span>
-								</div>
-							</div>
+                            <div class="legend">On a scale of 0 to 10, how likely are you to recommend Buckle to a friend?</div>
+                            <input type="input" id="NetPromoterScore" name ="NetPromoterScore" />
+                            <div class="slider-wrapper">
+                                <div id="NetPromoterScore-slider"></div>
+                                <div class="values">
+                                    <span class="never">Never</span> 
+                                    <span class="maybe">&nbsp;</span>
+                                    <span class="definitely">Definitely</span>
+                                </div>
+                            </div>
                         </div>
                     </fieldset>
                     <fieldset id="fnpscomment" class="incomplete npsComment">
-                    	<div class="inside">
-                        <label class="legend">Please tell us why:</label>
-                        <textarea name="netpromotercomment"></textarea>
-                    	</div>
+                        <div class="inside">
+                            <label class="legend">Please tell us why:</label>
+                            <textarea name="netpromotercomment"></textarea>
+                        </div>
                     </fieldset>
                     <fieldset class="buttons">
                         <div class="inside">
-                        <button id="page4buttonprevious" class="previousButton" type="button">Previous</button>
-                        <button id="submit" type="submit" class="nextButton">Post your review <img style="display:none;" id="spinner" src="img/ajax-loader.gif" alt="Loading"/></button> 
-                    	</div>
+                            <button id="page4buttonprevious" class="previousButton" type="button">Previous</button>
+                            <button id="submit" type="submit" class="nextButton">Post your review <img style="display:none;" id="spinner" src="img/ajax-loader.gif" alt="Loading"/></button> 
+                        </div>
                     </fieldset>
                 </section>
             </form>
@@ -303,8 +309,9 @@
         <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
-        <script src="js/jquery-ui.min.js"></script>
-
+        <script src="js/libs/jquery-ui.min.js"></script>
+        <script src="js/libs/jquery.ui.touch-punch.min.js"></script>
+        
         <!-- scripts concatenated and minified via build script -->
         <script src="js/plugins.js"></script>
         <script src="js/script.js"></script>

@@ -3,53 +3,48 @@ $(document).ready(function(){
 });
 
 function setupHandlers(){
-	var hack = $('#hack');
-
     $("#page1buttonnext").click(function(){
-    	hack.click();
-        if($("#page1 input").valid())
+        if($("#page1 input, #page1 textarea, #page1 select").valid())
         {
             showPage(2);
             $("#formErrors").hide();
         }else{
-        	$("#formErrors").show();
+            $("#formErrors").show();
+            window.scroll(0, 0);
         }
     });
     $("#page2buttonnext").click(function(){
-    	hack.click();
-        if($("#page2 input").valid())
+        if($("#page2 input, #page2 textarea, #page2 select").valid())
         {
             showPage(3);
             $("#formErrors").hide();
         }else{
-        	$("#formErrors").show();
+            $("#formErrors").show();
+            window.scroll(0, 0);
         }
     });
     $("#page3buttonnext").click(function(){
-    	hack.click();
-        if($("#page3 input").valid())
+        if($("#page3 input, #page3 textarea, #page3 select").valid())
         {
             showPage(4);
             $("#formErrors").hide();
         }else{
-        	$("#formErrors").show();
+            $("#formErrors").show();
+            window.scroll(0, 0);
         }
     });
     
     $("#page2buttonprevious").click(function(){
-		hack.click();
-		$("#formErrors").hide();
-		showPage(1);
+        $("#formErrors").hide();
+        showPage(1);
     });
     $("#page3buttonprevious").click(function(){
-		hack.click();
-		$("#formErrors").hide();
-		showPage(2);
+        $("#formErrors").hide();
+        showPage(2);
     });
     $("#page4buttonprevious").click(function(){
-		hack.click();
-		$("#formErrors").hide();
-		showPage(3);
+        $("#formErrors").hide();
+        showPage(3);
     });
 }
 
